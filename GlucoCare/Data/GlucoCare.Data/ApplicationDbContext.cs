@@ -24,6 +24,12 @@
         {
         }
 
+        public DbSet<BloodGlucosesRecord> BloodGlucosesRecords { get; set; }
+
+        public DbSet<CarbohydrateIntakesRecord> CarbohydrateIntakesRecords { get; set; }
+
+        public DbSet<InjectedInsulinsRecord> InjectedInsulinsRecords { get; set; }
+
         public DbSet<BloodGlucose> BloodGlucoses { get; set; }
 
         public DbSet<CarbohydrateIntake> CarbohidrateIntakes { get; set; }
@@ -32,15 +38,11 @@
 
         public DbSet<FoodPlan> FoodPlans { get; set; }
 
-        public DbSet<FoodType> FoodTypes { get; set; }
-
         public DbSet<SportActivity> SportActivities { get; set; }
 
         public DbSet<Insulin> Insulins { get; set; }
 
-        public DbSet<InsulinNeed> InsulinNeeds { get; set; }
-
-        public DbSet<DayPart> DayParts { get; set; }
+        public DbSet<InjectedInsulin> InjectedInsulins { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -65,6 +67,11 @@
         {
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
+
+            // Table relations cofiguration
+            builder
+              .Entity<CarbohydrateIntakeInjectedInsulin>()
+              .HasKey(x => new { x.CarbohidrateIntakeId, x.InjectedInsulinId });
 
             this.ConfigureUserIdentityRelations(builder);
 

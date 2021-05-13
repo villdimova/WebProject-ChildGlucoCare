@@ -11,6 +11,6 @@
         [ForeignKey(nameof(InsulinNeed))]
         public int InsulinNeedId { get; set; }
 
-        public InsulinNeed InsulinNeed { get; set; }
+        public InjectedInsulin InsulinNeed { get; set; }
     }
 }

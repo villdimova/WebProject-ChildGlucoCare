@@ -1,20 +1,25 @@
 ﻿namespace GlucoCare.Data.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations.Schema;
 
     using GlucoCare.Data.Common.Models;
+    using GlucoCare.Data.Models.Enums;
 
     public class BloodGlucose: BaseDeletableModel<int>
     {
         public decimal CurrentGlucoseLevel { get; set; }
 
-        public string UserId { get; set; }
+        public DateTime Date { get; set; }
 
-        public virtual ApplicationUser Diabetic { get; set; }
+        public BloodGlocoseStatus BloodGlocoseStatus { get; set; }
 
-        [ForeignKey(nameof(InsulinNeed))]
-        public int InsulinNeedId { get; set; }
+        public int? InjectedInsulinId { get; set; }
 
-        public virtual InsulinNeed InsulinNeed { get; set; }
+        public virtual InjectedInsulin InjectedInsulin { get; set; }
+
+        public int BloodGlucosesRecodId { get; set; }
+
+        public virtual BloodGlucosesRecord BloodGlucosesRecord { get; set; }
     }
 }

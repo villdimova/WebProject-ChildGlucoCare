@@ -8,7 +8,6 @@
     using GlucoCare.Data.Models;
     using GlucoCare.Data.Repositories;
     using GlucoCare.Data.Seeding;
-    using GlucoCare.Services.Data;
     using GlucoCare.Services.Mapping;
     using GlucoCare.Services.Messaging;
     using GlucoCare.Web.ViewModels;

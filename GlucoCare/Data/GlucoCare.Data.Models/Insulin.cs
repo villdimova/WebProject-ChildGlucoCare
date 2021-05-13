@@ -4,17 +4,17 @@
     using System.ComponentModel.DataAnnotations;
 
     using GlucoCare.Data.Common.Models;
+    using GlucoCare.Data.Models.Enums;
 
     public class Insulin: BaseDeletableModel<int>
     {
         [Required]
-        public string InsulinType { get; set; }
+        public InsulinType InsulinType { get; set; }
 
         [Required]
         public string Name { get; set; }
 
-        public string UserId { get; set; }
+        public string InsulinActionUrl { get; set; }
 
-        public virtual ApplicationUser Diabetic { get; set; }
     }
 }

@@ -16,9 +16,10 @@ namespace GlucoCare.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
-            this.BloodGlucoses = new HashSet<BloodGlucose>();
-            this.CarbohydrateIntakes = new HashSet<CarbohydrateIntake>();
-            this.Insulins = new HashSet<Insulin>();
+            this.CarbohydrateIntakesRecords = new HashSet<CarbohydrateIntakesRecord>();
+            this.InjectedInsulinRecords = new HashSet<InjectedInsulinsRecord>();
+            this.BloodGlucosesRecords = new HashSet<BloodGlucosesRecord>();
+
         }
 
         // Audit info
@@ -31,17 +32,17 @@ namespace GlucoCare.Data.Models
 
         public DateTime? DeletedOn { get; set; }
 
-        public decimal InsulinSensibility { get; set; }
+        public string Name { get; set; }
 
         public int Age { get; set; }
 
-        public int MyProperty { get; set; }
+        public decimal InsulinSensibility { get; set; }
 
-        public virtual ICollection<BloodGlucose> BloodGlucoses { get; set; }
+        public virtual ICollection<BloodGlucosesRecord> BloodGlucosesRecords { get; set; }
 
-        public virtual ICollection<CarbohydrateIntake> CarbohydrateIntakes { get; set; }
+        public virtual ICollection<CarbohydrateIntakesRecord> CarbohydrateIntakesRecords { get; set; }
 
-        public virtual ICollection<Insulin> Insulins { get; set; }
+        public virtual ICollection<InjectedInsulinsRecord> InjectedInsulinRecords { get; set; }
 
 
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }

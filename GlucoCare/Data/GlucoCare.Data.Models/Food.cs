@@ -3,6 +3,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using GlucoCare.Data.Common.Models;
+    using GlucoCare.Data.Models.Enums;
 
     public class Food: BaseDeletableModel<int>
     {
@@ -28,14 +29,15 @@
 
         public int CarbohidrateIntakeId { get; set; }
 
-        public CarbohydrateIntake CarbohidrateIntake { get; set; }
+        public virtual CarbohydrateIntake CarbohidrateIntake { get; set; }
 
-        public int FoodTypeId { get; set; }
-
-        public virtual FoodType FoodType { get; set; }
+        public FoodType FoodType { get; set; }
 
         public int FoodPlanId { get; set; }
 
         public virtual FoodPlan FoodPlan { get; set; }
+
+        public string FoodImageUrl { get; set; }
+
     }
 }
