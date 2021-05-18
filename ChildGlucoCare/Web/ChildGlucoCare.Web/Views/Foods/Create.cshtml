@@ -1,0 +1,55 @@
+﻿@model ChildGlucoCare.Web.ViewModels.Foods.CreateFoodInputModel
+@using ChildGlucoCare.Data.Models.Enums
+@{ this.ViewData["Title"] = "Add Food";
+}
+
+
+<form method="post" class="col-md-4 offset-md-3"
+      enctype="multipart/form-data">
+    <h1>@this.ViewData["Title"]</h1>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-6 control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for=" GramsPerBreadUnit" class="col-md-6 control-label"></label>
+        <input asp-for=" GramsPerBreadUnit" class="form-control" />
+        <span asp-validation-for=" GramsPerBreadUnit" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="GlycemicIndex" class="col-md-6 control-label"></label>
+        <input asp-for="GlycemicIndex" class="form-control" />
+        <span asp-validation-for="GlycemicIndex" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CarbohydratePer100Grams" class="col-md-6 control-label"></label>
+        <input asp-for="CarbohydratePer100Grams" class="form-control" />
+        <span asp-validation-for="CarbohydratePer100Grams" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FatPer100Grams"  class="col-md-6 control-label"></label>
+        <input asp-for="FatPer100Grams" class="form-control" />
+        <span asp-validation-for="FatPer100Grams" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CaloriesPer100Grams"  class="col-md-6 control-label"></label>
+        <input asp-for="CaloriesPer100Grams" class="form-control" />
+        <span asp-validation-for="CaloriesPer100Grams" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FoodType" class="col-md-6 control-label"></label>
+        <div>
+            <select asp-for="FoodType" asp-items="Html.GetEnumSelectList<FoodType>()" class="col-md-6 control-label">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="FoodType" class="text-danger" />
+        </div>
+    <div class="form-group">
+        <label asp-for="FoodImageUrl"></label>
+        <input asp-for="FoodImageUrl" class="form-control" />
+        <span asp-validation-for="FoodImageUrl" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" />
+</form>
