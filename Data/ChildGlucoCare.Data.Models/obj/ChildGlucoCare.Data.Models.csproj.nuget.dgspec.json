@@ -1,0 +1,144 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Models\\ChildGlucoCare.Data.Models.csproj": {}
+  },
+  "projects": {
+    "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Common\\ChildGlucoCare.Data.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Common\\ChildGlucoCare.Data.Common.csproj",
+        "projectName": "ChildGlucoCare.Data.Common",
+        "projectPath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Common\\ChildGlucoCare.Data.Common.csproj",
+        "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
+        "outputPath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Models\\ChildGlucoCare.Data.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Models\\ChildGlucoCare.Data.Models.csproj",
+        "projectName": "ChildGlucoCare.Data.Models",
+        "projectPath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Models\\ChildGlucoCare.Data.Models.csproj",
+        "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
+        "outputPath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Common\\ChildGlucoCare.Data.Common.csproj": {
+                "projectPath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data.Common\\ChildGlucoCare.Data.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.312, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

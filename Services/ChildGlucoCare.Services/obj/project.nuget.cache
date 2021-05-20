@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "LoDiaXEZLwSWLg1p18QIz46axB3dkV1sm+9ThOhyTh71YREdpAB/vUgByegpF8Tjx4Ta6b+ij2Dm7aWtn/NHKQ==",
+  "success": true,
+  "projectFilePath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services\\ChildGlucoCare.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alex\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
+    "C:\\Users\\Alex\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512"
+  ],
+  "logs": []
+}

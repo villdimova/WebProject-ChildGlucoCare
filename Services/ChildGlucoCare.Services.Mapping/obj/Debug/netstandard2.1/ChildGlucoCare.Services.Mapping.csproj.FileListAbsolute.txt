@@ -1,0 +1,9 @@
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Mapping\bin\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.deps.json
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Mapping\bin\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Mapping\bin\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.pdb
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Mapping\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.AssemblyInfoInputs.cache
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Mapping\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.AssemblyInfo.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Mapping\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.csproj.CoreCompileInputs.cache
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Mapping\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Mapping\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.pdb
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Mapping\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.csprojAssemblyReference.cache

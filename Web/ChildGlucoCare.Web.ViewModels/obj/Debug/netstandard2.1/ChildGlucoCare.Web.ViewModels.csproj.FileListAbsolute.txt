@@ -1,0 +1,16 @@
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\bin\Debug\netstandard2.1\ChildGlucoCare.Web.ViewModels.deps.json
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\bin\Debug\netstandard2.1\ChildGlucoCare.Web.ViewModels.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\bin\Debug\netstandard2.1\ChildGlucoCare.Web.ViewModels.pdb
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\bin\Debug\netstandard2.1\ChildGlucoCare.Data.Common.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\bin\Debug\netstandard2.1\ChildGlucoCare.Data.Models.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\bin\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\bin\Debug\netstandard2.1\ChildGlucoCare.Data.Models.pdb
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\bin\Debug\netstandard2.1\ChildGlucoCare.Services.Mapping.pdb
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\bin\Debug\netstandard2.1\ChildGlucoCare.Data.Common.pdb
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\obj\Debug\netstandard2.1\ChildGlucoCare.Web.ViewModels.csprojAssemblyReference.cache
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\obj\Debug\netstandard2.1\ChildGlucoCare.Web.ViewModels.AssemblyInfoInputs.cache
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\obj\Debug\netstandard2.1\ChildGlucoCare.Web.ViewModels.AssemblyInfo.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\obj\Debug\netstandard2.1\ChildGlucoCare.Web.ViewModels.csproj.CoreCompileInputs.cache
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\obj\Debug\netstandard2.1\ChildGlucoCare.Web.ViewModels.csproj.CopyComplete
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\obj\Debug\netstandard2.1\ChildGlucoCare.Web.ViewModels.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web.ViewModels\obj\Debug\netstandard2.1\ChildGlucoCare.Web.ViewModels.pdb

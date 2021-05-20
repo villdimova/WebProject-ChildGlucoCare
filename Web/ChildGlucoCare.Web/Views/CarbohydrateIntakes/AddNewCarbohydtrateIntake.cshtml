@@ -1,0 +1,30 @@
+﻿@model ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes.AddNewCarbohydtrateIntakeViewModel
+@{ this.ViewData["Title"] = "Add  new Carbohydrate intake";
+}
+
+<form method="post" class="col-md-4 offset-md-3"
+      enctype="multipart/form-data">
+    <h1>@this.ViewData["Title"]</h1>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Date" class="col-md-6 control-label"></label>
+        <input asp-for="Date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Amount" class="col-md-6 control-label"></label>
+        <input asp-for="Amount" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FoodName" class="col-md-6 control-label"></label>
+        <input asp-for="FoodName" class="form-control" />
+        <span asp-validation-for="FoodName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AddedByUser" class="col-md-6 control-label"></label>
+        <input asp-for="AddedByUser" class="form-control" />
+        <span asp-validation-for="AddedByUser" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" />
+</form>

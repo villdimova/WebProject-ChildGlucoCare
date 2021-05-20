@@ -1,0 +1,8 @@
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Messaging\bin\Debug\netstandard2.1\ChildGlucoCare.Services.Messaging.deps.json
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Messaging\bin\Debug\netstandard2.1\ChildGlucoCare.Services.Messaging.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Messaging\bin\Debug\netstandard2.1\ChildGlucoCare.Services.Messaging.pdb
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Messaging\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Messaging.AssemblyInfoInputs.cache
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Messaging\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Messaging.AssemblyInfo.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Messaging\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Messaging.csproj.CoreCompileInputs.cache
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Messaging\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Messaging.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Services\ChildGlucoCare.Services.Messaging\obj\Debug\netstandard2.1\ChildGlucoCare.Services.Messaging.pdb
