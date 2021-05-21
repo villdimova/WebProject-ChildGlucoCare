@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\Services\ChildGlucoCare.Services.Mapping\ChildGlucoCare.Services.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Home\" />
+  </ItemGroup>
+
 </Project>

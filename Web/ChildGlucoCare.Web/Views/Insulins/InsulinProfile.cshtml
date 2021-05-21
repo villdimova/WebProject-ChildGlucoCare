@@ -1,0 +1,29 @@
+﻿
+@model ChildGlucoCare.Web.ViewModels.Insulins.AllInsulinsProfileViewModel
+
+@{
+    this.ViewData["Title"] = "Typical Insulin Profiles";
+}
+<h1 class="text-center">@this.ViewData["Title"]</h1>
+
+<div class="table-striped">
+    <table class="table" style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>InsulinType</th>
+            <th>Taken</th>
+            <th>Onset</th>
+            <th>Duration</th>
+        </tr>
+        @foreach (var insulin in this.Model.Insulins)
+        {
+            <tr>
+                <th>@insulin.Name</th>
+                <th>@insulin.InsulinType</th>
+                <th>@insulin.Taken</th>
+                <th>@insulin.Onset</th>
+                <th>@insulin.Duration</th>
+            </tr>
+        }
+    </table>
+    </div>

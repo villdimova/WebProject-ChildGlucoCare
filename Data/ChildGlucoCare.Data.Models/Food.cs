@@ -33,7 +33,6 @@
 
         public virtual FoodType FoodType { get; set; }
 
-        public string FoodImageUrl { get; set; }
 
     }
 }

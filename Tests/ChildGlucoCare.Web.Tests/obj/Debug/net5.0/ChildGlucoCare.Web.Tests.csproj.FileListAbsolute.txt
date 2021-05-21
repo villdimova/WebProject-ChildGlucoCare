@@ -537,3 +537,5 @@ C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\ChildGlucoCare.Web.Tests\obj\Debug\net5.0\ref\ChildGlucoCare.Web.Tests.dll
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\ChildGlucoCare.Web.Tests\obj\Debug\net5.0\ChildGlucoCare.Web.Tests.pdb
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\ChildGlucoCare.Web.Tests\obj\Debug\net5.0\ChildGlucoCare.Web.Tests.genruntimeconfig.cache
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\ChildGlucoCare.Web.Tests\bin\Debug\net5.0\wwwroot\images\imageAbout.png
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\ChildGlucoCare.Web.Tests\bin\Debug\net5.0\wwwroot\images\imageChild1.jpg

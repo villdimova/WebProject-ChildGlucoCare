@@ -3,9 +3,10 @@
     public enum InsulinType
     {
         None = 0,
-        AnalogBolus = 1,
-        AnalogBasal = 2,
-        HumanBolus = 3,
-        HumanBasal = 4,
+        RapidActingAnalogue = 1,
+        ShortActing = 2,
+        IntermediateActing = 3,
+        LongActingAnalogue = 4,
+        MixedInsulinsBiphasic = 5,
     }
 }

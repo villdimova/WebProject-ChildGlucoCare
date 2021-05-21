@@ -44,8 +44,5 @@
         [Display(Name = "Food Category")]
         public FoodType FoodType { get; set; }
 
-        [Display(Name = "Image")]
-        public string FoodImageUrl { get; set; }
-
     }
 }

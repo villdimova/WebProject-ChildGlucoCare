@@ -25,7 +25,7 @@
                 CaloriesPer100Grams = foodsDto.CaloriesPer100Grams,
                 FoodType = foodsDto.FoodType,
                 GlycemicIndex = foodsDto.GlycemicIndex,
-                FoodImageUrl = foodsDto.FoodImageUrl,
+               
             };
             await this.foodsRepository.AddAsync(food);
             await this.foodsRepository.SaveChangesAsync();
