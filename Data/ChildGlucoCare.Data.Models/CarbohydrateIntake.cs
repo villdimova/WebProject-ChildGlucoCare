@@ -21,5 +21,7 @@
         public DateTime Date { get; set; }
 
         public virtual ICollection<Food> Foods { get; set; }
+
+       
     }
 }

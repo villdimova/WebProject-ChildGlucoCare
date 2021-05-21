@@ -36,4 +36,13 @@
     <ProjectReference Include="..\ChildGlucoCare.Web.Infrastructure\ChildGlucoCare.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\ChildGlucoCare.Web.ViewModels\ChildGlucoCare.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\images\imageAbout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\imageChild1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

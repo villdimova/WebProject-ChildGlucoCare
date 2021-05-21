@@ -1,6 +1,7 @@
 ﻿namespace ChildGlucoCare.Services.Data
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -65,17 +66,29 @@
 
         public async Task AddCarbohydrateIntakeAsync(AddNewCarbohydtrateIntakeViewModel input)
         {
+            var eatenFood = this.foodsRepository.All().FirstOrDefault(f => f.Name == input.FoodName);
+            List<Food> eatenFoods = new List<Food>();
+            if (eatenFood == null)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            eatenFoods.Add(eatenFood);
+
             var carbohydrateIntake = new CarbohydrateIntake
             {
                 Date = input.Date,
                 UserName = input.AddedByUser,
-                FoodName=input.FoodName,
+                FoodName = input.FoodName,
+                Amount = input.Amount,
 
             };
 
-                await this.carbsRepository.AddAsync(carbohydrateIntake);
-                await this.carbsRepository.SaveChangesAsync();
-            
+            carbohydrateIntake.Foods.Add(eatenFood);
+
+            await this.carbsRepository.AddAsync(carbohydrateIntake);
+            await this.carbsRepository.SaveChangesAsync();
+
         }
 
         private int GetMinutestWait(DateTime eatTime)

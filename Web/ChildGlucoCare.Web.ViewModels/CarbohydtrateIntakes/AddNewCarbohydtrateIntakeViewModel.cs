@@ -24,6 +24,7 @@
         [Required]
         [MinLength(3)]
         [MaxLength(30)]
+       
         public string FoodName { get; set; }
 
         //[Required]
