@@ -34,6 +34,10 @@
 
         public DbSet<InsulinInjection> InsulinInjections { get; set; }
 
+        public DbSet<Sport> Sports { get; set; }
+
+        public DbSet<SportActivity> SportActivities { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

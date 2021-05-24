@@ -27,7 +27,8 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
-                             new InsulinSeeder(),
+                              new InsulinSeeder(),
+                              new SportSeeder(),
                           };
 
             foreach (var seeder in seeders)

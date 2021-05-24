@@ -34,6 +34,5 @@
         public string AddedByUser { get; set; }
 
         public ICollection<FoodCarboydrateInputModel> Foods { get; set; }
-
     }
 }

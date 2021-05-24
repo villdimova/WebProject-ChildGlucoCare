@@ -1880,7 +1880,8 @@
         "dependencies": {
           "ChildGlucoCare.Data.Common": "1.0.0",
           "ChildGlucoCare.Data.Models": "1.0.0",
-          "ChildGlucoCare.Services.Mapping": "1.0.0"
+          "ChildGlucoCare.Services.Mapping": "1.0.0",
+          "ChildGlucoCare.Web.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ChildGlucoCare.Services.Data.dll": {}
@@ -1913,6 +1914,20 @@
         },
         "runtime": {
           "bin/placeholder/ChildGlucoCare.Services.Messaging.dll": {}
+        }
+      },
+      "ChildGlucoCare.Web.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ChildGlucoCare.Data.Models": "1.0.0",
+          "ChildGlucoCare.Services.Mapping": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ChildGlucoCare.Web.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChildGlucoCare.Web.ViewModels.dll": {}
         }
       }
     }
@@ -6721,6 +6736,11 @@
       "type": "project",
       "path": "../../Services/ChildGlucoCare.Services.Messaging/ChildGlucoCare.Services.Messaging.csproj",
       "msbuildProject": "../../Services/ChildGlucoCare.Services.Messaging/ChildGlucoCare.Services.Messaging.csproj"
+    },
+    "ChildGlucoCare.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../../Web/ChildGlucoCare.Web.ViewModels/ChildGlucoCare.Web.ViewModels.csproj",
+      "msbuildProject": "../../Web/ChildGlucoCare.Web.ViewModels/ChildGlucoCare.Web.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {

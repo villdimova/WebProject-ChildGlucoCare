@@ -12,6 +12,7 @@
           "ChildGlucoCare.Data.Common": "1.0.0",
           "ChildGlucoCare.Data.Models": "1.0.0",
           "ChildGlucoCare.Services.Mapping": "1.0.0",
+          "ChildGlucoCare.Web.ViewModels": "1.0.0",
           "StyleCop.Analyzers": "1.2.0-beta.312"
         },
         "runtime": {
@@ -338,6 +339,15 @@
         "runtime": {
           "ChildGlucoCare.Services.Mapping.dll": {}
         }
+      },
+      "ChildGlucoCare.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "ChildGlucoCare.Data.Models": "1.0.0",
+          "ChildGlucoCare.Services.Mapping": "1.0.0"
+        },
+        "runtime": {
+          "ChildGlucoCare.Web.ViewModels.dll": {}
+        }
       }
     }
   },
@@ -568,6 +578,11 @@
       "sha512": ""
     },
     "ChildGlucoCare.Services.Mapping/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ChildGlucoCare.Web.ViewModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

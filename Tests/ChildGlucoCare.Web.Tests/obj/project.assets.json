@@ -3616,7 +3616,8 @@
         "dependencies": {
           "ChildGlucoCare.Data.Common": "1.0.0",
           "ChildGlucoCare.Data.Models": "1.0.0",
-          "ChildGlucoCare.Services.Mapping": "1.0.0"
+          "ChildGlucoCare.Services.Mapping": "1.0.0",
+          "ChildGlucoCare.Web.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ChildGlucoCare.Services.Data.dll": {}

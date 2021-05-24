@@ -382,6 +382,20 @@
         "runtime": {
           "bin/placeholder/ChildGlucoCare.Services.Mapping.dll": {}
         }
+      },
+      "ChildGlucoCare.Web.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "ChildGlucoCare.Data.Models": "1.0.0",
+          "ChildGlucoCare.Services.Mapping": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ChildGlucoCare.Web.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChildGlucoCare.Web.ViewModels.dll": {}
+        }
       }
     }
   },
@@ -1190,6 +1204,11 @@
       "type": "project",
       "path": "../ChildGlucoCare.Services.Mapping/ChildGlucoCare.Services.Mapping.csproj",
       "msbuildProject": "../ChildGlucoCare.Services.Mapping/ChildGlucoCare.Services.Mapping.csproj"
+    },
+    "ChildGlucoCare.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../../Web/ChildGlucoCare.Web.ViewModels/ChildGlucoCare.Web.ViewModels.csproj",
+      "msbuildProject": "../../Web/ChildGlucoCare.Web.ViewModels/ChildGlucoCare.Web.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1197,6 +1216,7 @@
       "ChildGlucoCare.Data.Common >= 1.0.0",
       "ChildGlucoCare.Data.Models >= 1.0.0",
       "ChildGlucoCare.Services.Mapping >= 1.0.0",
+      "ChildGlucoCare.Web.ViewModels >= 1.0.0",
       "StyleCop.Analyzers >= 1.2.0-beta.312"
     ]
   },
@@ -1235,6 +1255,9 @@
             },
             "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Mapping\\ChildGlucoCare.Services.Mapping.csproj": {
               "projectPath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Mapping\\ChildGlucoCare.Services.Mapping.csproj"
+            },
+            "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Web\\ChildGlucoCare.Web.ViewModels\\ChildGlucoCare.Web.ViewModels.csproj": {
+              "projectPath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Web\\ChildGlucoCare.Web.ViewModels\\ChildGlucoCare.Web.ViewModels.csproj"
             }
           }
         }
