@@ -132,6 +132,9 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<int>("UserDashboardId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -149,6 +152,46 @@ namespace ChildGlucoCare.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.BloodGlucose", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BloodGlocoseStatus")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("CurrentGlucoseLevel")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserDashboardId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("UserDashboardId");
+
+                    b.ToTable("BloodGlucoses");
                 });
 
             modelBuilder.Entity("ChildGlucoCare.Data.Models.CarbohydrateIntake", b =>
@@ -179,12 +222,17 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserDashboardId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("IsDeleted");
+
+                    b.HasIndex("UserDashboardId");
 
                     b.ToTable("CarbohydrateIntakes");
                 });
@@ -213,9 +261,6 @@ namespace ChildGlucoCare.Data.Migrations
 
                     b.Property<double>("FatPer100Grams")
                         .HasColumnType("float");
-
-                    b.Property<int>("FoodCarbohydrateIntakeId")
-                        .HasColumnType("int");
 
                     b.Property<int>("FoodType")
                         .HasColumnType("int");
@@ -321,6 +366,9 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserDashboardId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
@@ -329,6 +377,8 @@ namespace ChildGlucoCare.Data.Migrations
                     b.HasIndex("InsulinId");
 
                     b.HasIndex("IsDeleted");
+
+                    b.HasIndex("UserDashboardId");
 
                     b.ToTable("InsulinInjections");
                 });
@@ -431,6 +481,9 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<string>("SportName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserDashboardId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
@@ -440,7 +493,42 @@ namespace ChildGlucoCare.Data.Migrations
 
                     b.HasIndex("SportId");
 
+                    b.HasIndex("UserDashboardId");
+
                     b.ToTable("SportActivities");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.UserDashboard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId")
+                        .IsUnique()
+                        .HasFilter("[ApplicationUserId] IS NOT NULL");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("UserDashboards");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -547,6 +635,28 @@ namespace ChildGlucoCare.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.BloodGlucose", b =>
+                {
+                    b.HasOne("ChildGlucoCare.Data.Models.UserDashboard", "UserDashboard")
+                        .WithMany("BloodGlucoses")
+                        .HasForeignKey("UserDashboardId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("UserDashboard");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.CarbohydrateIntake", b =>
+                {
+                    b.HasOne("ChildGlucoCare.Data.Models.UserDashboard", "UserDashboard")
+                        .WithMany("CarbohydrateIntakes")
+                        .HasForeignKey("UserDashboardId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("UserDashboard");
+                });
+
             modelBuilder.Entity("ChildGlucoCare.Data.Models.Food", b =>
                 {
                     b.HasOne("ChildGlucoCare.Data.Models.CarbohydrateIntake", "CarbohydrateIntake")
@@ -564,7 +674,15 @@ namespace ChildGlucoCare.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("ChildGlucoCare.Data.Models.UserDashboard", "UserDashboard")
+                        .WithMany("InsulinInjections")
+                        .HasForeignKey("UserDashboardId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Insulin");
+
+                    b.Navigation("UserDashboard");
                 });
 
             modelBuilder.Entity("ChildGlucoCare.Data.Models.SportActivity", b =>
@@ -575,7 +693,24 @@ namespace ChildGlucoCare.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("ChildGlucoCare.Data.Models.UserDashboard", "UserDashboard")
+                        .WithMany("SportActivities")
+                        .HasForeignKey("UserDashboardId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Sport");
+
+                    b.Navigation("UserDashboard");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.UserDashboard", b =>
+                {
+                    b.HasOne("ChildGlucoCare.Data.Models.ApplicationUser", "ApplicationUser")
+                        .WithOne("UserDashboard")
+                        .HasForeignKey("ChildGlucoCare.Data.Models.UserDashboard", "ApplicationUserId");
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -636,6 +771,8 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Navigation("Logins");
 
                     b.Navigation("Roles");
+
+                    b.Navigation("UserDashboard");
                 });
 
             modelBuilder.Entity("ChildGlucoCare.Data.Models.CarbohydrateIntake", b =>
@@ -650,6 +787,17 @@ namespace ChildGlucoCare.Data.Migrations
 
             modelBuilder.Entity("ChildGlucoCare.Data.Models.Sport", b =>
                 {
+                    b.Navigation("SportActivities");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.UserDashboard", b =>
+                {
+                    b.Navigation("BloodGlucoses");
+
+                    b.Navigation("CarbohydrateIntakes");
+
+                    b.Navigation("InsulinInjections");
+
                     b.Navigation("SportActivities");
                 });
 #pragma warning restore 612, 618

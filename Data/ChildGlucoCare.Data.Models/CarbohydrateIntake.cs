@@ -22,6 +22,8 @@
 
         public virtual ICollection<Food> Foods { get; set; }
 
-       
+        public int UserDashboardId { get; set; }
+
+        public virtual UserDashboard UserDashboard { get; set; }
     }
 }

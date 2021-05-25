@@ -29,6 +29,7 @@
                               new SettingsSeeder(),
                               new InsulinSeeder(),
                               new SportSeeder(),
+                              new FoodSeeder(),
                           };
 
             foreach (var seeder in seeders)

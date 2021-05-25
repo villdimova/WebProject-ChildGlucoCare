@@ -25,14 +25,11 @@
         [Range(0, 4000)]
         public int CaloriesPer100Grams { get; set; }
 
-        public int FoodCarbohydrateIntakeId { get; set; }
-
         public int? CarbohydrateIntakeId { get; set; }
 
-        public CarbohydrateIntake CarbohydrateIntake { get; set; }
+        public virtual CarbohydrateIntake CarbohydrateIntake { get; set; }
 
-        public virtual FoodType FoodType { get; set; }
-
+        public FoodType FoodType { get; set; }
 
     }
 }

@@ -36,6 +36,11 @@ namespace ChildGlucoCare.Data.Models
 
         public decimal InsulinSensibility { get; set; }
 
+        [ForeignKey(nameof(UserDashboard))]
+        public int UserDashboardId { get; set; }
+
+        public UserDashboard UserDashboard { get; set; }
+
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
 
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }

@@ -38,6 +38,10 @@
 
         public DbSet<SportActivity> SportActivities { get; set; }
 
+        public DbSet<BloodGlucose> BloodGlucoses { get; set; }
+
+        public DbSet<UserDashboard> UserDashboards { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -76,6 +80,13 @@
                 var method = SetIsDeletedQueryFilterMethod.MakeGenericMethod(deletableEntityType.ClrType);
                 method.Invoke(null, new object[] { builder });
             }
+
+            //Configuring entities relations
+
+            builder.Entity<ApplicationUser>()
+       .HasOne(a => a.UserDashboard)
+       .WithOne(d => d.ApplicationUser)
+       .HasForeignKey<UserDashboard>(d => d.ApplicationUserId);
 
             // Disable cascade delete
             var foreignKeys = entityTypes
