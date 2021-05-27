@@ -4,26 +4,25 @@
     using System.Collections.Generic;
 
     using ChildGlucoCare.Data.Common.Models;
+    using ChildGlucoCare.Data.Models.Enums;
 
     public class CarbohydrateIntake: BaseDeletableModel<int>
     {
         public CarbohydrateIntake()
         {
-            this.Foods = new HashSet<Food>();
+            this.Foods = new HashSet<FoodIntake>();
         }
-
-        public string FoodName { get; set; }
-
-        public int Amount { get; set; }
+        
+        public MealType MealType { get; set; }
 
         public string  UserName { get; set; }
 
         public DateTime Date { get; set; }
 
-        public virtual ICollection<Food> Foods { get; set; }
+        public virtual ICollection<FoodIntake> Foods { get; set; }
 
-        public int UserDashboardId { get; set; }
+    //    public int UserDashboardId { get; set; }
 
-        public virtual UserDashboard UserDashboard { get; set; }
+    //   public virtual UserDashboard UserDashboard { get; set; }
     }
 }

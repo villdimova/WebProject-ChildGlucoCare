@@ -1,0 +1,35 @@
+﻿@model ChildGlucoCare.Web.ViewModels.InsulinInjections.AddNewInsulinInjectionViewModel
+@{ this.ViewData["Title"] = "Add  new Carbohydrate intake";
+}
+
+<form method="post" class="col-md-4 offset-md-3"
+      enctype="multipart/form-data">
+    <h1>@this.ViewData["Title"]</h1>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Date" class="col-md-6 control-label"></label>
+        <input asp-for="Date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="InsulinDose" class="col-md-6 control-label"></label>
+        <input asp-for="InsulinDose" class="form-control" />
+        <span asp-validation-for="InsulinDose" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsItForMeal" class="col-md-6 control-label"></label>
+        <input asp-for="IsItForMeal" class="form-control" />
+        <span asp-validation-for="IsItForMeal" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="InsulinName" class="col-md-6 control-label"></label>
+        <input asp-for="InsulinName" class="form-control" />
+        <span asp-validation-for="InsulinName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserName" class="col-md-6 control-label"></label>
+        <input asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" />
+</form>

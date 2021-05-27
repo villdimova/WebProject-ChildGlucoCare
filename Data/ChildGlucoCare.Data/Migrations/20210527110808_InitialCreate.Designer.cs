@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChildGlucoCare.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210521071743_AddInsulinsAndInsulinInjections")]
-    partial class AddInsulinsAndInsulinInjections
+    [Migration("20210527110808_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -153,15 +153,47 @@ namespace ChildGlucoCare.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("ChildGlucoCare.Data.Models.CarbohydrateIntake", b =>
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.BloodGlucose", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Amount")
+                    b.Property<int>("BloodGlocoseStatus")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("CurrentGlucoseLevel")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("BloodGlucoses");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.CarbohydrateIntake", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -172,11 +204,11 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("FoodName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<int>("MealType")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
@@ -201,9 +233,6 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<int>("CaloriesPer100Grams")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CarbohydrateIntakeId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CarbohydratePer100Grams")
                         .HasColumnType("int");
 
@@ -215,9 +244,6 @@ namespace ChildGlucoCare.Data.Migrations
 
                     b.Property<double>("FatPer100Grams")
                         .HasColumnType("float");
-
-                    b.Property<int>("FoodCarbohydrateIntakeId")
-                        .HasColumnType("int");
 
                     b.Property<int>("FoodType")
                         .HasColumnType("int");
@@ -240,11 +266,51 @@ namespace ChildGlucoCare.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CarbohydrateIntakeId");
-
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Foods");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.FoodIntake", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CarbohydrateIntakeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FoodId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FoodName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarbohydrateIntakeId");
+
+                    b.HasIndex("FoodId");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("FoodIntakes");
                 });
 
             modelBuilder.Entity("ChildGlucoCare.Data.Models.Insulin", b =>
@@ -282,7 +348,7 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<string>("Peak")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TypicalActivityProfileUrl")
+                    b.Property<string>("Taken")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -302,10 +368,10 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DeletedOn")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Hour")
+                    b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<double>("InsulinDose")
@@ -322,6 +388,9 @@ namespace ChildGlucoCare.Data.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -362,6 +431,110 @@ namespace ChildGlucoCare.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Settings");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.Sport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ActivityLevel")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SportName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Sports");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.SportActivity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ActivityLevel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Duration")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SportId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SportName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("SportId");
+
+                    b.ToTable("SportActivities");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.UserDashboard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("UserDashboards");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -468,13 +641,21 @@ namespace ChildGlucoCare.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ChildGlucoCare.Data.Models.Food", b =>
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.FoodIntake", b =>
                 {
                     b.HasOne("ChildGlucoCare.Data.Models.CarbohydrateIntake", "CarbohydrateIntake")
                         .WithMany("Foods")
                         .HasForeignKey("CarbohydrateIntakeId");
 
+                    b.HasOne("ChildGlucoCare.Data.Models.Food", "Food")
+                        .WithMany("FoodIntakes")
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("CarbohydrateIntake");
+
+                    b.Navigation("Food");
                 });
 
             modelBuilder.Entity("ChildGlucoCare.Data.Models.InsulinInjection", b =>
@@ -486,6 +667,17 @@ namespace ChildGlucoCare.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Insulin");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.SportActivity", b =>
+                {
+                    b.HasOne("ChildGlucoCare.Data.Models.Sport", "Sport")
+                        .WithMany("SportActivities")
+                        .HasForeignKey("SportId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Sport");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -553,9 +745,19 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Navigation("Foods");
                 });
 
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.Food", b =>
+                {
+                    b.Navigation("FoodIntakes");
+                });
+
             modelBuilder.Entity("ChildGlucoCare.Data.Models.Insulin", b =>
                 {
                     b.Navigation("InsulinInjections");
+                });
+
+            modelBuilder.Entity("ChildGlucoCare.Data.Models.Sport", b =>
+                {
+                    b.Navigation("SportActivities");
                 });
 #pragma warning restore 612, 618
         }

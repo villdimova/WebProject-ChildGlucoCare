@@ -18,9 +18,9 @@
 
         public virtual Insulin Insulin { get; set; }
 
-        public int UserDashboardId { get; set; }
+    //    public int UserDashboardId { get; set; }
 
-        public virtual UserDashboard UserDashboard { get; set; }
+   //     public virtual UserDashboard UserDashboard { get; set; }
 
     }
 }

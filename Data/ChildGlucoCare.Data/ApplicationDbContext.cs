@@ -28,6 +28,8 @@
 
         public DbSet<Food> Foods { get; set; }
 
+        public DbSet<FoodIntake> FoodIntakes { get; set; }
+
         public DbSet<CarbohydrateIntake> CarbohydrateIntakes { get; set; }
 
         public DbSet<Insulin> Insulins { get; set; }
@@ -83,10 +85,10 @@
 
             //Configuring entities relations
 
-            builder.Entity<ApplicationUser>()
-       .HasOne(a => a.UserDashboard)
-       .WithOne(d => d.ApplicationUser)
-       .HasForeignKey<UserDashboard>(d => d.ApplicationUserId);
+       //     builder.Entity<ApplicationUser>()
+       //.HasOne(a => a.UserDashboard)
+       //.WithOne(d => d.ApplicationUser)
+       //.HasForeignKey<UserDashboard>(d => d.ApplicationUserId);
 
             // Disable cascade delete
             var foreignKeys = entityTypes

@@ -1201,7 +1201,8 @@
         "dependencies": {
           "ChildGlucoCare.Data.Common": "1.0.0",
           "ChildGlucoCare.Data.Models": "1.0.0",
-          "ChildGlucoCare.Services.Mapping": "1.0.0"
+          "ChildGlucoCare.Services.Mapping": "1.0.0",
+          "ChildGlucoCare.Web.ViewModels": "1.0.0"
         },
         "runtime": {
           "ChildGlucoCare.Services.Data.dll": {}
@@ -1223,12 +1224,13 @@
           "ChildGlucoCare.Services.Messaging.dll": {}
         }
       },
-      "ChildGlucoCare.Web.ViewModels/1.0.0.0": {
+      "ChildGlucoCare.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "ChildGlucoCare.Data.Models": "1.0.0",
+          "ChildGlucoCare.Services.Mapping": "1.0.0"
+        },
         "runtime": {
-          "ChildGlucoCare.Web.ViewModels.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "ChildGlucoCare.Web.ViewModels.dll": {}
         }
       }
     }
@@ -2112,8 +2114,8 @@
       "serviceable": false,
       "sha512": ""
     },
-    "ChildGlucoCare.Web.ViewModels/1.0.0.0": {
-      "type": "reference",
+    "ChildGlucoCare.Web.ViewModels/1.0.0": {
+      "type": "project",
       "serviceable": false,
       "sha512": ""
     }

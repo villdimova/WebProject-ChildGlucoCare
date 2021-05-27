@@ -14,26 +14,26 @@
 
         private readonly IDeletableEntityRepository<CarbohydrateIntake> carbsRepository;
         private readonly IDeletableEntityRepository<Food> foodsRepository;
+        private readonly IDeletableEntityRepository<FoodIntake> foodIntakesRepository;
 
         public CarbohydrateIntakeService(
                                                                 IDeletableEntityRepository<CarbohydrateIntake> carbsRepository
-                                                               , IDeletableEntityRepository<Food> foodsRepository)
+                                                               , IDeletableEntityRepository<Food> foodsRepository
+                                                                , IDeletableEntityRepository<FoodIntake> foodIntakesRepository)
         {
             this.carbsRepository = carbsRepository;
             this.foodsRepository = foodsRepository;
+            this.foodIntakesRepository = foodIntakesRepository;
         }
 
-        public int GetBeuFromCarbohydrate()
+        public double GetBeuFromCarbohydrate()
         {
-            var foods = this.foodsRepository.All().ToList();
+            var totalCarbs = 0;
+            
 
-            int totalCarbs = 0;
-            foreach (var food in foods)
-            {
-                var foodCarbs = food.CaloriesPer100Grams;
-                totalCarbs += foodCarbs;
-            }
-            return totalCarbs;
+            double totalBeu = Math.Round(totalCarbs / 12.0);
+
+            return totalBeu;
 
         }
 
@@ -66,29 +66,32 @@
 
         public async Task AddCarbohydrateIntakeAsync(AddNewCarbohydtrateIntakeViewModel input)
         {
-            var eatenFood = this.foodsRepository.All().FirstOrDefault(f => f.Name == input.FoodName);
-            List<Food> eatenFoods = new List<Food>();
-            if (eatenFood == null)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-
-            eatenFoods.Add(eatenFood);
-
             var carbohydrateIntake = new CarbohydrateIntake
             {
-                Date = input.Date,
                 UserName = input.AddedByUser,
-                FoodName = input.FoodName,
-                Amount = input.Amount,
-
+                Date = input.Date,
+                MealType=input.MealType,
             };
 
-            carbohydrateIntake.Foods.Add(eatenFood);
+            foreach (var foodIntake in input.Foods)
+            {
+                var eatenFood = this.foodsRepository.All().FirstOrDefault(x => x.Name == foodIntake.FoodName);
+                if (eatenFood == null)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+
+                carbohydrateIntake.Foods.Add(new FoodIntake
+                {
+                    Food = eatenFood,
+                    FoodName = foodIntake.FoodName,
+                    Amount = foodIntake.Amount,
+                    CarbohydrateIntake = carbohydrateIntake,
+                });
+            }
 
             await this.carbsRepository.AddAsync(carbohydrateIntake);
             await this.carbsRepository.SaveChangesAsync();
-
         }
 
         private int GetMinutestWait(DateTime eatTime)

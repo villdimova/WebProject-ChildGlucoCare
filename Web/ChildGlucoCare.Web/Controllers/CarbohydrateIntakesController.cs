@@ -33,5 +33,11 @@
             return this.Redirect("/");
 
         }
+
+        public IActionResult GetBeuFromCarbohydrate()
+        {
+            var viewModel = this.carbohydrateIntakeService.GetBeuFromCarbohydrate();
+            return this.View(viewModel);
+        }
     }
 }

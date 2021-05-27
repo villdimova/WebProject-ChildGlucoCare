@@ -8,6 +8,10 @@
 
     public class Food: BaseDeletableModel<int>
     {
+        public Food()
+        {
+            this.FoodIntakes = new HashSet<FoodIntake>();
+        }
 
         [Required]
         public string Name { get; set; }
@@ -25,9 +29,7 @@
         [Range(0, 4000)]
         public int CaloriesPer100Grams { get; set; }
 
-        public int? CarbohydrateIntakeId { get; set; }
-
-        public virtual CarbohydrateIntake CarbohydrateIntake { get; set; }
+        public ICollection<FoodIntake> FoodIntakes { get; set; }
 
         public FoodType FoodType { get; set; }
 
