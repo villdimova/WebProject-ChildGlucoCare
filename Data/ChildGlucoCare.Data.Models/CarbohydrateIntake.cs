@@ -19,6 +19,8 @@
 
         public DateTime Date { get; set; }
 
+        public double? TotalBeu { get; set; }
+
         public virtual ICollection<FoodIntake> Foods { get; set; }
 
     //    public int UserDashboardId { get; set; }

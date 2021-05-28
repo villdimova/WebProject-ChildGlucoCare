@@ -3,14 +3,15 @@
     using System;
     using System.Threading.Tasks;
     using ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes;
+    using ChildGlucoCare.Services.Mapping;
+    using ChildGlucoCare.Data.Models;
+    using System.Collections.Generic;
 
     public interface ICarbohydrateIntakeService
     { 
         Task AddCarbohydrateIntakeAsync(AddNewCarbohydtrateIntakeViewModel carbohydrateIntake);
 
-        double GetBeuFromCarbohydrate();
-
-        string CalculateNeededInsulin(DateTime eatTime, double currentBloodGlucose, double insulinSensibility);
+        IEnumerable<T> GetAllBeu<T>();
 
     }
 }

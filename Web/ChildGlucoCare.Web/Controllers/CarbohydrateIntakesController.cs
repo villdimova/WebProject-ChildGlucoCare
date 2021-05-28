@@ -1,7 +1,7 @@
 ﻿namespace ChildGlucoCare.Web.Controllers
 {
     using System.Threading.Tasks;
-
+    using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data;
     using ChildGlucoCare.Services.Data.Models;
     using ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes;
@@ -34,10 +34,14 @@
 
         }
 
-        public IActionResult GetBeuFromCarbohydrate()
+        public IActionResult GetEatenBeuForMeal() 
         {
-            var viewModel = this.carbohydrateIntakeService.GetBeuFromCarbohydrate();
+            var viewModel = new AllEatenBeuViewModel
+            {
+                AllBeu = this.carbohydrateIntakeService.GetAllBeu<BeuViewModel>()
+            };
             return this.View(viewModel);
         }
+
     }
 }

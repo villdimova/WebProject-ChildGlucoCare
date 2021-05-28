@@ -16,6 +16,7 @@
         }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         //[Range(0, 1000)]

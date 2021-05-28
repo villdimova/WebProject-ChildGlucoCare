@@ -5,7 +5,7 @@ using ChildGlucoCare.Services.Mapping;
 
 namespace ChildGlucoCare.Web.ViewModels.Insulins
 {
-    public class InsulinProfileViewModel : IMapFrom<Insulin>, IHaveCustomMappings
+    public class InsulinProfileViewModel : IMapFrom<Insulin>
     {
         public InsulinType InsulinType { get; set; }
 
@@ -19,10 +19,6 @@ namespace ChildGlucoCare.Web.ViewModels.Insulins
 
         public string Duration { get; set; }
 
-        public void CreateMappings(IProfileExpression configuration)
-        {
-            configuration.CreateMap<Insulin, InsulinProfileViewModel>();
-           
-        }
+        
     }
 }
