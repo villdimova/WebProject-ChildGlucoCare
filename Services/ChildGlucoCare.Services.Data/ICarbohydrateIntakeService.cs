@@ -13,5 +13,7 @@
 
         IEnumerable<T> GetAllBeu<T>();
 
+        CarbohydrateIntake LastAddedCarbs();
+
     }
 }

@@ -52,6 +52,8 @@
                     Amount = foodIntake.Amount,
                     CarbohydrateIntake = carbohydrateIntake,
                 });
+
+
             }
 
             var totalCarbs = 0;
@@ -76,5 +78,11 @@
             return carbs;
         }
 
+        public  CarbohydrateIntake LastAddedCarbs()
+        {
+            var lastCarbs = this.carbsRepository.AllAsNoTracking().OrderByDescending(x => x.Date).FirstOrDefault();
+
+            return lastCarbs;
+        }
     }
 }

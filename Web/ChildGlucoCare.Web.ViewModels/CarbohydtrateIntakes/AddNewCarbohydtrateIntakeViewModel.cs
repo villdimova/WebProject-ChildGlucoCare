@@ -7,26 +7,19 @@
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Data.Models.Enums;
     using ChildGlucoCare.Web.ViewModels.Foods;
+    using Microsoft.AspNetCore.Mvc.Rendering;
 
     public class AddNewCarbohydtrateIntakeViewModel
     {
         public AddNewCarbohydtrateIntakeViewModel()
         {
             this.Foods = new HashSet<FoodIntake>();
+            this.FoodNames = new List<SelectListItem>();
         }
 
         [Required]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
-
-        //[Range(0, 1000)]
-        //[Display(Name = "Amount in grams")]
-        //public int Amount { get; set; }
-
-        //[Required]
-        //[MinLength(3)]
-        //[MaxLength(30)]
-        //public string FoodName { get; set; }
 
         //[Required]
         //[MinLength(2)]
@@ -40,6 +33,8 @@
         public MealType MealType { get; set; }
 
         public ICollection<FoodIntake> Foods { get; set; }
+
+        public IEnumerable<SelectListItem> FoodNames { get; set; }
 
     }
 }

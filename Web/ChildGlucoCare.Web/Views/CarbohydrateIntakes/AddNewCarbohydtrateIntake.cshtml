@@ -4,7 +4,7 @@
 }
 
 
-<form method="post" class="col-md-4 offset-md-3"
+<form method="post" class="col-md-6 offset-md-3"
       enctype="multipart/form-data">
     <h1>@this.ViewData["Title"]</h1>
     <div asp-validation-summary="All" class="text-danger"></div>
@@ -26,6 +26,7 @@
             </select>
             <span asp-validation-for="MealType" class="text-danger" />
         </div>
+
         <div id="FoodsContainer">
             <label asp-for="Foods"></label>
             <a class="btn btn-primary" onclick="AddAnotherFood()">+</a>
@@ -34,14 +35,25 @@
         <input type="submit" class="btn btn-primary" />
 </form>
 
+<hr>
+<h3> Write above some of the food names from the list below </h3>
+<div class="right--3">
+    <select asp-for="FoodNames" asp-items="@((Model.FoodNames))">
+        <option selected="selected" value="">Please select</option>
+    </select>
+    <span asp-validation-for="FoodNames" class="text-danger" />
+</div>
+
+
 @section Scripts {
     <script>
         var foodIndex = 0;
         function AddAnotherFood() {
             $("#FoodsContainer").
-                append("<div class='form-control-sm'>Food: <input type='text' name='Foods[" + foodIndex + "].FoodName' /> Amount: <input type='text' name='Foods[" + foodIndex + "].Amount' /></div>");
+                append("<div class='form-control-auto'>Food: <input type='text' name='Foods[" + foodIndex + "].FoodName' /> Amount: <input type='text' name='Foods[" + foodIndex + "].Amount' /></div>");
             foodIndex++;
         }
     </script>
+
 }
 

@@ -1,10 +1,13 @@
 ﻿namespace ChildGlucoCare.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using ChildGlucoCare.Data.Common.Repositories;
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Models;
+    using Microsoft.AspNetCore.Mvc.Rendering;
 
     public class FoodsService : IFoodsService
     {
@@ -25,10 +28,23 @@
                 CaloriesPer100Grams = foodsDto.CaloriesPer100Grams,
                 FoodType = foodsDto.FoodType,
                 GlycemicIndex = foodsDto.GlycemicIndex,
-               
+
             };
             await this.foodsRepository.AddAsync(food);
             await this.foodsRepository.SaveChangesAsync();
+        }
+
+        public IEnumerable<SelectListItem> GetAllNames()
+        {
+
+            var foodsNames = this.foodsRepository.All().Select(x => new SelectListItem
+            {
+
+                Value = x.Id.ToString(),
+                Text = x.Name
+            });
+
+            return foodsNames;
         }
 
     }
