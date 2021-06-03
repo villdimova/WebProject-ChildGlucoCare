@@ -34,7 +34,7 @@ namespace ChildGlucoCare.Data.Models
 
         public int Age { get; set; }
 
-        public decimal InsulinSensibility { get; set; }
+        public double InsulinSensitivity { get; set; }
 
     //    [ForeignKey(nameof(UserDashboard))]
     //    public int UserDashboardId { get; set; }

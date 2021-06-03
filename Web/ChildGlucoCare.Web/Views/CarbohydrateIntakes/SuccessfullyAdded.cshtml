@@ -1,0 +1,25 @@
+﻿@model ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes.SuccessfullyAddedViewModel
+
+@{
+    this.ViewData["Title"] = "Total BEU for meal";
+}
+<h1 class="text-center">Successfully added foods, you can see the total BEU intake and the right insulin dose below!</h1>
+
+<div class="table-striped">
+    <table class="table" style="width:100%">
+        <tr>
+            <th>Date of eat</th>
+            <th>Username</th>
+            <th>Eat category</th>
+            <th>Total BEU for Eat</th>
+            <th>Suggested Insulin Dose for eaten Carbohydrates</th>
+        </tr>
+            <tr>
+                <th>@Model.Date</th>
+                <th>@Model.UserName</th>
+                <th>@Model.MealType</th>
+                <th>@Model.TotalBeu</th>
+                <th>@Model.SuggestedDoseInsulin</th>
+            </tr>
+    </table>
+</div>

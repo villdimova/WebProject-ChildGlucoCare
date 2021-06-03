@@ -32,6 +32,11 @@
         [Display(Name = "Meal Category")]
         public MealType MealType { get; set; }
 
+        [Required]
+        [Range(1.0, 30.0)]
+        [Display(Name = "Current Glucose Level")]
+        public double CurrentGlucoseLevel { get; set; }
+
         public ICollection<FoodIntake> Foods { get; set; }
 
         public IEnumerable<SelectListItem> FoodNames { get; set; }

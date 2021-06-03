@@ -70,6 +70,7 @@
             services.AddTransient<IInsulinsService, InsulinsService>();
             services.AddTransient<IInsulinInjectionsService, InsulinInjectionService>();
             services.AddTransient<ISportActivityService, SportActivityService>();
+            services.AddTransient<IBloodGlucoseService, BloodGlucoseService>();
            
         }
 

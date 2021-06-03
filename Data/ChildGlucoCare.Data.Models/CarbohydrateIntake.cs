@@ -12,14 +12,16 @@
         {
             this.Foods = new HashSet<FoodIntake>();
         }
-        
+
         public MealType MealType { get; set; }
 
         public string  UserName { get; set; }
 
         public DateTime Date { get; set; }
 
-        public double? TotalBeu { get; set; }
+        public double TotalBeu { get; set; }
+
+        public double SuggestedDoseInsulin { get; set; }
 
         public virtual ICollection<FoodIntake> Foods { get; set; }
 

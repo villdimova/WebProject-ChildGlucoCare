@@ -50,6 +50,7 @@
                 UserName = lastCarbs.UserName,
                 MealType = lastCarbs.MealType,
                 TotalBeu = lastCarbs.TotalBeu,
+                SuggestedDoseInsulin=lastCarbs.SuggestedDoseInsulin,
 
             };
             return this.View(viewModel);

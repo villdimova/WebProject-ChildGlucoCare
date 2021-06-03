@@ -476,3 +476,7 @@ C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\Ch
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\CarbohydrateIntakes\SuccessfullyAdded.cshtml.g.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\BloodGlucoses\AddBloodGlucose.cshtml.g.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\BloodGlucoses\AddedHighBloodGlucose.cshtml.g.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\BloodGlucoses\AddedLowBloodGlucose.cshtml.g.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\BloodGlucoses\AddedNormalBloodGlucose.cshtml.g.cs

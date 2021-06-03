@@ -1,0 +1,21 @@
+﻿@model ChildGlucoCare.Web.ViewModels.BloodGlucoses.SuggestedInsulinCorrectionViewModel
+
+@{
+    this.ViewData["Title"] = "Suggested Insulin Correction";
+}
+<h1 class="text-center text-danger">Your Blood glucose level is high. We suggest the following insulin dose correction!</h1>
+
+<div class="table-striped">
+    <table class="table" style="width:100%">
+        <tr>
+            <th>Date</th>
+            <th>Current Glucose Level</th>
+            <th>Suggested Correction Dose Insulin</th>
+        </tr>
+        <tr>
+            <th>@Model.Date</th>
+            <th>@Model.CurrentGlucoseLevel</th>
+            <th> @Model.SuggestedCorrectionDoseInsulin</th>
+        </tr>
+    </table>
+</div>

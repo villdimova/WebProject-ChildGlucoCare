@@ -1,0 +1,28 @@
+﻿@model ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes.AllEatenBeuViewModel
+
+@{
+    this.ViewData["Title"] = "Total BEU for meal";
+}
+<h1 class="text-center">@this.ViewData["Title"]</h1>
+
+<div class="table-striped">
+    <table class="table" style="width:100%">
+        <tr>
+            <th>Date of eat</th>
+            <th>Username</th>
+            <th>Eat category</th>
+            <th>Total BEU for Eat</th>
+       
+        </tr>
+        @foreach (var beu in this.Model.AllBeu)
+        {
+            <tr>
+                <th>@beu.Date</th>
+                <th>@beu.UserName</th>
+                <th>@beu.MealType</th>
+                <th>@beu.TotalBeu</th>
+                
+            </tr>
+        }
+    </table>
+</div>

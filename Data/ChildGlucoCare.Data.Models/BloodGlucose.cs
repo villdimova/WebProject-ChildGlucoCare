@@ -6,15 +6,17 @@
 
     public class BloodGlucose: BaseDeletableModel<int>
     {
-        public decimal CurrentGlucoseLevel { get; set; }
+        public double CurrentGlucoseLevel { get; set; }
 
         public DateTime Date { get; set; }
 
         public BloodGlocoseStatus BloodGlocoseStatus { get; set; }
 
-     //   public int UserDashboardId { get; set; }
+        public double SuggestedCorrectionDoseInsulin { get; set; }
 
-    //    public virtual UserDashboard UserDashboard{ get; set; }
+        //   public int UserDashboardId { get; set; }
+
+        //    public virtual UserDashboard UserDashboard{ get; set; }
 
     }
 }

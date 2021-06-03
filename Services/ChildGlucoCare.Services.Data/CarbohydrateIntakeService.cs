@@ -7,6 +7,7 @@
 
     using ChildGlucoCare.Data.Common.Repositories;
     using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Data.Models.Enums;
     using ChildGlucoCare.Services.Mapping;
     using ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes;
     using Microsoft.EntityFrameworkCore;
@@ -53,7 +54,6 @@
                     CarbohydrateIntake = carbohydrateIntake,
                 });
 
-
             }
 
             var totalCarbs = 0;
@@ -64,10 +64,24 @@
 
             }
 
-            carbohydrateIntake.TotalBeu = Math.Round(totalCarbs/12.0);
+            carbohydrateIntake.TotalBeu = Math.Round(totalCarbs / 12.0);
+            carbohydrateIntake.SuggestedDoseInsulin = this.CalculateProperInsulinDose(input, carbohydrateIntake.TotalBeu);
+
 
             await this.carbsRepository.AddAsync(carbohydrateIntake);
             await this.carbsRepository.SaveChangesAsync();
+        }
+
+        //TODO:When add user to finish insulin dose by adding correction dose insulin
+        public double CalculateProperInsulinDose(AddNewCarbohydtrateIntakeViewModel carbohydrateIntake, double totalBeu)
+        {
+            var currentBloodGlucose = carbohydrateIntake.CurrentGlucoseLevel;
+            var mealType = carbohydrateIntake.MealType;
+            var tatalBeu = totalBeu;
+            double neededInsulin = 0;
+            double dayPartInsulinRatio = this.GetdayPartInsulinRatio(mealType);
+            neededInsulin = totalBeu * dayPartInsulinRatio;
+            return Math.Round(neededInsulin * 2, MidpointRounding.AwayFromZero) / 2;
         }
 
         public IEnumerable<T> GetAllBeu<T>()
@@ -78,11 +92,43 @@
             return carbs;
         }
 
-        public  CarbohydrateIntake LastAddedCarbs()
+        public CarbohydrateIntake LastAddedCarbs()
         {
-            var lastCarbs = this.carbsRepository.AllAsNoTracking().OrderByDescending(x => x.Date).FirstOrDefault();
+            var lastCarbs = this.carbsRepository.AllAsNoTracking().OrderByDescending(x => x.Id).FirstOrDefault();
 
             return lastCarbs;
+        }
+
+        private double GetdayPartInsulinRatio(MealType mealType)
+        {
+            double dayPartInsulinRatio = 0;
+
+            if (mealType == MealType.Breakfast)
+            {
+                dayPartInsulinRatio = 1.15;
+            }
+            else if (mealType == MealType.MorningSnack)
+            {
+                dayPartInsulinRatio = 1.15;
+            }
+            else if (mealType == MealType.Lunch)
+            {
+                dayPartInsulinRatio = 0.85;
+            }
+            else if (mealType == MealType.AfternoonSnack)
+            {
+                dayPartInsulinRatio = 0.75;
+            }
+            else if (mealType == MealType.Dinner)
+            {
+                dayPartInsulinRatio = 0.90;
+            }
+            else if (mealType == MealType.AfterDinnerSnack)
+            {
+                dayPartInsulinRatio = 0.90;
+            }
+
+            return dayPartInsulinRatio;
         }
     }
 }

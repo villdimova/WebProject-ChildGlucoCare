@@ -15,5 +15,7 @@
 
         CarbohydrateIntake LastAddedCarbs();
 
+        double CalculateProperInsulinDose(AddNewCarbohydtrateIntakeViewModel carbohydrateIntake, double totalBeu);
+
     }
 }

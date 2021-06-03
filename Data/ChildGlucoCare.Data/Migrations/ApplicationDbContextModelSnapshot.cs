@@ -91,8 +91,8 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("InsulinSensibility")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("InsulinSensitivity")
+                        .HasColumnType("float");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -164,8 +164,8 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("CurrentGlucoseLevel")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("CurrentGlucoseLevel")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -178,6 +178,9 @@ namespace ChildGlucoCare.Data.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("SuggestedCorrectionDoseInsulin")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -211,7 +214,10 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<double?>("TotalBeu")
+                    b.Property<double>("SuggestedDoseInsulin")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalBeu")
                         .HasColumnType("float");
 
                     b.Property<string>("UserName")
