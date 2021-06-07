@@ -1,6 +1,7 @@
 ﻿namespace ChildGlucoCare.Data.Models
 {
     using System;
+
     using ChildGlucoCare.Data.Common.Models;
     using ChildGlucoCare.Data.Models.Enums;
 

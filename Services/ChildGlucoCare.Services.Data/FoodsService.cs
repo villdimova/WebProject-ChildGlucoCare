@@ -47,5 +47,10 @@
             return foodsNames;
         }
 
+        public IEnumerable<Food> GetNames()
+        {
+            return this.foodsRepository.All().ToList();
+
+        }
     }
 }

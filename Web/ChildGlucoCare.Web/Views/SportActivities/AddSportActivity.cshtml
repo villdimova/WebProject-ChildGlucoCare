@@ -1,5 +1,6 @@
 ﻿@model ChildGlucoCare.Web.ViewModels.SportActivities.AddSportActivityViewModel
 @{ this.ViewData["Title"] = "Add  new Sport activity";
+    var sportNames = this.Model.SportNames.Select(x => new SelectListItem(x.Text, x.Value));
 }
 
 <form method="post" class="col-md-4 offset-md-3"
@@ -11,20 +12,26 @@
         <input asp-for="Date" class="form-control" />
         <span asp-validation-for="Date" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="SportName" class="col-md-6 control-label"></label>
-        <input asp-for="SportName" class="form-control" />
+     <div class="form-group">
+        <label asp-for="SportName"></label>
+        <select asp-for="SportName" class="form-control" asp-items="sportNames"></select>
         <span asp-validation-for="SportName" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="Duration" class="col-md-6 control-label"></label>
-        <input asp-for="Duration" class="form-control" />
-        <span asp-validation-for="Duration" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="UserName" class="col-md-6 control-label"></label>
-        <input asp-for="UserName" class="form-control" />
-        <span asp-validation-for="UserName" class="text-danger"></span>
-    </div>
-    <input type="submit" class="btn btn-primary" />
+    @*<div class="right--3">
+        <select asp-for="SportNames" asp-items="@((Model.SportNames))">
+            <option selected="selected" value="">Please select</option>
+        </select>
+        <span asp-validation-for="SportName" class="text-danger" />
+    </div>*@
+        <div class="form-group">
+            <label asp-for="Duration" class="col-md-6 control-label"></label>
+            <input asp-for="Duration" class="form-control" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserName" class="col-md-6 control-label"></label>
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <input type="submit" class="btn btn-primary" />
 </form>

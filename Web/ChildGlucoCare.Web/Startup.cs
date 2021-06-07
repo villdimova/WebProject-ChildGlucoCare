@@ -71,7 +71,7 @@
             services.AddTransient<IInsulinInjectionsService, InsulinInjectionService>();
             services.AddTransient<ISportActivityService, SportActivityService>();
             services.AddTransient<IBloodGlucoseService, BloodGlucoseService>();
-           
+            services.AddTransient<ISportsService, SportsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

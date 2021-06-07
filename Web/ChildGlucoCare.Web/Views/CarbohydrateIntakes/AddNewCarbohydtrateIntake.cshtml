@@ -54,6 +54,33 @@
     <script>
         var foodIndex = 0;
         function AddAnotherFood() {
+            /*
+            $.ajax(
+                {
+                    url: '/CarbohydrateIntakes/GetFoodNames',
+                    type: 'GET',
+                    data: "",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        debugger;
+                        var dropDown = '<select id="FoodNames" multiple="multiple" name="FoodNames" class="valid" aria-invalid="false">';
+                        dropDown += '<option selected="selected" value="">Please select</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            var option = `<option value="${i.toString()}"> ${data[i].name}</option>`
+                            dropDown += option;
+                        }
+                        dropDown += '</select>';
+                 
+                        $("#FoodsContainer").
+                            append("<div class='form-control-auto'>" + dropDown + " Amount: <input type='text' name='Foods[" + foodIndex + "].Amount' /></div>");
+                        foodIndex++;
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                });
+            */
+
             $("#FoodsContainer").
                 append("<div class='form-control-auto'>Food: <input type='text' name='Foods[" + foodIndex + "].FoodName' /> Amount: <input type='text' name='Foods[" + foodIndex + "].Amount' /></div>");
             foodIndex++;

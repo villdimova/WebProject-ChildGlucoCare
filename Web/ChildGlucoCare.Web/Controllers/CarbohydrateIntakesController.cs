@@ -19,7 +19,6 @@
             this.foodsService = foodsService;
         }
 
-
         public IActionResult AddNewCarbohydtrateIntake()
         {
             var viewModel = new AddNewCarbohydtrateIntakeViewModel();
@@ -63,6 +62,13 @@
                 AllBeu = this.carbohydrateIntakeService.GetAllBeu<BeuViewModel>()
             };
             return this.View(viewModel);
+        }
+
+        public JsonResult GetFoodNames()
+        {
+            var names = this.foodsService.GetNames();
+            
+            return Json (names);
         }
 
     }

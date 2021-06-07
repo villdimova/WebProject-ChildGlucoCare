@@ -8,15 +8,21 @@ namespace ChildGlucoCare.Web.Controllers
     public class SportActivitiesController : Controller
     {
         private readonly ISportActivityService sportActivityService;
+        private readonly ISportsService sportsService;
 
-        public SportActivitiesController(ISportActivityService sportActivityService)
+        public SportActivitiesController(
+                                                            ISportActivityService sportActivityService,
+                                                            ISportsService sportsService)
         {
             this.sportActivityService = sportActivityService;
+            this.sportsService = sportsService;
         }
 
         public IActionResult AddSportActivity()
         {
-            return this.View();
+            var viewModel = new AddSportActivityViewModel();
+            viewModel.SportNames = this.sportsService.GetAllNames();
+            return this.View(viewModel);
         }
 
         [HttpPost]

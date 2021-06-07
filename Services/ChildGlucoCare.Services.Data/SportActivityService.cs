@@ -23,7 +23,8 @@
 
         public async Task AddAsync(AddSportActivityViewModel sportActivityViewModel)
         {
-            var sport = this.sportsRepository.All().FirstOrDefault(s => s.SportName == sportActivityViewModel.SportName);
+            var sport = this.sportsRepository.All().FirstOrDefault(s => s.Id.ToString() == sportActivityViewModel.SportName);
+
 
             if (sport == null)
             {
@@ -32,7 +33,7 @@
 
             var sportActivity = new SportActivity
             {
-                SportName=sportActivityViewModel.SportName,
+                SportName=sport.SportName,
                 Duration=sportActivityViewModel.Duration,
                 Date=sportActivityViewModel.Date,
                 UserName=sportActivityViewModel.UserName,

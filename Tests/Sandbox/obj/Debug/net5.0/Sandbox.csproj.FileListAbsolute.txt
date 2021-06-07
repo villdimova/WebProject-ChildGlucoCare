@@ -76,3 +76,7 @@ C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\Sandbox\obj\Debug\net5.0\Sandbox.genruntimeconfig.cache
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\Sandbox\bin\Debug\net5.0\ChildGlucoCare.Web.ViewModels.dll
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\Sandbox\bin\Debug\net5.0\ChildGlucoCare.Web.ViewModels.pdb
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\Sandbox\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\Sandbox\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\Sandbox\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\Sandbox\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
