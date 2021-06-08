@@ -68,24 +68,28 @@
                 totalCarbs += (food.Amount * food.Food.CarbohydratePer100Grams) / 100;
 
             }
-
+            var insulinSensitivity = carbohydrateIntake.ApplicationUser.InsulinSensitivity;
             carbohydrateIntake.TotalBeu = Math.Round(totalCarbs / 12.0);
-            carbohydrateIntake.SuggestedDoseInsulin = this.CalculateProperInsulinDose(input, carbohydrateIntake.TotalBeu);
-
+            carbohydrateIntake.SuggestedDoseInsulin = this.CalculateProperInsulinDose(input, carbohydrateIntake.TotalBeu,insulinSensitivity);
 
             await this.carbsRepository.AddAsync(carbohydrateIntake);
             await this.carbsRepository.SaveChangesAsync();
         }
 
-        //TODO:When add user to finish insulin dose by adding correction dose insulin
-        public double CalculateProperInsulinDose(AddNewCarbohydtrateIntakeViewModel carbohydrateIntake, double totalBeu)
+        public double CalculateProperInsulinDose(AddNewCarbohydtrateIntakeViewModel carbohydrateIntake, double totalBeu, double insulinSensitivity)
         {
             var currentBloodGlucose = carbohydrateIntake.CurrentGlucoseLevel;
+            var correction = 0.0;
+            if (currentBloodGlucose > 7.5)
+            {
+                correction = (currentBloodGlucose - 6) / insulinSensitivity;
+            }
+
             var mealType = carbohydrateIntake.MealType;
             var tatalBeu = totalBeu;
             double neededInsulin = 0;
             double dayPartInsulinRatio = this.GetdayPartInsulinRatio(mealType);
-            neededInsulin = totalBeu * dayPartInsulinRatio;
+            neededInsulin = (totalBeu * dayPartInsulinRatio) + correction;
             return Math.Round(neededInsulin * 2, MidpointRounding.AwayFromZero) / 2;
         }
 

@@ -10,7 +10,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
-    public class CarbohydrateIntakesController : Controller
+    public class CarbohydrateIntakesController : BaseController
     {
         private readonly ICarbohydrateIntakeService carbohydrateIntakeService;
         private readonly IFoodsService foodsService;
@@ -33,7 +33,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> AddNewCarbohydtrateIntake(AddNewCarbohydtrateIntakeViewModel carbohydrateIntakeViewModel)
         {
             if (!this.ModelState.IsValid)

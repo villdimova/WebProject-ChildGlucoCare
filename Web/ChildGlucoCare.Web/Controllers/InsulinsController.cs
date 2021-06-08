@@ -1,10 +1,11 @@
 ﻿using ChildGlucoCare.Services.Data.Contracts;
 using ChildGlucoCare.Web.ViewModels.Insulins;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChildGlucoCare.Web.Controllers
 {
-    public class InsulinsController : Controller
+    public class InsulinsController : BaseController
     {
         private readonly IInsulinsService insulinsService;
 
@@ -13,6 +14,7 @@ namespace ChildGlucoCare.Web.Controllers
             this.insulinsService = insulinsService;
         }
 
+      
         public IActionResult InsulinProfile()
         {
             var viewModel = new AllInsulinsProfileViewModel

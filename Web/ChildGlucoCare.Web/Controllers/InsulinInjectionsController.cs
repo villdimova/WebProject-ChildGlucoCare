@@ -7,10 +7,11 @@
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Web.ViewModels.InsulinInjections;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
-    public class InsulinInjectionsController : Controller
+    public class InsulinInjectionsController : BaseController
     {
         private readonly IInsulinInjectionsService insulinInjectionService;
         private readonly UserManager<ApplicationUser> userManager;

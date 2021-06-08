@@ -1,14 +1,15 @@
 ﻿namespace ChildGlucoCare.Web.Controllers
 {
+    using System.Threading.Tasks;
+
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Web.ViewModels.BloodGlucoses;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using System.Threading.Tasks;
 
-    public class BloodGlucosesController : Controller
+    public class BloodGlucosesController : BaseController
     {
         private readonly IBloodGlucoseService bloodGlucoseService;
         private readonly UserManager<ApplicationUser> userManager;
@@ -21,13 +22,13 @@
         }
 
         // /BloodGlucoses/AddBloodGlucose
+
         public IActionResult AddBloodGlucose()
         {
             return this.View();
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> AddBloodGlucose(AddBloodGlucoseViewModel bloodGlucoseViewModel)
         {
             if (!this.ModelState.IsValid)
@@ -36,7 +37,6 @@
             }
 
             var user = await this.userManager.GetUserAsync(this.User);
-        
 
             await this.bloodGlucoseService.AddBloodGlucoseAsync(bloodGlucoseViewModel,user.Id);
 
@@ -48,23 +48,25 @@
             {
                 return this.RedirectToAction(nameof(this.AddedNormalBloodGlucose));
             }
-
             else
             {
                 return this.RedirectToAction(nameof(this.AddedHighBloodGlucose));
             }
         }
 
+        [Authorize]
         public IActionResult AddedLowBloodGlucose()
         {
             return this.View();
         }
 
+        [Authorize]
         public IActionResult AddedNormalBloodGlucose()
         {
             return this.View();
         }
 
+        [Authorize]
         public IActionResult AddedHighBloodGlucose()
         {
             var lastBloodGlucose = this.bloodGlucoseService.LastAddedBloodGlucose();

@@ -5,10 +5,11 @@
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Web.ViewModels.SportActivities;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
-    public class SportActivitiesController : Controller
+    public class SportActivitiesController : BaseController
     {
         private readonly ISportActivityService sportActivityService;
         private readonly ISportsService sportsService;

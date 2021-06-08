@@ -5,9 +5,10 @@
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Data.Models;
     using ChildGlucoCare.Web.ViewModels.Foods;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
-    public class FoodsController : Controller
+    public class FoodsController : BaseController
     {
         private readonly IFoodsService foodsService;
 
