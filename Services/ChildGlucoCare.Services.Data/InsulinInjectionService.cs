@@ -1,27 +1,33 @@
-﻿using ChildGlucoCare.Data.Common.Repositories;
-using ChildGlucoCare.Data.Models;
-using ChildGlucoCare.Web.ViewModels.InsulinInjections;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ChildGlucoCare.Services.Data
+﻿namespace ChildGlucoCare.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using ChildGlucoCare.Data.Common.Repositories;
+    using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Services.Data.Contracts;
+    using ChildGlucoCare.Web.ViewModels.InsulinInjections;
+
     public class InsulinInjectionService : IInsulinInjectionsService
     {
         private readonly IDeletableEntityRepository<InsulinInjection> injectionRepository;
         private readonly IDeletableEntityRepository<Insulin> insulinsRepository;
+        private readonly IUsersService userService;
 
-        public InsulinInjectionService(IDeletableEntityRepository<InsulinInjection> injectionRepository,
-                                                        IDeletableEntityRepository<Insulin> insulinsRepository)
+        public InsulinInjectionService(
+                                                        IDeletableEntityRepository<InsulinInjection> injectionRepository,
+                                                        IDeletableEntityRepository<Insulin> insulinsRepository,
+                                                        IUsersService userService)
         {
             this.injectionRepository = injectionRepository;
             this.insulinsRepository = insulinsRepository;
+            this.userService = userService;
         }
 
-        public async Task AddAsync(AddNewInsulinInjectionViewModel input)
+        public async Task AddAsync(AddNewInsulinInjectionViewModel input,string userId)
         {
             var injectedInulin = this.insulinsRepository.All().FirstOrDefault(i => i.Name == input.InsulinName);
 
@@ -36,7 +42,7 @@ namespace ChildGlucoCare.Services.Data
                 Insulin = injectedInulin,
                 InsulinDose = input.InsulinDose,
                 IsItForMeal = input.IsItForMeal,
-                UserName = input.UserName,
+                ApplicationUser=await this.userService.GetUserByIdAsync(userId),
             };
 
             await this.injectionRepository.AddAsync(insulinInjection);

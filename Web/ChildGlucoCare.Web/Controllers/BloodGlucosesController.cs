@@ -1,17 +1,23 @@
 ﻿namespace ChildGlucoCare.Web.Controllers
 {
-    using ChildGlucoCare.Services.Data;
+    using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Web.ViewModels.BloodGlucoses;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
 
     public class BloodGlucosesController : Controller
     {
         private readonly IBloodGlucoseService bloodGlucoseService;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public BloodGlucosesController(IBloodGlucoseService bloodGlucoseService)
+        public BloodGlucosesController(IBloodGlucoseService bloodGlucoseService
+                                                            ,UserManager<ApplicationUser> userManager)
         {
             this.bloodGlucoseService = bloodGlucoseService;
+            this.userManager = userManager;
         }
 
         // /BloodGlucoses/AddBloodGlucose
@@ -21,6 +27,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddBloodGlucose(AddBloodGlucoseViewModel bloodGlucoseViewModel)
         {
             if (!this.ModelState.IsValid)
@@ -28,7 +35,10 @@
                 return this.View();
             }
 
-            await this.bloodGlucoseService.AddBloodGlucoseAsync(bloodGlucoseViewModel);
+            var user = await this.userManager.GetUserAsync(this.User);
+        
+
+            await this.bloodGlucoseService.AddBloodGlucoseAsync(bloodGlucoseViewModel,user.Id);
 
             if (bloodGlucoseViewModel.CurrentGlucoseLevel <= 4)
             {

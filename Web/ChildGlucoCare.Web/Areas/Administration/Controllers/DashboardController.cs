@@ -1,6 +1,7 @@
 ﻿namespace ChildGlucoCare.Web.Areas.Administration.Controllers
 {
     using ChildGlucoCare.Services.Data;
+    using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Web.ViewModels.Administration.Dashboard;
 
     using Microsoft.AspNetCore.Mvc;

@@ -12,6 +12,7 @@
     using ChildGlucoCare.Data.Repositories;
     using ChildGlucoCare.Data.Seeding;
     using ChildGlucoCare.Services.Data;
+    using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Messaging;
 
     using CommandLine;

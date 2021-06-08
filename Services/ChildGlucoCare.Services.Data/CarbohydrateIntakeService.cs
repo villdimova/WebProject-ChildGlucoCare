@@ -8,8 +8,10 @@
     using ChildGlucoCare.Data.Common.Repositories;
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Data.Models.Enums;
+    using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Mapping;
     using ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
 
     public class CarbohydrateIntakeService : ICarbohydrateIntakeService
@@ -18,24 +20,27 @@
         private readonly IDeletableEntityRepository<CarbohydrateIntake> carbsRepository;
         private readonly IDeletableEntityRepository<Food> foodsRepository;
         private readonly IDeletableEntityRepository<FoodIntake> foodIntakesRepository;
+        private readonly IUsersService usersService;
 
         public CarbohydrateIntakeService(
                                                                 IDeletableEntityRepository<CarbohydrateIntake> carbsRepository
                                                                , IDeletableEntityRepository<Food> foodsRepository
-                                                                , IDeletableEntityRepository<FoodIntake> foodIntakesRepository)
+                                                                , IDeletableEntityRepository<FoodIntake> foodIntakesRepository
+                                                                , IUsersService usersService)
         {
             this.carbsRepository = carbsRepository;
             this.foodsRepository = foodsRepository;
             this.foodIntakesRepository = foodIntakesRepository;
+            this.usersService = usersService;
         }
 
-        public async Task AddCarbohydrateIntakeAsync(AddNewCarbohydtrateIntakeViewModel input)
+        public async Task AddCarbohydrateIntakeAsync(AddNewCarbohydtrateIntakeViewModel input, string userId)
         {
             var carbohydrateIntake = new CarbohydrateIntake
             {
-                UserName = input.AddedByUser,
                 Date = input.Date,
                 MealType = input.MealType,
+                ApplicationUser = await this.usersService.GetUserByIdAsync(userId),
             };
 
             foreach (var foodIntake in input.Foods)

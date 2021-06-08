@@ -15,9 +15,9 @@
         [Display(Name = "Current Glucose Level")]
         public double CurrentGlucoseLevel { get; set; }
 
-        [DateValidation(2020)]
+        [Required]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: yyyy-MM-dd}")]
         public DateTime Date { get; set; }
-
 
         [Required]
         [Range(1.0, 30.0)]

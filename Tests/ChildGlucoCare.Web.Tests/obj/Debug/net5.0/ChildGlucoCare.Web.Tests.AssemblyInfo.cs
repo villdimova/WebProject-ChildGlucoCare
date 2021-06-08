@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("ChildGlucoCare.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\Ch" +
     "ildGlucoCare.Data", "ChildGlucoCare.Data.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("ChildGlucoCare.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Web\\Chi" +
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("ChildGlucoCare.Web", "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Web\\Chi" +
     "ldGlucoCare.Web", "ChildGlucoCare.Web.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChildGlucoCare.Web.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]

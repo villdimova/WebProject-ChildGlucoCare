@@ -9,6 +9,7 @@
     using ChildGlucoCare.Data.Repositories;
     using ChildGlucoCare.Data.Seeding;
     using ChildGlucoCare.Services.Data;
+    using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Mapping;
     using ChildGlucoCare.Services.Messaging;
     using ChildGlucoCare.Web.ViewModels;
@@ -72,6 +73,7 @@
             services.AddTransient<ISportActivityService, SportActivityService>();
             services.AddTransient<IBloodGlucoseService, BloodGlucoseService>();
             services.AddTransient<ISportsService, SportsService>();
+            services.AddTransient<IUsersService, UsersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

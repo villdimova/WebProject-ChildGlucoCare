@@ -6,23 +6,28 @@
     using ChildGlucoCare.Data.Common.Repositories;
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Data.Models.Enums;
+    using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Web.ViewModels.BloodGlucoses;
 
     public class BloodGlucoseService : IBloodGlucoseService
     {
         private readonly IDeletableEntityRepository<BloodGlucose> bloodGlucoseRepository;
+        private readonly IUsersService userService;
 
-        public BloodGlucoseService(IDeletableEntityRepository<BloodGlucose> bloodGlucoseRepository)
+        public BloodGlucoseService(IDeletableEntityRepository<BloodGlucose> bloodGlucoseRepository
+                                                      ,IUsersService userService)
         {
             this.bloodGlucoseRepository = bloodGlucoseRepository;
+            this.userService = userService;
         }
 
-        public async Task AddBloodGlucoseAsync(AddBloodGlucoseViewModel bloodGlucoseViewModel)
+        public async Task AddBloodGlucoseAsync(AddBloodGlucoseViewModel bloodGlucoseViewModel,string userId)
         {
             var bloodGlucose = new BloodGlucose
             {
                 CurrentGlucoseLevel = bloodGlucoseViewModel.CurrentGlucoseLevel,
                 Date = bloodGlucoseViewModel.Date,
+                ApplicationUser = await this.userService.GetUserByIdAsync(userId),
 
             };
 

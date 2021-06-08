@@ -9,14 +9,9 @@
     <h1>@this.ViewData["Title"]</h1>
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
-        <label asp-for="Date" class="col-md-6 control-label"></label>
-        <input asp-for="Date" class="form-control" />
+        <label asp-for="Date" class="col-md-6 control-label" ></label>
+        <input asp-for="Date" class="form-control" value="@DateTime.UtcNow/>
         <span asp-validation-for="Date" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="AddedByUser" class="col-md-6 control-label"></label>
-        <input asp-for="AddedByUser" class="form-control" />
-        <span asp-validation-for="AddedByUser" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="MealType" class="col-md-6 control-label"></label>

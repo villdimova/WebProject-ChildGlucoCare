@@ -7,6 +7,7 @@
 
     using ChildGlucoCare.Data.Common.Repositories;
     using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Mapping;
 
     public class InsulinsService : IInsulinsService

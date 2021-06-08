@@ -42,8 +42,7 @@
 
         public DbSet<BloodGlucose> BloodGlucoses { get; set; }
 
-        public DbSet<UserDashboard> UserDashboards { get; set; }
-
+   
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

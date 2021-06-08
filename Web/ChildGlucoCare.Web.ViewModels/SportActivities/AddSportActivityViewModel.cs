@@ -22,6 +22,7 @@
         public int Duration { get; set; }
 
         [Required]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: yyyy-MM-dd}")]
         public DateTime Date { get; set; }
 
         //[Required]

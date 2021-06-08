@@ -13,15 +13,13 @@
 
         public DateTime Date { get; set; }
 
-        public string UserName { get; set; }
-
         public Sport Sport { get; set; }
 
         public int SportId { get; set; }
 
-   //     public int UserDashboardId { get; set; }
+        public string ApplicationUserId { get; set; }
 
-  //      public virtual UserDashboard UserDashboard { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
     }
 }

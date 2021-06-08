@@ -15,9 +15,9 @@
 
         public double SuggestedCorrectionDoseInsulin { get; set; }
 
-        //   public int UserDashboardId { get; set; }
+        public string ApplicationUserId { get; set; }
 
-        //    public virtual UserDashboard UserDashboard{ get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
     }
 }

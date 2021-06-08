@@ -13,6 +13,7 @@
         public double InsulinDose { get; set; }
 
         [Required]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: yyyy-MM-dd}")]
         public DateTime Date { get; set; }
 
         [Required]
@@ -23,11 +24,6 @@
         [Display(Name = "Insulin")]
         public string InsulinName { get; set; }
 
-        //[Required]
-        //[MinLength(2)]
-        //[MaxLength(15)]
-        //[RegularExpression("^[A-Z]{1}[a-z0-9]+$")]
-        public string UserName { get; set; }
-
+        
     }
 }

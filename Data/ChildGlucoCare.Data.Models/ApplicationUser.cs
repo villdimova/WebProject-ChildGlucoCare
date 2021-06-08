@@ -3,7 +3,7 @@ namespace ChildGlucoCare.Data.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
+
     using ChildGlucoCare.Data.Common.Models;
 
     using Microsoft.AspNetCore.Identity;
@@ -16,6 +16,10 @@ namespace ChildGlucoCare.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.BloodGlucoses = new HashSet<BloodGlucose>();
+            this.SportActivities = new HashSet<SportActivity>();
+            this.InsulinInjections = new HashSet<InsulinInjection>();
+            this.GetCarbohydrateIntakes = new HashSet<CarbohydrateIntake>();
         }
 
         // Audit info
@@ -36,15 +40,18 @@ namespace ChildGlucoCare.Data.Models
 
         public double InsulinSensitivity { get; set; }
 
-    //    [ForeignKey(nameof(UserDashboard))]
-    //    public int UserDashboardId { get; set; }
-
-      //  public UserDashboard UserDashboard { get; set; }
-
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
 
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        public virtual ICollection<BloodGlucose> BloodGlucoses { get; set; }
+
+        public virtual ICollection<SportActivity> SportActivities { get; set; }
+
+        public virtual ICollection<InsulinInjection> InsulinInjections { get; set; }
+
+        public virtual ICollection<CarbohydrateIntake> GetCarbohydrateIntakes { get; set; }
     }
 }

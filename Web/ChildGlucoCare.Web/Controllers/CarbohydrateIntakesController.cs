@@ -3,20 +3,26 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using ChildGlucoCare.Data.Models;
-    using ChildGlucoCare.Services.Data;
+    using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Data.Models;
     using ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
     public class CarbohydrateIntakesController : Controller
     {
         private readonly ICarbohydrateIntakeService carbohydrateIntakeService;
         private readonly IFoodsService foodsService;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public CarbohydrateIntakesController(ICarbohydrateIntakeService carbohydrateIntakeService, IFoodsService foodsService)
+        public CarbohydrateIntakesController(ICarbohydrateIntakeService carbohydrateIntakeService
+                                                                        , IFoodsService foodsService
+                                                                         , UserManager<ApplicationUser> userManager)
         {
             this.carbohydrateIntakeService = carbohydrateIntakeService;
             this.foodsService = foodsService;
+            this.userManager = userManager;
         }
 
         public IActionResult AddNewCarbohydtrateIntake()
@@ -27,6 +33,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddNewCarbohydtrateIntake(AddNewCarbohydtrateIntakeViewModel carbohydrateIntakeViewModel)
         {
             if (!this.ModelState.IsValid)
@@ -34,7 +41,9 @@
                 return this.View();
             }
 
-            await this.carbohydrateIntakeService.AddCarbohydrateIntakeAsync(carbohydrateIntakeViewModel);
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            await this.carbohydrateIntakeService.AddCarbohydrateIntakeAsync(carbohydrateIntakeViewModel,user.Id);
             return this.RedirectToAction(nameof(this.SuccessfullyAdded));
 
         }
@@ -46,7 +55,6 @@
             var viewModel = new SuccessfullyAddedViewModel
             {
                 Date = lastCarbs.Date,
-                UserName = lastCarbs.UserName,
                 MealType = lastCarbs.MealType,
                 TotalBeu = lastCarbs.TotalBeu,
                 SuggestedDoseInsulin=lastCarbs.SuggestedDoseInsulin,

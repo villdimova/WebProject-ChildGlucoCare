@@ -2,7 +2,7 @@
 {
     using System.Threading.Tasks;
 
-    using ChildGlucoCare.Services.Data;
+    using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Data.Models;
     using ChildGlucoCare.Web.ViewModels.Foods;
     using Microsoft.AspNetCore.Mvc;

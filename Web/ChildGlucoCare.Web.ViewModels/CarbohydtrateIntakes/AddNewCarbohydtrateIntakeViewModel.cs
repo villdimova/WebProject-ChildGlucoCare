@@ -17,15 +17,9 @@
             this.FoodNames = new List<SelectListItem>();
         }
 
-        [Required]
         [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: yyyy-MM-dd}")]
         public DateTime Date { get; set; }
-
-        //[Required]
-        //[MinLength(2)]
-        //[MaxLength(15)]
-        //[RegularExpression("^[A-Z]{1}[a-z0-9]+$")]
-        public string AddedByUser { get; set; }
 
         [Required]
         [EnumDataType(typeof(MealType))]
