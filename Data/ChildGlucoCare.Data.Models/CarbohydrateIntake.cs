@@ -6,7 +6,7 @@
     using ChildGlucoCare.Data.Common.Models;
     using ChildGlucoCare.Data.Models.Enums;
 
-    public class CarbohydrateIntake: BaseDeletableModel<int>
+    public class CarbohydrateIntake : BaseDeletableModel<int>
     {
         public CarbohydrateIntake()
         {

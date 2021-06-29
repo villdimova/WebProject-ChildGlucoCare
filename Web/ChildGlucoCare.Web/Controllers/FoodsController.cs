@@ -4,8 +4,6 @@
 
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Data.Models;
-    using ChildGlucoCare.Web.ViewModels.Foods;
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
     public class FoodsController : BaseController
@@ -19,7 +17,6 @@
 
         public IActionResult Create()
         {
-
             return this.View();
         }
 
@@ -32,9 +29,7 @@
             }
 
             await this.foodsService.CreateAsync(foodsDto);
- 
             return this.Redirect("/");
-
         }
     }
 }

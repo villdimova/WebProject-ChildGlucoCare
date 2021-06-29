@@ -6,6 +6,6 @@
 
     public interface ISportActivityService
     {
-        Task AddAsync(AddSportActivityViewModel sportActivityViewModel,string userId);
+        Task AddAsync(AddSportActivityViewModel sportActivityViewModel, string userId);
     }
 }

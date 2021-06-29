@@ -27,8 +27,11 @@
 
         public IActionResult AddSportActivity()
         {
-            var viewModel = new AddSportActivityViewModel();
-            viewModel.SportNames = this.sportsService.GetAllNames();
+            var viewModel = new AddSportActivityViewModel
+            {
+                SportNames = this.sportsService.GetAllNames(),
+            };
+
             return this.View(viewModel);
         }
 
@@ -41,7 +44,7 @@
             }
 
             var user = await this.userManager.GetUserAsync(this.User);
-            await this.sportActivityService.AddAsync(sportActivityViewModel,user.Id);
+            await this.sportActivityService.AddAsync(sportActivityViewModel, user.Id);
             return this.Redirect("/");
         }
     }

@@ -2,6 +2,7 @@
 {
     using System.Diagnostics;
     using System.Threading.Tasks;
+
     using ChildGlucoCare.Data.Common.Repositories;
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Web.ViewModels;
@@ -11,19 +12,15 @@
     public class HomeController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
-        private readonly IDeletableEntityRepository<Food> foodsRepository;
 
         public HomeController(
-                                                UserManager<ApplicationUser> userManager,
-                                                IDeletableEntityRepository<Food> foodsRepository)
+                                                UserManager<ApplicationUser> userManager)
         {
             this.userManager = userManager;
-            this.foodsRepository = foodsRepository;
         }
 
         public IActionResult Index()
         {
-
             return this.View();
         }
 
@@ -41,7 +38,7 @@
 
         public async Task<IActionResult> WhoAmI()
         {
-           var user=  await this.userManager.GetUserAsync(this.User);
+            var user = await this.userManager.GetUserAsync(this.User);
             return this.Json(user);
         }
     }

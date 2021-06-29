@@ -6,7 +6,7 @@
     using ChildGlucoCare.Data.Models.Enums;
     using ChildGlucoCare.Services.Mapping;
 
-   public class BeuViewModel: IMapFrom<CarbohydrateIntake>
+    public class BeuViewModel : IMapFrom<CarbohydrateIntake>
     {
         public MealType MealType { get; set; }
 
@@ -15,6 +15,5 @@
         public DateTime Date { get; set; }
 
         public double? TotalBeu { get; set; }
-
     }
 }

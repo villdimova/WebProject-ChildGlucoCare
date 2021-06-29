@@ -5,7 +5,7 @@
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Mapping;
 
-    public class SuggestedInsulinCorrectionViewModel: IMapFrom<BloodGlucose>
+    public class SuggestedInsulinCorrectionViewModel : IMapFrom<BloodGlucose>
     {
         public double CurrentGlucoseLevel { get; set; }
 

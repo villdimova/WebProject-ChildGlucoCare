@@ -4,7 +4,6 @@
 
     public class FoodsDto
     {
-
         public string Name { get; set; }
 
         public int GramsPerBreadUnit { get; set; }
@@ -20,6 +19,5 @@
         public int? CarbohydrateIntakeId { get; set; }
 
         public FoodType FoodType { get; set; }
-
     }
 }

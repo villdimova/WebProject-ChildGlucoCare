@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Data.Models;
@@ -16,9 +17,10 @@
         private readonly IFoodsService foodsService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public CarbohydrateIntakesController(ICarbohydrateIntakeService carbohydrateIntakeService
-                                                                        , IFoodsService foodsService
-                                                                         , UserManager<ApplicationUser> userManager)
+        public CarbohydrateIntakesController(
+                                                                        ICarbohydrateIntakeService carbohydrateIntakeService,
+                                                                        IFoodsService foodsService,
+                                                                        UserManager<ApplicationUser> userManager)
         {
             this.carbohydrateIntakeService = carbohydrateIntakeService;
             this.foodsService = foodsService;
@@ -27,8 +29,11 @@
 
         public IActionResult AddNewCarbohydtrateIntake()
         {
-            var viewModel = new AddNewCarbohydtrateIntakeViewModel();
-            viewModel.FoodNames = this.foodsService.GetAllNames();
+            var viewModel = new AddNewCarbohydtrateIntakeViewModel
+            {
+                FoodNames = this.foodsService.GetAllNames(),
+            };
+
             return this.View(viewModel);
         }
 
@@ -42,9 +47,8 @@
 
             var user = await this.userManager.GetUserAsync(this.User);
 
-            await this.carbohydrateIntakeService.AddCarbohydrateIntakeAsync(carbohydrateIntakeViewModel,user.Id);
+            await this.carbohydrateIntakeService.AddCarbohydrateIntakeAsync(carbohydrateIntakeViewModel, user.Id);
             return this.RedirectToAction(nameof(this.SuccessfullyAdded));
-
         }
 
         public IActionResult SuccessfullyAdded()
@@ -56,9 +60,9 @@
                 Date = lastCarbs.Date,
                 MealType = lastCarbs.MealType,
                 TotalBeu = lastCarbs.TotalBeu,
-                SuggestedDoseInsulin=lastCarbs.SuggestedDoseInsulin,
-
+                SuggestedDoseInsulin = lastCarbs.SuggestedDoseInsulin,
             };
+
             return this.View(viewModel);
         }
 
@@ -66,7 +70,7 @@
         {
             var viewModel = new AllEatenBeuViewModel
             {
-                AllBeu = this.carbohydrateIntakeService.GetAllBeu<BeuViewModel>()
+                AllBeu = this.carbohydrateIntakeService.GetAllBeu<BeuViewModel>(),
             };
             return this.View(viewModel);
         }
@@ -74,9 +78,8 @@
         public JsonResult GetFoodNames()
         {
             var names = this.foodsService.GetNames();
-            
-            return Json (names);
-        }
 
+            return this.Json(names);
+        }
     }
 }

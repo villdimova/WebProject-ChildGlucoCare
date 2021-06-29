@@ -1,9 +1,7 @@
 ﻿namespace ChildGlucoCare.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Web.ViewModels.InsulinInjections;
@@ -18,7 +16,7 @@
 
         public InsulinInjectionsController(
                                                               IInsulinInjectionsService insulinInjectionService,
-                                                              UserManager<ApplicationUser>userManager)
+                                                              UserManager<ApplicationUser> userManager)
         {
             this.insulinInjectionService = insulinInjectionService;
             this.userManager = userManager;
@@ -39,9 +37,8 @@
 
             var user = await this.userManager.GetUserAsync(this.User);
 
-            await this.insulinInjectionService.AddAsync(injectionViewModel,user.Id);
+            await this.insulinInjectionService.AddAsync(injectionViewModel, user.Id);
             return this.Redirect("/");
-
         }
     }
 }

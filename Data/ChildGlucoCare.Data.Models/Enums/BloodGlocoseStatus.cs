@@ -1,5 +1,5 @@
 ﻿namespace ChildGlucoCare.Data.Models.Enums
-{ 
+{
     public enum BloodGlocoseStatus
     {
         None = 0,

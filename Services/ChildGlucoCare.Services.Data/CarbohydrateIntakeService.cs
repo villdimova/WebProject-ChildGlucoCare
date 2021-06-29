@@ -11,22 +11,19 @@
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Mapping;
     using ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.EntityFrameworkCore;
 
     public class CarbohydrateIntakeService : ICarbohydrateIntakeService
     {
-
         private readonly IDeletableEntityRepository<CarbohydrateIntake> carbsRepository;
         private readonly IDeletableEntityRepository<Food> foodsRepository;
         private readonly IDeletableEntityRepository<FoodIntake> foodIntakesRepository;
         private readonly IUsersService usersService;
 
         public CarbohydrateIntakeService(
-                                                                IDeletableEntityRepository<CarbohydrateIntake> carbsRepository
-                                                               , IDeletableEntityRepository<Food> foodsRepository
-                                                                , IDeletableEntityRepository<FoodIntake> foodIntakesRepository
-                                                                , IUsersService usersService)
+                                                                IDeletableEntityRepository<CarbohydrateIntake> carbsRepository,
+                                                                IDeletableEntityRepository<Food> foodsRepository,
+                                                                IDeletableEntityRepository<FoodIntake> foodIntakesRepository,
+                                                                IUsersService usersService)
         {
             this.carbsRepository = carbsRepository;
             this.foodsRepository = foodsRepository;
@@ -58,7 +55,6 @@
                     Amount = foodIntake.Amount,
                     CarbohydrateIntake = carbohydrateIntake,
                 });
-
             }
 
             var totalCarbs = 0;
@@ -66,11 +62,11 @@
             foreach (var food in carbohydrateIntake.Foods)
             {
                 totalCarbs += (food.Amount * food.Food.CarbohydratePer100Grams) / 100;
-
             }
+
             var insulinSensitivity = carbohydrateIntake.ApplicationUser.InsulinSensitivity;
             carbohydrateIntake.TotalBeu = Math.Round(totalCarbs / 12.0);
-            carbohydrateIntake.SuggestedDoseInsulin = this.CalculateProperInsulinDose(input, carbohydrateIntake.TotalBeu,insulinSensitivity);
+            carbohydrateIntake.SuggestedDoseInsulin = this.CalculateProperInsulinDose(input, carbohydrateIntake.TotalBeu, insulinSensitivity);
 
             await this.carbsRepository.AddAsync(carbohydrateIntake);
             await this.carbsRepository.SaveChangesAsync();
@@ -86,10 +82,8 @@
             }
 
             var mealType = carbohydrateIntake.MealType;
-            var tatalBeu = totalBeu;
-            double neededInsulin = 0;
             double dayPartInsulinRatio = this.GetdayPartInsulinRatio(mealType);
-            neededInsulin = (totalBeu * dayPartInsulinRatio) + correction;
+            var neededInsulin = (totalBeu * dayPartInsulinRatio) + correction;
             return Math.Round(neededInsulin * 2, MidpointRounding.AwayFromZero) / 2;
         }
 

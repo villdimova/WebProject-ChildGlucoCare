@@ -1,9 +1,8 @@
 ﻿namespace ChildGlucoCare.Web.ViewModels.Settings
 {
+    using AutoMapper;
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Mapping;
-
-    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {

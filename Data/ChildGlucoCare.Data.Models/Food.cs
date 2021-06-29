@@ -6,7 +6,7 @@
     using ChildGlucoCare.Data.Common.Models;
     using ChildGlucoCare.Data.Models.Enums;
 
-    public class Food: BaseDeletableModel<int>
+    public class Food : BaseDeletableModel<int>
     {
         public Food()
         {
@@ -32,6 +32,5 @@
         public ICollection<FoodIntake> FoodIntakes { get; set; }
 
         public FoodType FoodType { get; set; }
-
     }
 }

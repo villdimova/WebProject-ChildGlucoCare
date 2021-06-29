@@ -5,7 +5,7 @@
     using ChildGlucoCare.Data.Common.Models;
     using ChildGlucoCare.Data.Models.Enums;
 
-    public class BloodGlucose: BaseDeletableModel<int>
+    public class BloodGlucose : BaseDeletableModel<int>
     {
         public double CurrentGlucoseLevel { get; set; }
 
@@ -18,6 +18,5 @@
         public string ApplicationUserId { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
-
     }
 }

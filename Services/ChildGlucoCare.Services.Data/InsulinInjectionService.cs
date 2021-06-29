@@ -27,7 +27,7 @@
             this.userService = userService;
         }
 
-        public async Task AddAsync(AddNewInsulinInjectionViewModel input,string userId)
+        public async Task AddAsync(AddNewInsulinInjectionViewModel input, string userId)
         {
             var injectedInulin = this.insulinsRepository.All().FirstOrDefault(i => i.Name == input.InsulinName);
 
@@ -42,7 +42,7 @@
                 Insulin = injectedInulin,
                 InsulinDose = input.InsulinDose,
                 IsItForMeal = input.IsItForMeal,
-                ApplicationUser=await this.userService.GetUserByIdAsync(userId),
+                ApplicationUser = await this.userService.GetUserByIdAsync(userId),
             };
 
             await this.injectionRepository.AddAsync(insulinInjection);

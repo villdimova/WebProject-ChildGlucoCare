@@ -1,9 +1,10 @@
 ﻿namespace ChildGlucoCare.Data.Models
 {
-    using ChildGlucoCare.Data.Common.Models;
     using System;
 
-    public class SportActivity:BaseDeletableModel<int>
+    using ChildGlucoCare.Data.Common.Models;
+
+    public class SportActivity : BaseDeletableModel<int>
     {
         public string SportName { get; set; }
 
@@ -20,6 +21,5 @@
         public string ApplicationUserId { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
-
     }
 }

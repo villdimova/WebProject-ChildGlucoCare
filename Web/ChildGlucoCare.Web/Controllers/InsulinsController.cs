@@ -1,10 +1,10 @@
-﻿using ChildGlucoCare.Services.Data.Contracts;
-using ChildGlucoCare.Web.ViewModels.Insulins;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-
-namespace ChildGlucoCare.Web.Controllers
+﻿namespace ChildGlucoCare.Web.Controllers
 {
+    using ChildGlucoCare.Services.Data.Contracts;
+    using ChildGlucoCare.Web.ViewModels.Insulins;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+
     public class InsulinsController : BaseController
     {
         private readonly IInsulinsService insulinsService;
@@ -14,15 +14,13 @@ namespace ChildGlucoCare.Web.Controllers
             this.insulinsService = insulinsService;
         }
 
-      
         public IActionResult InsulinProfile()
         {
             var viewModel = new AllInsulinsProfileViewModel
             {
-                Insulins = this.insulinsService.GetAll<InsulinProfileViewModel>()
+                Insulins = this.insulinsService.GetAll<InsulinProfileViewModel>(),
             };
             return this.View(viewModel);
         }
-
     }
 }

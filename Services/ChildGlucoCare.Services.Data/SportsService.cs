@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+
     using ChildGlucoCare.Data.Common.Repositories;
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
@@ -20,12 +21,11 @@
         {
             var sportsNames = this.sportsRepository.AllAsNoTracking().Select(x => new SelectListItem
             {
-
                 Value = x.Id.ToString(),
                 Text = x.SportName,
             });
 
-            return sportsNames.OrderBy(x=>x.Text).ToList();
+            return sportsNames.OrderBy(x => x.Text).ToList();
         }
     }
 }

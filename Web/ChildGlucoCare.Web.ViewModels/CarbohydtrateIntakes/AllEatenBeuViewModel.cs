@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes
+﻿namespace ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes
 {
+    using System.Collections.Generic;
+
     public class AllEatenBeuViewModel
     {
         public AllEatenBeuViewModel()

@@ -6,6 +6,6 @@
 
     public interface IInsulinInjectionsService
     {
-        Task AddAsync(AddNewInsulinInjectionViewModel insulinInjectionViewModel,string userId);
+        Task AddAsync(AddNewInsulinInjectionViewModel insulinInjectionViewModel, string userId);
     }
 }

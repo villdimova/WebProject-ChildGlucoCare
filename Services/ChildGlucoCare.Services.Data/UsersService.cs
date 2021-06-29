@@ -1,12 +1,12 @@
-﻿using ChildGlucoCare.Data.Common.Repositories;
-using ChildGlucoCare.Data.Models;
-using ChildGlucoCare.Services.Data.Contracts;
-using Microsoft.EntityFrameworkCore;
-
-using System.Threading.Tasks;
-
-namespace ChildGlucoCare.Services.Data
+﻿namespace ChildGlucoCare.Services.Data
 {
+    using System.Threading.Tasks;
+
+    using ChildGlucoCare.Data.Common.Repositories;
+    using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Services.Data.Contracts;
+    using Microsoft.EntityFrameworkCore;
+
     public class UsersService : IUsersService
     {
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;

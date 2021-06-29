@@ -5,7 +5,7 @@
 
     using ChildGlucoCare.Data.Models.Enums;
 
-  public class CreateFoodInputModel
+    public class CreateFoodInputModel
     {
         [Required]
         [MinLength(3)]
@@ -17,7 +17,7 @@
         [Display(Name = "Grams Per One Bread Unit")]
         public int GramsPerBreadUnit { get; set; }
 
-        [Range(0,100)]
+        [Range(0, 100)]
         [Required]
         [Display(Name = "Glycemic Index")]
         public int GlycemicIndex { get; set; }
@@ -43,6 +43,5 @@
         [EnumDataType(typeof(FoodType))]
         [Display(Name = "Food Category")]
         public FoodType FoodType { get; set; }
-
     }
 }

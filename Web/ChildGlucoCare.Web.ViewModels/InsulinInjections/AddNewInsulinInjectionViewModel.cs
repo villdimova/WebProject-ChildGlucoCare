@@ -3,8 +3,6 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    using ChildGlucoCare.Data.Models;
-
     public class AddNewInsulinInjectionViewModel
     {
         [Required]
@@ -23,7 +21,5 @@
         [Required]
         [Display(Name = "Insulin")]
         public string InsulinName { get; set; }
-
-        
     }
 }

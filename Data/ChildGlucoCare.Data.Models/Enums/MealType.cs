@@ -1,5 +1,4 @@
-﻿
-namespace ChildGlucoCare.Data.Models.Enums
+﻿namespace ChildGlucoCare.Data.Models.Enums
 {
     public enum MealType
     {

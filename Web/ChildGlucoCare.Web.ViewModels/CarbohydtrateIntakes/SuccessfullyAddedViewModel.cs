@@ -17,6 +17,5 @@
         public double TotalBeu { get; set; }
 
         public double SuggestedDoseInsulin { get; set; }
-
     }
 }

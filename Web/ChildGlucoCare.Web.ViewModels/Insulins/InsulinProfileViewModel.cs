@@ -1,10 +1,9 @@
-﻿using AutoMapper;
-using ChildGlucoCare.Data.Models;
-using ChildGlucoCare.Data.Models.Enums;
-using ChildGlucoCare.Services.Mapping;
-
-namespace ChildGlucoCare.Web.ViewModels.Insulins
+﻿namespace ChildGlucoCare.Web.ViewModels.Insulins
 {
+    using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Data.Models.Enums;
+    using ChildGlucoCare.Services.Mapping;
+
     public class InsulinProfileViewModel : IMapFrom<Insulin>
     {
         public InsulinType InsulinType { get; set; }
@@ -18,7 +17,5 @@ namespace ChildGlucoCare.Web.ViewModels.Insulins
         public string Peak { get; set; }
 
         public string Duration { get; set; }
-
-        
     }
 }

@@ -18,6 +18,7 @@
         {
             this.insulinsRepository = insulinsRepository;
         }
+
         public IEnumerable<T> GetAll<T>()
         {
             var insulins = this.insulinsRepository.AllAsNoTracking()

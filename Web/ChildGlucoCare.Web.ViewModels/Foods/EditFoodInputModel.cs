@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChildGlucoCare.Web.ViewModels.Foods
+﻿namespace ChildGlucoCare.Web.ViewModels.Foods
 {
-  public  class EditFoodInputModel
+  public class EditFoodInputModel
     {
     }
 }

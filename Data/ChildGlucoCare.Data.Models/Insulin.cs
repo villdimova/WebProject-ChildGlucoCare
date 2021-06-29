@@ -28,6 +28,5 @@
         public string Duration { get; set; }
 
         public ICollection<InsulinInjection> InsulinInjections { get; set; }
-
     }
 }

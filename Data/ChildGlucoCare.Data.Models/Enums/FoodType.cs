@@ -1,5 +1,5 @@
 ﻿namespace ChildGlucoCare.Data.Models.Enums
-{ 
+{
     public enum FoodType
     {
         None = 0,
@@ -11,6 +11,5 @@
         Vegetables = 6,
         Fruits = 7,
         QuickSugarFood = 8,
-
     }
 }

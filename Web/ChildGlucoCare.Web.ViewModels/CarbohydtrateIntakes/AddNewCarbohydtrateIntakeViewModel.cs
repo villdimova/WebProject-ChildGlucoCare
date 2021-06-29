@@ -6,7 +6,6 @@
 
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Data.Models.Enums;
-    using ChildGlucoCare.Web.ViewModels.Foods;
     using Microsoft.AspNetCore.Mvc.Rendering;
 
     public class AddNewCarbohydtrateIntakeViewModel
@@ -34,6 +33,5 @@
         public ICollection<FoodIntake> Foods { get; set; }
 
         public IEnumerable<SelectListItem> FoodNames { get; set; }
-
     }
 }

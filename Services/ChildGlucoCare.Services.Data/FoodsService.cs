@@ -29,20 +29,18 @@
                 CaloriesPer100Grams = foodsDto.CaloriesPer100Grams,
                 FoodType = foodsDto.FoodType,
                 GlycemicIndex = foodsDto.GlycemicIndex,
-
             };
+
             await this.foodsRepository.AddAsync(food);
             await this.foodsRepository.SaveChangesAsync();
         }
 
         public IEnumerable<SelectListItem> GetAllNames()
         {
-
             var foodsNames = this.foodsRepository.All().Select(x => new SelectListItem
             {
-
                 Value = x.Id.ToString(),
-                Text = x.Name
+                Text = x.Name,
             });
 
             return foodsNames;
@@ -51,7 +49,6 @@
         public IEnumerable<Food> GetNames()
         {
             return this.foodsRepository.All().ToList();
-
         }
     }
 }

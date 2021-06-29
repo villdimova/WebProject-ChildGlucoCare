@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Models;
     using ChildGlucoCare.Web.ViewModels.Foods;
@@ -14,6 +15,5 @@
         IEnumerable<SelectListItem> GetAllNames();
 
         IEnumerable<Food> GetNames();
-
     }
 }

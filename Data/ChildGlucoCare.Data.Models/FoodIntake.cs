@@ -1,7 +1,7 @@
 ﻿namespace ChildGlucoCare.Data.Models
 {
     using ChildGlucoCare.Data.Common.Models;
-    
+
     public class FoodIntake : BaseDeletableModel<int>
     {
         public int FoodId { get; set; }

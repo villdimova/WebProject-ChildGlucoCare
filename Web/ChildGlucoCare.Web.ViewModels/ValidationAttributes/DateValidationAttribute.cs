@@ -5,7 +5,6 @@
 
     public class DateValidationAttribute : ValidationAttribute
     {
-
         public DateValidationAttribute(int minYear)
         {
             this.MinYear = minYear;

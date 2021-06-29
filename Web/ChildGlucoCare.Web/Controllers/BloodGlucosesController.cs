@@ -14,15 +14,15 @@
         private readonly IBloodGlucoseService bloodGlucoseService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public BloodGlucosesController(IBloodGlucoseService bloodGlucoseService
-                                                            ,UserManager<ApplicationUser> userManager)
+        public BloodGlucosesController(
+                                                            IBloodGlucoseService bloodGlucoseService,
+                                                            UserManager<ApplicationUser> userManager)
         {
             this.bloodGlucoseService = bloodGlucoseService;
             this.userManager = userManager;
         }
 
         // /BloodGlucoses/AddBloodGlucose
-
         public IActionResult AddBloodGlucose()
         {
             return this.View();
@@ -38,7 +38,7 @@
 
             var user = await this.userManager.GetUserAsync(this.User);
 
-            await this.bloodGlucoseService.AddBloodGlucoseAsync(bloodGlucoseViewModel,user.Id);
+            await this.bloodGlucoseService.AddBloodGlucoseAsync(bloodGlucoseViewModel, user.Id);
 
             if (bloodGlucoseViewModel.CurrentGlucoseLevel <= 4)
             {
@@ -76,6 +76,17 @@
                 Date = lastBloodGlucose.Date,
                 CurrentGlucoseLevel = lastBloodGlucose.CurrentGlucoseLevel,
                 SuggestedCorrectionDoseInsulin = lastBloodGlucose.SuggestedCorrectionDoseInsulin,
+            };
+            return this.View(viewModel);
+        }
+
+        // /BloodGlucoses/AllBloodGlucoses
+        [Authorize]
+        public IActionResult AllBloodGlucoses()
+        {
+            var viewModel = new AllBloodGlucoses
+            {
+                BloodGlucoses = this.bloodGlucoseService.GetAll<BloodGlucoseViewModel>(),
             };
             return this.View(viewModel);
         }
