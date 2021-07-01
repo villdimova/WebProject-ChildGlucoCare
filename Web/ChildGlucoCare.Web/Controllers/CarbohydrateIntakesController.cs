@@ -42,7 +42,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View();
+                return this.View(carbohydrateIntakeViewModel);
             }
 
             var user = await this.userManager.GetUserAsync(this.User);

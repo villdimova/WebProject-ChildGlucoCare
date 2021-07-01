@@ -32,7 +32,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View();
+                return this.View(injectionViewModel);
             }
 
             var user = await this.userManager.GetUserAsync(this.User);

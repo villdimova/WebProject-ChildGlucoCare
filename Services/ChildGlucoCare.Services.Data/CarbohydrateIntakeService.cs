@@ -10,6 +10,7 @@
     using ChildGlucoCare.Data.Models.Enums;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Mapping;
+    using ChildGlucoCare.Web.ViewModels.BloodGlucoses;
     using ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes;
 
     public class CarbohydrateIntakeService : ICarbohydrateIntakeService
@@ -17,17 +18,23 @@
         private readonly IDeletableEntityRepository<CarbohydrateIntake> carbsRepository;
         private readonly IDeletableEntityRepository<Food> foodsRepository;
         private readonly IDeletableEntityRepository<FoodIntake> foodIntakesRepository;
+        private readonly IDeletableEntityRepository<BloodGlucose> bloodGlucosesRepository;
+        private readonly IBloodGlucoseService bloodGlucoseService;
         private readonly IUsersService usersService;
 
         public CarbohydrateIntakeService(
                                                                 IDeletableEntityRepository<CarbohydrateIntake> carbsRepository,
                                                                 IDeletableEntityRepository<Food> foodsRepository,
                                                                 IDeletableEntityRepository<FoodIntake> foodIntakesRepository,
+                                                                IDeletableEntityRepository<BloodGlucose> bloodGlucosesRepository,
+                                                                IBloodGlucoseService bloodGlucoseService,
                                                                 IUsersService usersService)
         {
             this.carbsRepository = carbsRepository;
             this.foodsRepository = foodsRepository;
             this.foodIntakesRepository = foodIntakesRepository;
+            this.bloodGlucosesRepository = bloodGlucosesRepository;
+            this.bloodGlucoseService = bloodGlucoseService;
             this.usersService = usersService;
         }
 
@@ -70,6 +77,16 @@
 
             await this.carbsRepository.AddAsync(carbohydrateIntake);
             await this.carbsRepository.SaveChangesAsync();
+
+            var viewModel = new AddBloodGlucoseViewModel
+            {
+                CurrentGlucoseLevel = input.CurrentGlucoseLevel,
+                Date = input.Date,
+                InsulinSensitivity = carbohydrateIntake.ApplicationUser.InsulinSensitivity,
+            };
+
+            await this.bloodGlucoseService.AddBloodGlucoseAsync(viewModel, userId);
+
         }
 
         public double CalculateProperInsulinDose(AddNewCarbohydtrateIntakeViewModel carbohydrateIntake, double totalBeu, double insulinSensitivity)

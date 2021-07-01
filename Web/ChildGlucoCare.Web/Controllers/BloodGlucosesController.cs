@@ -33,7 +33,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View();
+                return this.View(bloodGlucoseViewModel);
             }
 
             var user = await this.userManager.GetUserAsync(this.User);

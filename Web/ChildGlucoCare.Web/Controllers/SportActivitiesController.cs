@@ -40,7 +40,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View();
+                return this.View(sportActivityViewModel);
             }
 
             var user = await this.userManager.GetUserAsync(this.User);

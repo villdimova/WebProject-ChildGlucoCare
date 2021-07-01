@@ -41,7 +41,7 @@
             {
                 Value = x.Id.ToString(),
                 Text = x.Name,
-            });
+            }).OrderBy(f => f.Text).ToList();
 
             return foodsNames;
         }
