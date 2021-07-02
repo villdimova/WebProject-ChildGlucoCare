@@ -9,6 +9,7 @@
     using ChildGlucoCare.Data.Common.Repositories;
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
+    using ChildGlucoCare.Services.Mapping;
     using ChildGlucoCare.Web.ViewModels.InsulinInjections;
 
     public class InsulinInjectionService : IInsulinInjectionsService
@@ -41,7 +42,8 @@
                 Date = input.Date,
                 Insulin = injectedInulin,
                 InsulinDose = input.InsulinDose,
-                IsItForMeal = input.IsItForMeal,
+                TotalMealBeu = input.TotalBeu,
+                CurrentGlucoselevel = input.CurrentGlucoseLevel,
                 ApplicationUser = await this.userService.GetUserByIdAsync(userId),
             };
 

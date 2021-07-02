@@ -1,6 +1,7 @@
 ﻿namespace ChildGlucoCare.Data.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     using ChildGlucoCare.Data.Common.Models;
 
@@ -10,7 +11,9 @@
 
         public DateTime Date { get; set; }
 
-        public bool IsItForMeal { get; set; }
+        public double TotalMealBeu { get; set; }
+
+        public double CurrentGlucoselevel { get; set; }
 
         public int InsulinId { get; set; }
 

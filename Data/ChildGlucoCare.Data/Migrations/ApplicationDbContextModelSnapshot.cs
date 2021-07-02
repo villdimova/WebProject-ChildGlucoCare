@@ -228,9 +228,6 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<double>("TotalBeu")
                         .HasColumnType("float");
 
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
@@ -388,6 +385,9 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("CurrentGlucoselevel")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -403,14 +403,11 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsItForMeal")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("TotalMealBeu")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -522,9 +519,6 @@ namespace ChildGlucoCare.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SportName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

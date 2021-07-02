@@ -82,13 +82,6 @@
                 method.Invoke(null, new object[] { builder });
             }
 
-            //Configuring entities relations
-
-       //     builder.Entity<ApplicationUser>()
-       //.HasOne(a => a.UserDashboard)
-       //.WithOne(d => d.ApplicationUser)
-       //.HasForeignKey<UserDashboard>(d => d.ApplicationUserId);
-
             // Disable cascade delete
             var foreignKeys = entityTypes
                 .SelectMany(e => e.GetForeignKeys().Where(f => f.DeleteBehavior == DeleteBehavior.Cascade));

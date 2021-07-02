@@ -16,7 +16,6 @@
             this.FoodNames = new List<SelectListItem>();
         }
 
-        [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: yyyy-MM-dd}")]
         public DateTime Date { get; set; }
 
@@ -29,6 +28,7 @@
         [Range(1.0, 30.0)]
         [Display(Name = "Current Glucose Level")]
         public double CurrentGlucoseLevel { get; set; }
+
 
         public ICollection<FoodIntake> Foods { get; set; }
 

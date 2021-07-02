@@ -486,3 +486,6 @@ C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\Ch
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\BloodGlucoses\AllBloodGlucoses.cshtml.g.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\Statistics\YesterdayBloodGlucoseInfo.cshtml.g.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\Statistics\YesterdayInsulinInfo.cshtml.g.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\Statistics\YesterdaySportActivityInfo.cshtml.g.cs

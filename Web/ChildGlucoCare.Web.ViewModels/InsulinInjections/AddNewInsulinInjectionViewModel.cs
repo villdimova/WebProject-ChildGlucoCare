@@ -15,8 +15,13 @@
         public DateTime Date { get; set; }
 
         [Required]
-        [Display(Name = "Meal coverage")]
-        public bool IsItForMeal { get; set; }
+        [Range(1.0, 30.0)]
+        [Display(Name = "Current Glucose Level")]
+        public double CurrentGlucoseLevel { get; set; }
+
+        [Required]
+        [Range(0.1, 20.0)]
+        public double TotalBeu { get; set; }
 
         [Required]
         [Display(Name = "Insulin")]
