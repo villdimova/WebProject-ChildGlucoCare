@@ -25,6 +25,7 @@
             this.userManager = userManager;
         }
 
+        [Authorize]
         public IActionResult AddSportActivity()
         {
             var viewModel = new AddSportActivityViewModel
@@ -35,6 +36,7 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddSportActivity(AddSportActivityViewModel sportActivityViewModel)
         {

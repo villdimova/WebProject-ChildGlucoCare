@@ -23,11 +23,13 @@
         }
 
         // /BloodGlucoses/AddBloodGlucose
+        [Authorize]
         public IActionResult AddBloodGlucose()
         {
             return this.View();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddBloodGlucose(AddBloodGlucoseViewModel bloodGlucoseViewModel)
         {

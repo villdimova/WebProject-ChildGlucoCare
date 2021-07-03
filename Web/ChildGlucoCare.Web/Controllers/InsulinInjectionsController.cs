@@ -22,11 +22,13 @@
             this.userManager = userManager;
         }
 
+        [Authorize]
         public IActionResult AddNewInsulinInjection()
         {
             return this.View();
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddNewInsulinInjection(AddNewInsulinInjectionViewModel injectionViewModel)
         {

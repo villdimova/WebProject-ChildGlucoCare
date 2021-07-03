@@ -14,6 +14,7 @@
             this.insulinsService = insulinsService;
         }
 
+        [Authorize]
         public IActionResult InsulinProfile()
         {
             var viewModel = new AllInsulinsProfileViewModel

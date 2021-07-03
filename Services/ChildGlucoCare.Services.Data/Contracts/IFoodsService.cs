@@ -10,7 +10,15 @@
 
     public interface IFoodsService
     {
-        Task CreateAsync(FoodsDto foodsDto);
+        Task<Food> CreateAsync(FoodsDto foodsDto);
+
+        public Task<T> GetFoodAsync<T>(int foodId);
+
+        public Task<IEnumerable<T>> GetAllFoodsAsync<T>();
+
+        public Task<Food> DeleteFoodAsync(int foodId);
+
+        public Task<Food> EditFoodAsync(EditFoodInputModel inputModel);
 
         IEnumerable<SelectListItem> GetAllNames();
 

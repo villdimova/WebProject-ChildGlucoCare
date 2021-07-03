@@ -43,8 +43,6 @@
 
         public async Task AddCarbohydrateIntakeAsync(AddNewCarbohydtrateIntakeViewModel input, string userId)
         {
-          
-
             var carbohydrateIntake = new CarbohydrateIntake
             {
                 Date = input.Date,

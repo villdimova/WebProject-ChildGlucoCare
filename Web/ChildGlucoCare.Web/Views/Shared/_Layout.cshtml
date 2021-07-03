@@ -1,4 +1,8 @@
 ﻿@using ChildGlucoCare.Common
+@using Microsoft.AspNetCore.Identity
+@using ChildGlucoCare.Data.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="~/css/bootstrap/bootstrap.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/argon.css" asp-append-version="true" />
-    
+
 
     <title>@GlobalConstants.SystemName</title>
 
@@ -36,28 +40,33 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                      
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Foods" asp-action="Create">Create foods</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CarbohydrateIntakes" asp-action="AddNewCarbohydtrateIntake">Add Carbohydtrate intake</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Insulins" asp-action="InsulinProfile">Typical Insulin Profiles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="InsulinInjections" asp-action="AddNewInsulinInjection">Add Insulin Injection</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="SportActivities" asp-action="AddSportActivity">Add new Sport activity</a>
-                        </li>
+                        @if (!this.SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Foods" asp-action="Create">Create foods</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="CarbohydrateIntakes" asp-action="AddNewCarbohydtrateIntake">Add Carbohydtrate intake</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Insulins" asp-action="InsulinProfile">Typical Insulin Profiles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="InsulinInjections" asp-action="AddNewInsulinInjection">Add Insulin Injection</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SportActivities" asp-action="AddSportActivity">Add new Sport activity</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

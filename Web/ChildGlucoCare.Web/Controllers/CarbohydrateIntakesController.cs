@@ -27,6 +27,7 @@
             this.userManager = userManager;
         }
 
+        [Authorize]
         public IActionResult AddNewCarbohydtrateIntake()
         {
             var viewModel = new AddNewCarbohydtrateIntakeViewModel
@@ -37,6 +38,7 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddNewCarbohydtrateIntake(AddNewCarbohydtrateIntakeViewModel carbohydrateIntakeViewModel)
         {
@@ -51,6 +53,7 @@
             return this.RedirectToAction(nameof(this.SuccessfullyAdded));
         }
 
+        [Authorize]
         public IActionResult SuccessfullyAdded()
         {
             var lastCarbs = this.carbohydrateIntakeService.LastAddedCarbs();
@@ -66,6 +69,7 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
         public IActionResult GetEatenBeuForMeal()
         {
             var viewModel = new AllEatenBeuViewModel
@@ -75,6 +79,7 @@
             return this.View(viewModel);
         }
 
+        [Authorize]
         public JsonResult GetFoodNames()
         {
             var names = this.foodsService.GetNames();
