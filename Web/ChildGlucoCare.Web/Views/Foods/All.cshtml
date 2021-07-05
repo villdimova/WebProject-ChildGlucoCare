@@ -1,0 +1,46 @@
+﻿@model ChildGlucoCare.Web.ViewModels.Foods.AllFoodsViewModel
+
+@using ChildGlucoCare.Data.Models.Enums
+
+@{
+    ViewData["Title"] = "All foods";
+}
+<h1 class="text-center">@this.ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12 border">
+        <div class="text-center">
+            <a href="/Foods/Create" class="btn btn-primary waves-effect m-2 custom-blue" title="Add Food">
+                <i class="fas fa-plus-circle"></i>
+            </a>
+        </div>
+        <div class="table-striped table-responsive-md">
+            <table class="table" style="width:40%">
+                <tr>
+                    <th>Name</th>
+                    <th>Food type</th>
+                    <th>Carbohydrates per 100 gr</th>
+                    <th>Fat per 100 gr</th>
+                    <th>Calories per 100 gr</th>
+                    <th>Glycemic index</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var food in Model.Foods)
+                {
+                    <tr>
+                        <th>@food.Name</th>
+                        <th>@food.FoodType</th>
+                        <th>@food.CarbohydratePer100Grams</th>
+                        <th>@food.FatPer100Grams</th>
+                        <th>@food.CaloriesPer100Grams</th>
+                        <th>@food.GlycemicIndex</th>
+                        <th> <a href="/Foods/Edit/@food.Id" class="btn btn-block btn-info" title="Edit Food"><i class="fas fa-edit"></i></a></th>
+                        <th>  <a asp-controller="Foods" asp-action="Delete" asp-route-id="@food.Id" class="btn btn-block btn-danger" title="Delete Food"><i class="fas fa-trash-alt"></i></a></th>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

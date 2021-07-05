@@ -1,0 +1,44 @@
+﻿@model ChildGlucoCare.Web.ViewModels.Insulins.CreateInsulinInputModel
+@using ChildGlucoCare.Data.Models.Enums
+@{ this.ViewData["Title"] = "Add Insulin";
+}
+
+
+<form method="post" class="col-md-4 offset-md-3"
+      enctype="multipart/form-data">
+    <h1>@this.ViewData["Title"]</h1>
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-6 control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="InsulinType" class="col-md-6 control-label"></label>
+        <div>
+            <select asp-for="InsulinType" asp-items="Html.GetEnumSelectList<InsulinType>()" class="col-md-6 control-label">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            <span asp-validation-for="InsulinType" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Taken" class="col-md-6 control-label"></label>
+            <input asp-for="Taken" class="form-control" />
+            <span asp-validation-for="Taken" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Onset" class="col-md-6 control-label"></label>
+            <input asp-for="Onset" class="form-control" />
+            <span asp-validation-for="Onset" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Duration" class="col-md-6 control-label"></label>
+            <input asp-for="Duration" class="form-control" />
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Peak" class="col-md-6 control-label"></label>
+            <input asp-for="Peak" class="form-control" />
+            <span asp-validation-for="Peak" class="text-danger"></span>
+        </div>
+        <input type="submit" class="btn btn-primary" />
+</form>

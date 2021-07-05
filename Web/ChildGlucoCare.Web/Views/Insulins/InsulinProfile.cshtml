@@ -6,25 +6,39 @@
     this.ViewData["Title"] = "Typical Insulin Profiles";
 }
 <h1 class="text-center">@this.ViewData["Title"]</h1>
-
-<div class="table-striped">
-    <table class="table" style="width:100%">
-        <tr>
-            <th>Name</th>
-            <th>InsulinType</th>
-            <th>Taken</th>
-            <th>Onset</th>
-            <th>Duration</th>
-        </tr>
-        @foreach (var insulin in this.Model.Insulins)
-        {
+<div class="row">
+    <div class="col-md-12 border">
+        <div class="text-center">
+            <a href="/Insulins/Create" class="btn btn-primary waves-effect m-2 custom-blue" title="Add Insulin">
+                <i class="fas fa-plus-circle"></i>
+            </a>
+        </div>
+        <div class="table-striped">
+            <table class="table" style="width:100%">
+                <tr>
+                    <th>Name</th>
+                    <th>InsulinType</th>
+                    <th>Taken</th>
+                    <th>Onset</th>
+                    <th>Duration</th>
+                    <th>Peak</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var insulin in this.Model.Insulins)
+                {
             <tr>
                 <th>@insulin.Name</th>
                 <th>@insulin.InsulinType</th>
                 <th>@insulin.Taken</th>
                 <th>@insulin.Onset</th>
                 <th>@insulin.Duration</th>
+                <th>@insulin.Peak</th>
+                <th><a href="/Insulins/Edit/@insulin.Id" class="btn btn-sm btn-info" title="Edit Food"><i class="fas fa-edit"></i></a></th>
+                <th>  <a asp-controller="Insulins" asp-action="Delete" asp-route-id="@insulin.Id" class="btn btn-sm btn-danger" title="Delete Food"><i class="fas fa-trash-alt"></i></a></th>
             </tr>
-        }
-    </table>
+                }
+            </table>
+        </div>
     </div>
+</div>

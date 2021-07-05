@@ -6,6 +6,8 @@
 
     public class InsulinProfileViewModel : IMapFrom<Insulin>
     {
+        public int Id { get; set; }
+
         public InsulinType InsulinType { get; set; }
 
         public string Name { get; set; }

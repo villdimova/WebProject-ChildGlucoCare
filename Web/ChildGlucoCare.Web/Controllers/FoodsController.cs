@@ -33,7 +33,7 @@
             }
 
             await this.foodsService.CreateAsync(foodsDto);
-            return this.Redirect("/");
+            return this.Redirect("/Foods/All");
         }
 
         [Authorize]

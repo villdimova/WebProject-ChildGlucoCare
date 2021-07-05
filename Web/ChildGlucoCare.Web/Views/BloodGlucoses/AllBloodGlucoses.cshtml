@@ -1,0 +1,24 @@
+﻿@model ChildGlucoCare.Web.ViewModels.BloodGlucoses.AllBloodGlucoses
+
+@{
+    this.ViewData["Title"] = "Your blood glucose records";
+}
+<h1 class="text-center">@this.ViewData["Title"]</h1>
+
+<div class="table-striped">
+    <table class="table" style="width:100%">
+        <tr>
+            <th>Date</th>
+            <th>Glucose Level</th>
+            <th>Blood Glucose Status</th>
+        </tr>
+        @foreach (var bloodGlucose in this.Model.BloodGlucoses)
+        {
+            <tr>
+                <th>@bloodGlucose.Date</th>
+                <th>@bloodGlucose.CurrentGlucoseLevel</th>
+                <th>@bloodGlucose.BloodGlocoseStatus</th>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,32 @@
+﻿@model ChildGlucoCare.Web.ViewModels.Statistics.StatisticInfoViewModel
+
+@{
+    this.ViewData["Title"] = "Insulin statistic";
+}
+
+@{
+    var date = @Model.YesterdayInsulinInjections.Select(x => x.Date).FirstOrDefault();
+}
+
+<h1 class="text-center">Made insulin and etaen BEU at @date.Date</h1>
+<div class="table-bordered">
+    <table class="table" style="width:100%">
+        <tr>
+            <th>Date</th>
+            <th>Glucose level</th>
+            <th>Insulin dose</th>
+            <th>Eaten BEU </th>
+        </tr>
+        @foreach (var injection in this.Model.YesterdayInsulinInjections)
+        {
+            <tr>
+                <th>@injection.Date</th>
+                <th>@injection.CurrentGlucoselevel</th>
+                <th>@injection.InsulinDose</th>
+                <th>@injection.TotalMealBeu</th>
+            </tr>
+        }
+    </table>
+</div>
+
+

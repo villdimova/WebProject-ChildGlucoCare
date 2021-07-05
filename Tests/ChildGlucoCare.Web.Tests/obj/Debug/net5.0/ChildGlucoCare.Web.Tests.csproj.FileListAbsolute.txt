@@ -541,3 +541,4 @@ C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\ChildGlucoCare.Web.Tests\bin\Debug\net5.0\wwwroot\images\imageChild1.jpg
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\ChildGlucoCare.Web.Tests\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\ChildGlucoCare.Web.Tests\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Tests\ChildGlucoCare.Web.Tests\bin\Debug\net5.0\wwwroot\favicon.ico
