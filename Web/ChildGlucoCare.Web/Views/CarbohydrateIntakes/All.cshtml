@@ -1,0 +1,40 @@
+﻿@model ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes.AllCarbsViewModel
+
+@using ChildGlucoCare.Data.Models.Enums
+
+@{
+    ViewData["Title"] = "All meals";
+}
+<h1 class="text-center">@this.ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12 border">
+        <div class="text-center">
+            <a href="/CarbohydrateIntakes/AddNewCarbohydtrateIntake" class="btn btn-primary waves-effect m-2 custom-blue" title="Add meal">
+                <i class="fas fa-plus-circle"></i>
+            </a>
+        </div>
+        <div class="table-striped table-responsive-md">
+            <table class="table" style="width:40%">
+                <tr>
+                    <th>Date</th>
+                    <th>Meal</th>
+                    <th>Total BEU</th>
+                    <th>Suggested Dose Insulin</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var meal in Model.AllCarbs)
+                {
+                    <tr>
+                        <th>@meal.Date</th>
+                        <th>@meal.MealType</th>
+                        <th>@meal.TotalBeu</th>
+                        <th>@meal.SuggestedDoseInsulin</th>
+                        <th>  <a asp-controller="CarbohydrateIntakes" asp-action="Delete" asp-route-id="@meal.Id" class="btn btn-block btn-danger" title="Delete Food"><i class="fas fa-trash-alt"></i></a></th>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

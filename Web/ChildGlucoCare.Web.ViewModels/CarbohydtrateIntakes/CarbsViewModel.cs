@@ -6,8 +6,10 @@
     using ChildGlucoCare.Data.Models.Enums;
     using ChildGlucoCare.Services.Mapping;
 
-    public class BeuViewModel : IMapFrom<CarbohydrateIntake>
+    public class CarbsViewModel : IMapFrom<CarbohydrateIntake>
     {
+        public int Id { get; set; }
+
         public MealType MealType { get; set; }
 
         public string UserName { get; set; }

@@ -1,6 +1,5 @@
 ﻿namespace ChildGlucoCare.Web.Controllers
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using ChildGlucoCare.Data.Models;
@@ -27,7 +26,6 @@
             this.userManager = userManager;
         }
 
-        [Authorize]
         public IActionResult AddNewCarbohydtrateIntake()
         {
             var viewModel = new AddNewCarbohydtrateIntakeViewModel
@@ -38,7 +36,6 @@
             return this.View(viewModel);
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddNewCarbohydtrateIntake(AddNewCarbohydtrateIntakeViewModel carbohydrateIntakeViewModel)
         {
@@ -53,7 +50,6 @@
             return this.RedirectToAction(nameof(this.SuccessfullyAdded));
         }
 
-        [Authorize]
         public IActionResult SuccessfullyAdded()
         {
             var lastCarbs = this.carbohydrateIntakeService.LastAddedCarbs();
@@ -69,22 +65,35 @@
             return this.View(viewModel);
         }
 
-        [Authorize]
-        public IActionResult GetEatenBeuForMeal()
+        //public IActionResult GetEatenBeuForMeal()
+        //{
+        //    var viewModel = new AllEatenBeuViewModel
+        //    {
+        //        AllBeu = this.carbohydrateIntakeService.GetAllBeu<BeuViewModel>(),
+        //    };
+        //    return this.View(viewModel);
+        //}
+
+        public async Task<IActionResult> All()
         {
-            var viewModel = new AllEatenBeuViewModel
+            var viewModel = new AllCarbsViewModel
             {
-                AllBeu = this.carbohydrateIntakeService.GetAllBeu<BeuViewModel>(),
+                AllCarbs = await this.carbohydrateIntakeService.GetAllCarbsAsync<CarbsViewModel>(),
             };
             return this.View(viewModel);
         }
 
-        [Authorize]
         public JsonResult GetFoodNames()
         {
             var names = this.foodsService.GetNames();
 
             return this.Json(names);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.carbohydrateIntakeService.DeleteCarbohydrateIntakeAsync(id);
+            return this.RedirectToAction(nameof(this.All));
         }
     }
 }

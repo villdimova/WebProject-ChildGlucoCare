@@ -494,3 +494,4 @@ C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\Ch
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\Foods\All.cshtml.g.cs
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\Insulins\Create.cshtml.g.cs
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\Insulins\Edit.cshtml.g.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\CarbohydrateIntakes\All.cshtml.g.cs

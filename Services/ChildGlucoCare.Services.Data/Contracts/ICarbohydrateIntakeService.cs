@@ -10,7 +10,11 @@
     {
         Task AddCarbohydrateIntakeAsync(AddNewCarbohydtrateIntakeViewModel carbohydrateIntake, string userId);
 
-        IEnumerable<T> GetAllBeu<T>();
+        public Task<T> GetCarbohydrateIntakeAsync<T>(int foodId);
+
+        public Task<CarbohydrateIntake> DeleteCarbohydrateIntakeAsync(int carbohydrateIntakeId);
+
+        Task<IEnumerable<T>> GetAllCarbsAsync<T>();
 
         CarbohydrateIntake LastAddedCarbs();
 

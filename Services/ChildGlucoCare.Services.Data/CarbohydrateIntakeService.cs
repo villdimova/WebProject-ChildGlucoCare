@@ -12,6 +12,7 @@
     using ChildGlucoCare.Services.Mapping;
     using ChildGlucoCare.Web.ViewModels.BloodGlucoses;
     using ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes;
+    using Microsoft.EntityFrameworkCore;
 
     public class CarbohydrateIntakeService : ICarbohydrateIntakeService
     {
@@ -106,12 +107,30 @@
             return Math.Round(neededInsulin * 2, MidpointRounding.AwayFromZero) / 2;
         }
 
-        public IEnumerable<T> GetAllBeu<T>()
+        public async Task<CarbohydrateIntake> DeleteCarbohydrateIntakeAsync(int carbohydrateIntakeId)
         {
-            var carbs = this.carbsRepository.AllAsNoTracking()
-               .OrderBy(x => x.Date).To<T>().ToList();
+            var carbohydrateIntake = await this.carbsRepository
+                .All()
+                .FirstOrDefaultAsync(x => x.Id == carbohydrateIntakeId);
 
-            return carbs;
+            this.carbsRepository.Delete(carbohydrateIntake);
+            await this.foodsRepository.SaveChangesAsync();
+
+            return carbohydrateIntake;
+        }
+
+        public async Task<IEnumerable<T>> GetAllCarbsAsync<T>()
+        {
+            return await this.carbsRepository.
+                All()
+               .OrderBy(x => x.Date)
+               .To<T>()
+               .ToListAsync();
+        }
+
+        public Task<T> GetCarbohydrateIntakeAsync<T>(int foodId)
+        {
+            throw new NotImplementedException();
         }
 
         public CarbohydrateIntake LastAddedCarbs()

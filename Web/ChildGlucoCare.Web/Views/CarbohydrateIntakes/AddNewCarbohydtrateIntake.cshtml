@@ -25,60 +25,34 @@
             <input asp-for="CurrentGlucoseLevel" class="form-control" />
             <span asp-validation-for="CurrentGlucoseLevel" class="text-danger"></span>
         </div>
-    <div id="FoodsContainer">
-        <label asp-for="Foods"></label>
-        <a class="btn btn-primary" onclick="AddAnotherFood()">+</a>
-    </div>
-    <hr>
-    <input type="submit" class="btn btn-primary" />
+        <div class="container">
+            <div class="row">
+                <div id="FoodsContainer">
+                    <label asp-for="Foods"></label>
+                    <a class="btn btn-primary" onclick="AddAnotherFood()">+</a>
+                </div>
+                <div class="right--3">
+                    <select asp-for="FoodNames" asp-items="@((Model.FoodNames))">
+                        <option selected="selected" value="">Food options</option>
+                    </select>
+                    <span asp-validation-for="FoodNames" class="text-danger" />
+                </div>
+            </div>
+        </div>
+        <hr>
+        <input type="submit" class="btn btn-primary" />
+        </div>
 </form>
-
-<hr>
-<h3> Write above some of the food names from the list below </h3>
-<div class="right--3">
-    <select asp-for="FoodNames" asp-items="@((Model.FoodNames))">
-        <option selected="selected" value="">Please select</option>
-    </select>
-    <span asp-validation-for="FoodNames" class="text-danger" />
-</div>
 
 
 @section Scripts {
     <script>
         var foodIndex = 0;
         function AddAnotherFood() {
-            /*
-            $.ajax(
-                {
-                    url: '/CarbohydrateIntakes/GetFoodNames',
-                    type: 'GET',
-                    data: "",
-                    contentType: 'application/json; charset=utf-8',
-                    success: function (data) {
-                        debugger;
-                        var dropDown = '<select id="FoodNames" multiple="multiple" name="FoodNames" class="valid" aria-invalid="false">';
-                        dropDown += '<option selected="selected" value="">Please select</option>';
-                        for (var i = 0; i < data.length; i++) {
-                            var option = `<option value="${i.toString()}"> ${data[i].name}</option>`
-                            dropDown += option;
-                        }
-                        dropDown += '</select>';
-                 
-                        $("#FoodsContainer").
-                            append("<div class='form-control-auto'>" + dropDown + " Amount: <input type='text' name='Foods[" + foodIndex + "].Amount' /></div>");
-                        foodIndex++;
-                    },
-                    error: function () {
-                        alert("error");
-                    }
-                });
-            */
-
             $("#FoodsContainer").
                 append("<div class='form-control-auto'>Food: <input type='text' name='Foods[" + foodIndex + "].FoodName' /> Amount: <input type='text' name='Foods[" + foodIndex + "].Amount' /></div>");
             foodIndex++;
         }
     </script>
-
 }
 
