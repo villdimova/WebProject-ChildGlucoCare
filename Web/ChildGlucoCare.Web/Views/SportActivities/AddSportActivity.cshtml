@@ -16,12 +16,6 @@
         <select asp-for="SportName" class="form-control" asp-items="sportNames"></select>
         <span asp-validation-for="SportName" class="text-danger"></span>
     </div>
-    @*<div class="right--3">
-        <select asp-for="SportNames" asp-items="@((Model.SportNames))">
-            <option selected="selected" value="">Please select</option>
-        </select>
-        <span asp-validation-for="SportName" class="text-danger" />
-    </div>*@
         <div class="form-group">
             <label asp-for="Duration" class="col-md-6 control-label"></label>
             <input asp-for="Duration" class="form-control" />

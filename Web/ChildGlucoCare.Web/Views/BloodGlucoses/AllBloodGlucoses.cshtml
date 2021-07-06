@@ -11,6 +11,8 @@
             <th>Date</th>
             <th>Glucose Level</th>
             <th>Blood Glucose Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         @foreach (var bloodGlucose in this.Model.BloodGlucoses)
         {
@@ -18,6 +20,8 @@
                 <th>@bloodGlucose.Date</th>
                 <th>@bloodGlucose.CurrentGlucoseLevel</th>
                 <th>@bloodGlucose.BloodGlocoseStatus</th>
+                <th><a href="/BloodGlucoses/Edit/@bloodGlucose.Id" class="btn btn-block btn-info" title="Edit Food"><i class="fas fa-edit"></i></a></th>
+                <th><a asp-controller="BloodGlucoses" asp-action="Delete" asp-route-id="@bloodGlucose.Id" class="btn btn-block btn-danger" title="Delete BloodGlucose"><i class="fas fa-trash-alt"></i></a></th>
             </tr>
         }
     </table>

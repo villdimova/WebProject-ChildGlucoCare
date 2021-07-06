@@ -82,14 +82,13 @@
             await this.carbsRepository.AddAsync(carbohydrateIntake);
             await this.carbsRepository.SaveChangesAsync();
 
-            var viewModel = new AddBloodGlucoseViewModel
+            var viewModel = new AddBloodGlucoseInputModel
             {
                 CurrentGlucoseLevel = input.CurrentGlucoseLevel,
                 Date = input.Date,
-                InsulinSensitivity = carbohydrateIntake.ApplicationUser.InsulinSensitivity,
             };
 
-            await this.bloodGlucoseService.AddBloodGlucoseAsync(viewModel, userId);
+            await this.bloodGlucoseService.AddBloodGlucoseAsync(viewModel, carbohydrateIntake.ApplicationUser);
         }
 
         public double CalculateProperInsulinDose(AddNewCarbohydtrateIntakeViewModel carbohydrateIntake, double totalBeu, double insulinSensitivity)

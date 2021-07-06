@@ -17,13 +17,11 @@
             this.foodsService = foodsService;
         }
 
-        [Authorize]
         public IActionResult Create()
         {
             return this.View();
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(FoodsDto foodsDto)
         {
@@ -36,7 +34,6 @@
             return this.Redirect("/Foods/All");
         }
 
-        [Authorize]
         public async Task<IActionResult> All()
         {
             var viewModel = new AllFoodsViewModel
@@ -46,14 +43,12 @@
             return this.View(viewModel);
         }
 
-        [Authorize]
         public async Task<IActionResult> Edit(int id)
         {
             var viewModel = await this.foodsService.GetFoodAsync<EditFoodInputModel>(id);
             return this.View(viewModel);
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Edit(EditFoodInputModel inputModel)
         {
@@ -66,7 +61,6 @@
             return this.Redirect($"/Foods/All");
         }
 
-        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             await this.foodsService.DeleteFoodAsync(id);

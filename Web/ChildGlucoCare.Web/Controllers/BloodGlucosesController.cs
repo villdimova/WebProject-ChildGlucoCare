@@ -29,9 +29,8 @@
             return this.View();
         }
 
-        [Authorize]
         [HttpPost]
-        public async Task<IActionResult> AddBloodGlucose(AddBloodGlucoseViewModel bloodGlucoseViewModel)
+        public async Task<IActionResult> AddBloodGlucose(AddBloodGlucoseInputModel bloodGlucoseViewModel)
         {
             if (!this.ModelState.IsValid)
             {
@@ -40,7 +39,7 @@
 
             var user = await this.userManager.GetUserAsync(this.User);
 
-            await this.bloodGlucoseService.AddBloodGlucoseAsync(bloodGlucoseViewModel, user.Id);
+            await this.bloodGlucoseService.AddBloodGlucoseAsync(bloodGlucoseViewModel, user);
 
             if (bloodGlucoseViewModel.CurrentGlucoseLevel <= 4)
             {
@@ -82,15 +81,38 @@
             return this.View(viewModel);
         }
 
-        // /BloodGlucoses/AllBloodGlucoses
-        [Authorize]
-        public IActionResult AllBloodGlucoses()
+        public async Task<IActionResult> AllBloodGlucoses()
         {
             var viewModel = new AllBloodGlucoses
             {
-                BloodGlucoses = this.bloodGlucoseService.GetAll<BloodGlucoseViewModel>(),
+                BloodGlucoses = await this.bloodGlucoseService.GetAll<BloodGlucoseViewModel>(),
             };
             return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var viewModel = await this.bloodGlucoseService.GetBloodGlucoseAsync<EditBloodGlucoseInputModel>(id);
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditBloodGlucoseInputModel inputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
+
+            var user = await this.userManager.GetUserAsync(this.User);
+            await this.bloodGlucoseService.EditBloodGlucoseAsync(inputModel, user);
+            return this.Redirect($"/BloodGlucoses/AllBloodGlucoses");
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.bloodGlucoseService.DeleteBloodGlucoseAsync(id);
+            return this.Redirect("/BloodGlucoses/AllBloodGlucoses");
         }
     }
 }
