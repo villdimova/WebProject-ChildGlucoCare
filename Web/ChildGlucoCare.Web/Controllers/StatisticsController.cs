@@ -1,5 +1,7 @@
 ﻿namespace ChildGlucoCare.Web.Controllers
 {
+    using System;
+
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Web.ViewModels.BloodGlucoses;
@@ -11,7 +13,7 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
-    public class StatisticsController : Controller
+    public class StatisticsController : BaseController
     {
         private readonly IStatisticsService statisticsService;
         private readonly UserManager<ApplicationUser> userManager;
@@ -24,27 +26,33 @@
             this.userManager = userManager;
         }
 
-        [Authorize]
         public IActionResult YesterdayInsulinInfo()
         {
             var viewModel = new StatisticInfoViewModel
             {
-              YesterdayInsulinInjections = this.statisticsService.GeYesterdayInsulinInjectionsInfo<InsulinInjectionViewModel>(),
+                YesterdayInsulinInjections = this.statisticsService.GeYesterdayInsulinInjectionsInfo<InsulinInjectionViewModel>(),
             };
             return this.View(viewModel);
         }
 
-        [Authorize]
+        public IActionResult WeeklyBloodGlucoseReport()
+        {
+            var startDate = DateTime.Today.AddDays(-7);
+
+            var viewModel = this.GetReportInfo(startDate.Date, DateTime.Today);
+
+            return this.View(viewModel);
+        }
+
         public IActionResult YesterdayBloodGlucoseInfo()
         {
             var viewModel = new StatisticInfoViewModel
             {
-                YesterdayBloodGlucoses = this.statisticsService.GetYesterdayBloodGlucoseInfo<BloodGlucoseViewModel>(),
+                YesterdayBloodGlucoses = this.statisticsService.GetYesterdayBloodGlucoseInfo<ViewModels.BloodGlucoses.BloodGlucoseViewModel>(),
             };
             return this.View(viewModel);
         }
 
-        [Authorize]
         public IActionResult YesterdaySportActivityInfo()
         {
             var viewModel = new StatisticInfoViewModel
@@ -54,16 +62,30 @@
             return this.View(viewModel);
         }
 
-        [Authorize]
         public IActionResult WeeklyInfo()
         {
             return this.View();
         }
 
-        [Authorize]
         public IActionResult MonthlyInfo()
         {
             return this.View();
+        }
+
+        private BloodGlucoseReportViewModel GetReportInfo(DateTime startDate, DateTime endDate)
+        {
+            var bloodGlucoses = this.statisticsService.GetBloodGlucoseReport(startDate, DateTime.Today);
+
+            var viewModel = new BloodGlucoseReportViewModel
+            {
+                PeriodStart = startDate.ToString(),
+                LowPercentage = this.statisticsService.GetLowBloodGlucosePercentage(startDate, DateTime.Today),
+                NormalPercentage = this.statisticsService.GetNormalBloodGlucosePercentage(startDate, DateTime.Today),
+                HighPercentage = this.statisticsService.GetHighBloodGlucosePercentage(startDate, DateTime.Today),
+                BloodGlucoseRecords = bloodGlucoses.Count,
+                AvgBloodGlucose = this.statisticsService.GetAvgBloodGlucose(startDate, DateTime.Today),
+            };
+            return viewModel;
         }
     }
 }

@@ -9,7 +9,7 @@
 
     public class StatisticInfoViewModel
     {
-        public IEnumerable<BloodGlucoseViewModel> YesterdayBloodGlucoses { get; set; }
+        public IEnumerable<BloodGlucoses.BloodGlucoseViewModel> YesterdayBloodGlucoses { get; set; }
 
         public IEnumerable<SportActivityViewModel> YesterdaySportActivities { get; set; }
 

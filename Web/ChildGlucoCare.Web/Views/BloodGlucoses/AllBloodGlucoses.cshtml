@@ -4,25 +4,34 @@
     this.ViewData["Title"] = "Your blood glucose records";
 }
 <h1 class="text-center">@this.ViewData["Title"]</h1>
-
-<div class="table-striped">
-    <table class="table" style="width:100%">
-        <tr>
-            <th>Date</th>
-            <th>Glucose Level</th>
-            <th>Blood Glucose Status</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-        @foreach (var bloodGlucose in this.Model.BloodGlucoses)
-        {
-            <tr>
-                <th>@bloodGlucose.Date</th>
-                <th>@bloodGlucose.CurrentGlucoseLevel</th>
-                <th>@bloodGlucose.BloodGlocoseStatus</th>
-                <th><a href="/BloodGlucoses/Edit/@bloodGlucose.Id" class="btn btn-block btn-info" title="Edit Food"><i class="fas fa-edit"></i></a></th>
-                <th><a asp-controller="BloodGlucoses" asp-action="Delete" asp-route-id="@bloodGlucose.Id" class="btn btn-block btn-danger" title="Delete BloodGlucose"><i class="fas fa-trash-alt"></i></a></th>
-            </tr>
-        }
-    </table>
+<hr />
+<div class="row">
+    <div class="col-md-12 border">
+        <div class="text-center">
+            <a href="/BloodGlucoses/AddBloodGlucose" class="btn btn-primary waves-effect m-2 custom-blue" title="Add Blood Glucose">
+                <i class="fas fa-plus-circle"></i>
+            </a>
+        </div>
+        <div class="table-striped">
+            <table class="table" style="width:100%">
+                <tr>
+                    <th>Date</th>
+                    <th>Glucose Level</th>
+                    <th>Blood Glucose Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var bloodGlucose in this.Model.BloodGlucoses)
+                {
+                    <tr>
+                        <th>@bloodGlucose.Date</th>
+                        <th>@bloodGlucose.CurrentGlucoseLevel</th>
+                        <th>@bloodGlucose.BloodGlocoseStatus</th>
+                        <th><a href="/BloodGlucoses/Edit/@bloodGlucose.Id" class="btn btn-block btn-info" title="Edit Food"><i class="fas fa-edit"></i></a></th>
+                        <th><a asp-controller="BloodGlucoses" asp-action="Delete" asp-route-id="@bloodGlucose.Id" class="btn btn-block btn-danger" title="Delete BloodGlucose"><i class="fas fa-trash-alt"></i></a></th>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
 </div>

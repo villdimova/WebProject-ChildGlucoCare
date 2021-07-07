@@ -1,0 +1,26 @@
+﻿@model ChildGlucoCare.Web.ViewModels.Statistics.BloodGlucoseReportViewModel
+
+@{
+    this.ViewData["Title"] = "Weekly Blood Glucose report";
+}
+
+<h1 class="text-center">Blood glucose report for the period  @Model.PeriodStart- @DateTime.Today</h1>
+
+<div class="table-bordered">
+    <table class="table" style="width:100%">
+        <tr>
+            <th>Blood glucose records</th>
+            <th>Blood glucose High</th>
+            <th>Blood glucose Normal</th>
+            <th>Blood glucose Low</th>
+            <th>Blood glucose Average value</th>
+        </tr>
+                <tr class="table-info">
+                    <th class="text-danger">@Model.BloodGlucoseRecords</th>
+                    <th class="text-danger">@Model.HighPercentage</th>
+                    <th class="text-success">@Model.NormalPercentage</th>
+                    <th class="text-danger">@Model.LowPercentage</th>
+                    <th>@Model.AvgBloodGlucose</th>            
+                </tr>        
+    </table>
+</div>

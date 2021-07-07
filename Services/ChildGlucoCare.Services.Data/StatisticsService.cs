@@ -6,6 +6,7 @@
 
     using ChildGlucoCare.Data.Common.Repositories;
     using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Data.Models.Enums;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Mapping;
 
@@ -26,6 +27,53 @@
             this.insulinsRepository = insulinsRepository;
             this.bloodGlucosesRepository = bloodGlucosesRepository;
             this.usersService = usersService;
+        }
+
+        public string GetAvgBloodGlucose(DateTime startDate, DateTime endDate)
+        {
+            var bloodGlucoses = this.GetBloodGlucoseReport(startDate, endDate);
+
+            return $"{bloodGlucoses.Average(x => x.CurrentGlucoseLevel):f2}";
+        }
+
+        public string GetHighBloodGlucosePercentage(DateTime startDate, DateTime endDate)
+        {
+            var bloodGlucoses = this.GetBloodGlucoseReport(startDate, endDate);
+
+            var highBloodglucoses = bloodGlucoses.Where(x => x.BloodGlocoseStatus == BloodGlocoseStatus.High).ToList().Count();
+            double highBloodGlucosesPercentage = (double)highBloodglucoses / bloodGlucoses.Count() * 100;
+
+            return $"{highBloodGlucosesPercentage:f2}%";
+        }
+
+        public string GetLowBloodGlucosePercentage(DateTime startDate, DateTime endDate)
+        {
+            var bloodGlucoses = this.GetBloodGlucoseReport(startDate, endDate);
+
+            var lowBloodglucoses = bloodGlucoses.Where(x => x.BloodGlocoseStatus == BloodGlocoseStatus.Low).ToList().Count();
+            double lowBloodGlucosesPercentage = (double)lowBloodglucoses / bloodGlucoses.Count() * 100;
+
+            return $"{lowBloodGlucosesPercentage:f2}%";
+        }
+
+        public string GetNormalBloodGlucosePercentage(DateTime startDate, DateTime endDate)
+        {
+            var bloodGlucoses = this.GetBloodGlucoseReport(startDate, endDate);
+
+            var normalBloodglucoses = bloodGlucoses.Where(x => x.BloodGlocoseStatus == BloodGlocoseStatus.Normal).ToList().Count();
+            double normalBloodGlucosesPercentage = (double)normalBloodglucoses / bloodGlucoses.Count() * 100;
+
+            return $"{normalBloodGlucosesPercentage:f2}%";
+        }
+
+        public List<BloodGlucose> GetBloodGlucoseReport(DateTime startDate, DateTime endDate)
+        {
+            var bloodGlucoses = this.bloodGlucosesRepository
+                .All()
+                .Where(x => x.Date.Date >= startDate && x.Date <= endDate)
+                .ToList();
+
+            return bloodGlucoses;
         }
 
         public IEnumerable<T> GetYesterdayBloodGlucoseInfo<T>()
