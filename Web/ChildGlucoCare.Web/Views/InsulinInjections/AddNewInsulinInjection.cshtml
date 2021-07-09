@@ -1,5 +1,6 @@
 ﻿@model ChildGlucoCare.Web.ViewModels.InsulinInjections.AddNewInsulinInjectionViewModel
 @{ this.ViewData["Title"] = "Add  new Carbohydrate intake";
+    var insulinNames = this.Model.InsulinNames.Select(x => new SelectListItem(x.Text, x.Value));
 }
 
 <form method="post" class="col-md-4 offset-md-3"
@@ -26,8 +27,8 @@
         <span asp-validation-for="CurrentGlucoseLevel" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="InsulinName" class="col-md-6 control-label"></label>
-        <input asp-for="InsulinName" class="form-control" />
+        <label asp-for="InsulinName"></label>
+        <select asp-for="InsulinName" class="form-control" asp-items="insulinNames"></select>
         <span asp-validation-for="InsulinName" class="text-danger"></span>
     </div>
     <input type="submit" class="btn btn-primary" />

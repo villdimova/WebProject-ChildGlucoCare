@@ -15,6 +15,7 @@
             this.SportNames = new List<SelectListItem>();
         }
 
+        [Display(Name = "Sport name")]
         public string SportName { get; set; }
 
         [Required]

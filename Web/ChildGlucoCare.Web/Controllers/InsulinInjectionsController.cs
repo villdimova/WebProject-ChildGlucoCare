@@ -12,20 +12,28 @@
     public class InsulinInjectionsController : BaseController
     {
         private readonly IInsulinInjectionsService insulinInjectionService;
+        private readonly IInsulinsService insulinsService;
         private readonly UserManager<ApplicationUser> userManager;
 
         public InsulinInjectionsController(
                                                               IInsulinInjectionsService insulinInjectionService,
+                                                              IInsulinsService insulinsService,
                                                               UserManager<ApplicationUser> userManager)
         {
             this.insulinInjectionService = insulinInjectionService;
+            this.insulinsService = insulinsService;
             this.userManager = userManager;
         }
 
         [Authorize]
         public IActionResult AddNewInsulinInjection()
         {
-            return this.View();
+            var viewModel = new AddNewInsulinInjectionViewModel
+            {
+                InsulinNames = this.insulinsService.GetAllNames(),
+            };
+
+            return this.View(viewModel);
         }
 
         [Authorize]

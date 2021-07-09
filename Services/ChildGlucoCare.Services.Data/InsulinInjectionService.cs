@@ -30,7 +30,7 @@
 
         public async Task AddAsync(AddNewInsulinInjectionViewModel input, string userId)
         {
-            var injectedInulin = this.insulinsRepository.All().FirstOrDefault(i => i.Name == input.InsulinName);
+            var injectedInulin = this.insulinsRepository.All().FirstOrDefault(i => i.Id.ToString() == input.InsulinName);
 
             if (injectedInulin == null)
             {

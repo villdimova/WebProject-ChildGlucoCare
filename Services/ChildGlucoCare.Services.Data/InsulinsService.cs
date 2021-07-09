@@ -11,6 +11,7 @@
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Mapping;
     using ChildGlucoCare.Web.ViewModels.Insulins;
+    using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.EntityFrameworkCore;
 
     public class InsulinsService : IInsulinsService
@@ -83,6 +84,17 @@
                       .OrderBy(f => f.Name)
                       .To<T>()
                       .ToListAsync();
+        }
+
+        public IEnumerable<SelectListItem> GetAllNames()
+        {
+            var insulinsNames = this.insulinsRepository.AllAsNoTracking().Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Name,
+            });
+
+            return insulinsNames.OrderBy(x => x.Text).ToList();
         }
     }
 }

@@ -7,6 +7,7 @@
 
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Web.ViewModels.Insulins;
+    using Microsoft.AspNetCore.Mvc.Rendering;
 
     public interface IInsulinsService
     {
@@ -19,5 +20,7 @@
         public Task<Insulin> EditInsulinAsync(EditInsulinInputModel inputModel);
 
         public Task<IEnumerable<T>> GetAll<T>();
+
+        IEnumerable<SelectListItem> GetAllNames();
     }
 }
