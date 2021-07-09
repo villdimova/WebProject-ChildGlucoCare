@@ -2,10 +2,12 @@
 {
     using System.ComponentModel.DataAnnotations;
 
+    using static ChildGlucoCare.Data.Common.DataConstants;
+
     public abstract class BloodGlucoseInputModel
     {
         [Required]
-        [Range((double)1.0, 30.0)]
+        [Range((double)MinBloodGlucoseLevel, MaxBloodGlucoseLevel)]
         [Display(Name = "Glucose Level")]
         public double CurrentGlucoseLevel { get; set; }
     }

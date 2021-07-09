@@ -5,13 +5,15 @@
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Mapping;
 
+    using static ChildGlucoCare.Data.Common.DataConstants;
+
     public class EditInsulinInputModel: IMapFrom<Insulin>
     {
         public int Id { get; set; }
 
         [Required]
-        [MinLength(5)]
-        [MaxLength(30)]
+        [MinLength(MinInsulinName)]
+        [MaxLength(MaxInsulinName)]
         public string Name { get; set; }
 
         [Required]

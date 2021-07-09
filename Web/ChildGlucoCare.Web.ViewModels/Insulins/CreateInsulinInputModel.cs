@@ -4,13 +4,15 @@
 
     using ChildGlucoCare.Data.Models.Enums;
 
+    using static ChildGlucoCare.Data.Common.DataConstants;
+
     public class CreateInsulinInputModel
     {
         public InsulinType InsulinType { get; set; }
 
         [Required]
-        [MinLength(5)]
-        [MaxLength(30)]
+        [MinLength(MinInsulinName)]
+        [MaxLength(MaxInsulinName)]
         public string Name { get; set; }
 
         [Required]

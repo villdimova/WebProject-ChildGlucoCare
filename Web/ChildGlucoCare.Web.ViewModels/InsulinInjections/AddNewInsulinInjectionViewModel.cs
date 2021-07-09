@@ -3,10 +3,12 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
+    using static ChildGlucoCare.Data.Common.DataConstants;
+
     public class AddNewInsulinInjectionViewModel
     {
         [Required]
-        [Range(0, 99.9)]
+        [Range(MinInsulinInjection, MaxInsulinInjection)]
         [Display(Name = "Insulin Dose")]
         public double InsulinDose { get; set; }
 
@@ -15,12 +17,12 @@
         public DateTime Date { get; set; }
 
         [Required]
-        [Range(1.0, 30.0)]
+        [Range(MinBloodGlucoseLevel, MaxBloodGlucoseLevel)]
         [Display(Name = "Current Glucose Level")]
         public double CurrentGlucoseLevel { get; set; }
 
         [Required]
-        [Range(0.1, 20.0)]
+        [Range(MinTotalBeu, MaxTotalBeu)]
         public double TotalBeu { get; set; }
 
         [Required]

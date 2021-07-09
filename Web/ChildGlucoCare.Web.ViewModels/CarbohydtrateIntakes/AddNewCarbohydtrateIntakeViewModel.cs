@@ -8,6 +8,8 @@
     using ChildGlucoCare.Data.Models.Enums;
     using Microsoft.AspNetCore.Mvc.Rendering;
 
+    using static ChildGlucoCare.Data.Common.DataConstants;
+
     public class AddNewCarbohydtrateIntakeViewModel
     {
         public AddNewCarbohydtrateIntakeViewModel()
@@ -25,10 +27,9 @@
         public MealType MealType { get; set; }
 
         [Required]
-        [Range(1.0, 30.0)]
+        [Range((double)MinBloodGlucoseLevel, MaxBloodGlucoseLevel)]
         [Display(Name = "Current Glucose Level")]
         public double CurrentGlucoseLevel { get; set; }
-
 
         public ICollection<FoodIntake> Foods { get; set; }
 
