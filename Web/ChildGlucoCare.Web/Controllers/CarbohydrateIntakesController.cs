@@ -4,9 +4,7 @@
 
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
-    using ChildGlucoCare.Services.Data.Models;
     using ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes;
-    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
@@ -41,6 +39,7 @@
         {
             if (!this.ModelState.IsValid)
             {
+                carbohydrateIntakeViewModel.FoodNames = this.foodsService.GetAllNames();
                 return this.View(carbohydrateIntakeViewModel);
             }
 
@@ -64,15 +63,6 @@
 
             return this.View(viewModel);
         }
-
-        //public IActionResult GetEatenBeuForMeal()
-        //{
-        //    var viewModel = new AllEatenBeuViewModel
-        //    {
-        //        AllBeu = this.carbohydrateIntakeService.GetAllBeu<BeuViewModel>(),
-        //    };
-        //    return this.View(viewModel);
-        //}
 
         public async Task<IActionResult> All()
         {

@@ -16,6 +16,7 @@
         }
 
         [Display(Name = "Sport name")]
+        [Required]
         public string SportName { get; set; }
 
         [Required]

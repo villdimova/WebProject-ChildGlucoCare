@@ -16,18 +16,19 @@
         [Required]
         public string Name { get; set; }
 
-        [Range(0, 100)]
         public int GramsPerBreadUnit { get; set; }
 
         public int GlycemicIndex { get; set; }
 
         public int CarbohydratePer100Grams { get; set; }
 
-        [Range(0, 100)]
         public double FatPer100Grams { get; set; }
 
         [Range(0, 4000)]
         public int CaloriesPer100Grams { get; set; }
+
+        [Required]
+        public string ImageUrl { get; set; }
 
         public ICollection<FoodIntake> FoodIntakes { get; set; }
 

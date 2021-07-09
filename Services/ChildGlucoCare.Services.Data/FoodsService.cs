@@ -97,9 +97,11 @@
                 .FirstOrDefaultAsync();
         }
 
-        public IEnumerable<Food> GetNames()
+        public List<string> GetNames()
         {
-            return this.foodsRepository.All().ToList();
+            var foodsNames = this.foodsRepository.All().Select(x => x.Name).ToList();
+
+            return foodsNames;
         }
     }
 }

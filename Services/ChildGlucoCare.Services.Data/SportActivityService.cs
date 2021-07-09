@@ -29,11 +29,6 @@
         {
             var sport = this.sportsRepository.All().FirstOrDefault(s => s.Id.ToString() == sportActivityViewModel.SportName);
 
-            if (sport == null)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-
             var sportActivity = new SportActivity
             {
                 SportName = sport.SportName,

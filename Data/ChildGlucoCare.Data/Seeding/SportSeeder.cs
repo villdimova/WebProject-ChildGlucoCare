@@ -8,7 +8,7 @@
 
     public class SportSeeder : ISeeder
     {
-        public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
+        public async Task SeedAsync(ChildGlucoCareDbContext dbContext, IServiceProvider serviceProvider)
         {
             if (dbContext.Sports.Any())
             {

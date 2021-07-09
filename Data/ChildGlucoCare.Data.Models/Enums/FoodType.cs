@@ -11,5 +11,7 @@
         Vegetables = 6,
         Fruits = 7,
         QuickSugarFood = 8,
+        Meal = 9,
+        Nuts = 10,
     }
 }

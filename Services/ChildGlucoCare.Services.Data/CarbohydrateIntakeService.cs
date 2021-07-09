@@ -54,11 +54,6 @@
             foreach (var foodIntake in input.Foods)
             {
                 var eatenFood = this.foodsRepository.All().FirstOrDefault(x => x.Name == foodIntake.FoodName);
-                if (eatenFood == null)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-
                 carbohydrateIntake.Foods.Add(new FoodIntake
                 {
                     Food = eatenFood,

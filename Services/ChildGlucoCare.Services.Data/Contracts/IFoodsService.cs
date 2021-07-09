@@ -22,6 +22,6 @@
 
         IEnumerable<SelectListItem> GetAllNames();
 
-        IEnumerable<Food> GetNames();
+        List<string> GetNames();
     }
 }

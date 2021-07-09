@@ -52,6 +52,7 @@
         [HttpPost]
         public async Task<IActionResult> Edit(EditFoodInputModel inputModel)
         {
+           
             if (!this.ModelState.IsValid)
             {
                 return this.View(inputModel);

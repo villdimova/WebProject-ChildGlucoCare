@@ -42,6 +42,7 @@
         {
             if (!this.ModelState.IsValid)
             {
+                injectionViewModel.InsulinNames = this.insulinsService.GetAllNames();
                 return this.View(injectionViewModel);
             }
 

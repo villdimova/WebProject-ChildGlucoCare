@@ -19,12 +19,16 @@
         [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Taken { get; set; }
 
+        [Required]
         public string Onset { get; set; }
 
+        [Required]
         public string Peak { get; set; }
 
+        [Required]
         public string Duration { get; set; }
 
         public ICollection<InsulinInjection> InsulinInjections { get; set; }

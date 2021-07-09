@@ -32,11 +32,6 @@
         {
             var injectedInulin = this.insulinsRepository.All().FirstOrDefault(i => i.Id.ToString() == input.InsulinName);
 
-            if (injectedInulin == null)
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-
             var insulinInjection = new InsulinInjection
             {
                 Date = input.Date,

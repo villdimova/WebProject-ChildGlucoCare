@@ -22,5 +22,7 @@
         public int? CarbohydrateIntakeId { get; set; }
 
         public string FoodType { get; set; }
+
+        public string ImageUrl { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace ChildGlucoCare.Data.Models
 {
     using System;
-
+    using System.ComponentModel.DataAnnotations;
     using ChildGlucoCare.Data.Common.Models;
     using ChildGlucoCare.Data.Models.Enums;
 
@@ -15,6 +15,7 @@
 
         public double SuggestedCorrectionDoseInsulin { get; set; }
 
+        [Required]
         public string ApplicationUserId { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
