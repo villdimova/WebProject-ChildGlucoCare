@@ -282,6 +282,8 @@ namespace ChildGlucoCare.Data.Migrations
                     MealType = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TotalBeu = table.Column<double>(type: "float", nullable: false),
+                    TotalFat = table.Column<double>(type: "float", nullable: false),
+                    GlycemicLoad = table.Column<double>(type: "float", nullable: false),
                     SuggestedDoseInsulin = table.Column<double>(type: "float", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),

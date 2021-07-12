@@ -215,6 +215,9 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("GlycemicLoad")
+                        .HasColumnType("float");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -228,6 +231,9 @@ namespace ChildGlucoCare.Data.Migrations
                         .HasColumnType("float");
 
                     b.Property<double>("TotalBeu")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalFat")
                         .HasColumnType("float");
 
                     b.HasKey("Id");

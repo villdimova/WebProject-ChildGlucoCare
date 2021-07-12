@@ -16,6 +16,10 @@
 
         public double TotalBeu { get; set; }
 
+        public double TotalFats { get; set; }
+
+        public double GlyecemicLoad { get; set; }
+
         public double SuggestedDoseInsulin { get; set; }
     }
 }

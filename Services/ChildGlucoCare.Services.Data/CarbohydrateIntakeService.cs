@@ -64,14 +64,18 @@
             }
 
             var totalCarbs = 0;
+            var totalFats = 0.0;
 
             foreach (var food in carbohydrateIntake.Foods)
             {
                 totalCarbs += (food.Amount * food.Food.CarbohydratePer100Grams) / 100;
+                totalFats += (food.Amount * food.Food.FatPer100Grams) / 100;
             }
 
             var insulinSensitivity = carbohydrateIntake.ApplicationUser.InsulinSensitivity;
             carbohydrateIntake.TotalBeu = Math.Round(totalCarbs / 12.0);
+            carbohydrateIntake.TotalFat = totalFats;
+            carbohydrateIntake.GlycemicLoad = this.GetGlycemicLoadForMeal(carbohydrateIntake);
             carbohydrateIntake.SuggestedDoseInsulin = this.CalculateProperInsulinDose(input, carbohydrateIntake.TotalBeu, insulinSensitivity);
 
             await this.carbsRepository.AddAsync(carbohydrateIntake);
@@ -132,6 +136,28 @@
             var lastCarbs = this.carbsRepository.AllAsNoTracking().OrderByDescending(x => x.Id).FirstOrDefault();
 
             return lastCarbs;
+        }
+
+        private double GetGlycemicLoadForMeal(CarbohydrateIntake carbohydrateIntake)
+        {
+            var totalCarbs = 0;
+
+            foreach (var food in carbohydrateIntake.Foods)
+            {
+                totalCarbs += (food.Amount * food.Food.CarbohydratePer100Grams) / 100;
+            }
+
+            var glygemisLoad = 0.0;
+
+            foreach (var food in carbohydrateIntake.Foods)
+            {
+
+                var foodCarbs = (((double)food.Food.CarbohydratePer100Grams * food.Amount) /100) / totalCarbs;
+                var foodGI = foodCarbs * food.Food.GlycemicIndex;
+                glygemisLoad += foodGI;
+            }
+
+            return Math.Round((glygemisLoad * totalCarbs) / 100,1);
         }
 
         private double GetdayPartInsulinRatio(MealType mealType)

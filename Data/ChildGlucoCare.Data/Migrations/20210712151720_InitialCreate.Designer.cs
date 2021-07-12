@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChildGlucoCare.Data.Migrations
 {
     [DbContext(typeof(ChildGlucoCareDbContext))]
-    [Migration("20210709175005_InitialCreate")]
+    [Migration("20210712151720_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -217,6 +217,9 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("GlycemicLoad")
+                        .HasColumnType("float");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -230,6 +233,9 @@ namespace ChildGlucoCare.Data.Migrations
                         .HasColumnType("float");
 
                     b.Property<double>("TotalBeu")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalFat")
                         .HasColumnType("float");
 
                     b.HasKey("Id");

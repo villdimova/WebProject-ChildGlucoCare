@@ -21,6 +21,10 @@
 
         public double TotalBeu { get; set; }
 
+        public double TotalFat { get; set; }
+
+        public double GlycemicLoad { get; set; }
+
         public double SuggestedDoseInsulin { get; set; }
 
         public virtual ICollection<FoodIntake> Foods { get; set; }

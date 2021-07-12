@@ -3,6 +3,7 @@
     using System.Threading.Tasks;
 
     using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Data.Models.Enums;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes;
     using Microsoft.AspNetCore.Identity;
@@ -59,7 +60,20 @@
                 MealType = lastCarbs.MealType,
                 TotalBeu = lastCarbs.TotalBeu,
                 SuggestedDoseInsulin = lastCarbs.SuggestedDoseInsulin,
+                TotalFats = lastCarbs.TotalFat,
+                GlyecemicLoad = lastCarbs.GlycemicLoad,
             };
+
+            if ((viewModel.MealType == MealType.Breakfast || viewModel.MealType == MealType.MorningSnack)
+                && viewModel.GlyecemicLoad > 15)
+            {
+                return this.RedirectToAction(nameof(this.AddedFoodWithHighGlygemicLoad));
+            }
+
+            if (viewModel.TotalFats > 20)
+            {
+                return this.AddedDangerousFatFood();
+            }
 
             return this.View(viewModel);
         }
@@ -71,6 +85,16 @@
                 AllCarbs = await this.carbohydrateIntakeService.GetAllCarbsAsync<CarbsViewModel>(),
             };
             return this.View(viewModel);
+        }
+
+        public IActionResult AddedFoodWithHighGlygemicLoad()
+        {
+            return this.View();
+        }
+
+        public IActionResult AddedDangerousFatFood()
+        {
+            return this.View();
         }
 
         public JsonResult GetFoodNames()
