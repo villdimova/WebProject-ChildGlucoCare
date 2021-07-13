@@ -68,12 +68,28 @@
 
             foreach (var food in carbohydrateIntake.Foods)
             {
-                totalCarbs += (food.Amount * food.Food.CarbohydratePer100Grams) / 100;
+                if (food.Food.CarbohydratePer100Grams == 0)
+                {
+                    totalCarbs = 0;
+                }
+                else
+                {
+                    totalCarbs += (food.Amount * food.Food.CarbohydratePer100Grams) / 100;
+                }
+
                 totalFats += (food.Amount * food.Food.FatPer100Grams) / 100;
             }
 
             var insulinSensitivity = carbohydrateIntake.ApplicationUser.InsulinSensitivity;
-            carbohydrateIntake.TotalBeu = Math.Round(totalCarbs / 12.0);
+            if (totalCarbs == 0)
+            {
+                carbohydrateIntake.TotalBeu = 0.0;
+            }
+            else
+            {
+                carbohydrateIntake.TotalBeu = Math.Round(totalCarbs / 12.0);
+            }
+
             carbohydrateIntake.TotalFat = totalFats;
             carbohydrateIntake.GlycemicLoad = this.GetGlycemicLoadForMeal(carbohydrateIntake);
             carbohydrateIntake.SuggestedDoseInsulin = this.CalculateProperInsulinDose(input, carbohydrateIntake.TotalBeu, insulinSensitivity);
@@ -140,6 +156,7 @@
 
         private double GetGlycemicLoadForMeal(CarbohydrateIntake carbohydrateIntake)
         {
+
             var totalCarbs = 0;
 
             foreach (var food in carbohydrateIntake.Foods)
@@ -147,17 +164,21 @@
                 totalCarbs += (food.Amount * food.Food.CarbohydratePer100Grams) / 100;
             }
 
-            var glygemisLoad = 0.0;
+            var glycemisLoad = 0.0;
 
             foreach (var food in carbohydrateIntake.Foods)
             {
+                double foodGI = 0.0;
+                if (food.Food.GlycemicIndex != 0)
+                {
+                    var foodCarbs = (((double)food.Food.CarbohydratePer100Grams * food.Amount) / 100) / totalCarbs;
+                    foodGI = foodCarbs * food.Food.GlycemicIndex;
+                }
 
-                var foodCarbs = (((double)food.Food.CarbohydratePer100Grams * food.Amount) /100) / totalCarbs;
-                var foodGI = foodCarbs * food.Food.GlycemicIndex;
-                glygemisLoad += foodGI;
+                glycemisLoad += foodGI;
             }
 
-            return Math.Round((glygemisLoad * totalCarbs) / 100,1);
+            return Math.Round((glycemisLoad * totalCarbs) / 100, 1);
         }
 
         private double GetdayPartInsulinRatio(MealType mealType)

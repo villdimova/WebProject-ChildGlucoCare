@@ -36,17 +36,18 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddNewCarbohydtrateIntake(AddNewCarbohydtrateIntakeViewModel carbohydrateIntakeViewModel)
+        public async Task<IActionResult> AddNewCarbohydtrateIntake(AddNewCarbohydtrateIntakeViewModel viewModel)
         {
             if (!this.ModelState.IsValid)
             {
-                carbohydrateIntakeViewModel.FoodNames = this.foodsService.GetAllNames();
-                return this.View(carbohydrateIntakeViewModel);
+                viewModel.FoodNames = this.foodsService.GetAllNames();
+                return this.View(viewModel);
             }
 
             var user = await this.userManager.GetUserAsync(this.User);
 
-            await this.carbohydrateIntakeService.AddCarbohydrateIntakeAsync(carbohydrateIntakeViewModel, user.Id);
+            await this.carbohydrateIntakeService.AddCarbohydrateIntakeAsync(viewModel, user.Id);
+
             return this.RedirectToAction(nameof(this.SuccessfullyAdded));
         }
 
@@ -63,17 +64,6 @@
                 TotalFats = lastCarbs.TotalFat,
                 GlyecemicLoad = lastCarbs.GlycemicLoad,
             };
-
-            if ((viewModel.MealType == MealType.Breakfast || viewModel.MealType == MealType.MorningSnack)
-                && viewModel.GlyecemicLoad > 15)
-            {
-                return this.RedirectToAction(nameof(this.AddedFoodWithHighGlygemicLoad));
-            }
-
-            if (viewModel.TotalFats > 20)
-            {
-                return this.AddedDangerousFatFood();
-            }
 
             return this.View(viewModel);
         }
