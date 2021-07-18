@@ -1,11 +1,13 @@
 ﻿namespace ChildGlucoCare.Services.Data.Contracts
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Models;
     using ChildGlucoCare.Web.ViewModels.Foods;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
 
     public interface IFoodsService
@@ -14,7 +16,7 @@
 
         public Task<T> GetFoodAsync<T>(int foodId);
 
-        public Task<IEnumerable<T>> GetAllFoodsAsync<T>();
+        public List<Food> GetAllFoods([FromQuery] AllFoodsViewModel query);
 
         public Task<Food> DeleteFoodAsync(int foodId);
 

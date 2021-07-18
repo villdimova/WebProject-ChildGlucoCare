@@ -1,15 +1,18 @@
 ﻿namespace ChildGlucoCare.Services.Data
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
     using ChildGlucoCare.Data.Common.Repositories;
     using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Data.Models.Enums;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Services.Data.Models;
     using ChildGlucoCare.Services.Mapping;
     using ChildGlucoCare.Web.ViewModels.Foods;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.EntityFrameworkCore;
 
@@ -68,13 +71,23 @@
             return food;
         }
 
-        public async Task<IEnumerable<T>> GetAllFoodsAsync<T>()
+        public  List<Food> GetAllFoods([FromQuery] AllFoodsViewModel query)
         {
-            return await this.foodsRepository
-                    .All()
-                    .OrderBy(f => f.Name)
-                    .To<T>()
-                    .ToListAsync();
+            var foodsquery = this.foodsRepository.All().AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(query.FoodType))
+            {
+                foodsquery = foodsquery.Where(c => c.FoodType.ToString() == query.FoodType);
+            }
+
+            if (!string.IsNullOrWhiteSpace(query.SearchTerm))
+            {
+                foodsquery = foodsquery.Where(c =>
+                    c.Name.ToLower().Contains(query.SearchTerm.ToLower()));
+            }
+
+            return foodsquery.ToList();
+
         }
 
         public IEnumerable<SelectListItem> GetAllNames()

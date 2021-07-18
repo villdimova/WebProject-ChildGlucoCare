@@ -5,6 +5,15 @@
 @{
     ViewData["Title"] = "All foods";
 }
+
+<form method="get">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label asp-for="SearchTerm"></label>
+            <input asp-for="SearchTerm" class="form-control" placeholder=" Corn, Chicken, Melon ... ">
+        </div>
+    </div>
+</form>
 <h1 class="text-center">@this.ViewData["Title"]</h1>
 <hr />
 <div class="row">
