@@ -1,7 +1,6 @@
 ﻿@model ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes.AddNewCarbohydtrateIntakeViewModel
 @using ChildGlucoCare.Data.Models.Enums
-@{ this.ViewData["Title"] = "Add  new Carbohydrate intake";
-}
+@{ this.ViewData["Title"] = "Add  new Carbohydrate intake"; }
 
 
 <form method="post" class="col-md-6 offset-md-3"
@@ -9,7 +8,7 @@
     <h1>@this.ViewData["Title"]</h1>
     <div class="form-group">
         <label asp-for="Date" class="col-md-6 control-label"></label>
-        <input asp-for="Date" class="form-control" value="@DateTime.UtcNow />
+        <input asp-for="Date" class="form-control" value="@DateTime.UtcNow  />
         <span asp-validation-for="Date" class="text-danger"></span>
     </div>
     <div class="form-group">
@@ -41,18 +40,12 @@
         </div>
         <hr>
         <input type="submit" class="btn btn-primary" />
-        </div>
+    </div>
 </form>
 
 
 @section Scripts {
-    <script>
-        var foodIndex = 0;
-        function AddAnotherFood() {
-            $("#FoodsContainer").
-                append("<div class='form-control-auto'>Food: <input type='text' name='Foods[" + foodIndex + "].FoodName' /> Amount: <input type='text' name='Foods[" + foodIndex + "].Amount' /></div>");
-            foodIndex++;
-        }
-    </script>
+    <script src="/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="/assets/vendor/chart.js/dist/Chart.extension.js"></script>
 }
 

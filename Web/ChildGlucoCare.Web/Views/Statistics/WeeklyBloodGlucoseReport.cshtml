@@ -15,12 +15,54 @@
             <th>Blood glucose Low</th>
             <th>Blood glucose Average value</th>
         </tr>
-                <tr class="table-info">
-                    <th class="text-danger">@Model.BloodGlucoseRecords</th>
-                    <th class="text-danger">@Model.HighPercentage</th>
-                    <th class="text-success">@Model.NormalPercentage</th>
-                    <th class="text-danger">@Model.LowPercentage</th>
-                    <th>@Model.AvgBloodGlucose</th>            
-                </tr>        
+        <tr class="table-info">
+            <th class="text-danger">@Model.BloodGlucoseRecords</th>
+            <th class="text-danger">@Model.HighPercentage</th>
+            <th class="text-success">@Model.NormalPercentage</th>
+            <th class="text-danger">@Model.LowPercentage</th>
+            <th>@Model.AvgBloodGlucose</th>
+        </tr>
     </table>
 </div>
+
+<!--* Card header *-->
+<!--* Card body *-->
+<!--* Card init *-->
+<div class="card">
+
+    <!-- Card header -->
+    <div class="card-header">
+
+        <!-- Title -->
+
+        <h5 class="h3 mb-0">Bars chart</h5>
+
+    </div>
+
+    <!-- Card body -->
+    <div class="card-body">
+
+
+        <div class="chart">
+            <line-chart :height="350"
+                        :chart-data="salesChart.chartData">
+            </line-chart>
+        </div>
+            <!-- Chart wrapper -->
+            <canvas id="chart-bars" class="chart-canvas"></canvas>
+        </div>
+
+
+
+    </div>
+
+
+
+
+</div>
+
+@section Scripts {
+    <script src="/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+}
+
