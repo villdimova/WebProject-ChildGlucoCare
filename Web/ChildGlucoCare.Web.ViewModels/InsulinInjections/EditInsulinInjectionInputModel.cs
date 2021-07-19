@@ -4,16 +4,15 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+    using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Services.Mapping;
     using Microsoft.AspNetCore.Mvc.Rendering;
 
     using static ChildGlucoCare.Data.Common.DataConstants;
 
-    public class AddNewInsulinInjectionViewModel
+    public class EditInsulinInjectionInputModel : IMapFrom<InsulinInjection>
     {
-        public AddNewInsulinInjectionViewModel()
-        {
-            this.InsulinNames = new List<SelectListItem>();
-        }
+        public int Id { get; set; }
 
         [Required]
         [Range(MinInsulinInjection, MaxInsulinInjection)]
@@ -35,8 +34,5 @@
 
         [Display(Name = "Insulin name")]
         public string InsulinName { get; set; }
-
-        [Display(Name = "Insulin name")]
-        public IEnumerable<SelectListItem> InsulinNames { get; set; }
     }
 }

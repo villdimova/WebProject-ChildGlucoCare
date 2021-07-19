@@ -7,6 +7,8 @@
 
     public class InsulinInjectionViewModel : IMapFrom<InsulinInjection>
     {
+        public int Id { get; set; }
+
         public double InsulinDose { get; set; }
 
         public DateTime Date { get; set; }

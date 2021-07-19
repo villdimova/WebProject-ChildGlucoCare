@@ -7,12 +7,18 @@
 <h1 class="text-center">Successfully added foods, you can see the total BEU intake and the right insulin dose below!</h1>
 @if ((Model.MealType == MealType.Breakfast || Model.MealType == MealType.MorningSnack) && Model.GlyecemicLoad > 15.0)
 {
-    <h1 class="text-danger text-center font-weight-bold">The selected food is with too high Glycemic load for breakfast and will cause serios blood sugar increase! </h1>
+    <div class="alert alert-danger" role="alert">
+        <strong>Danger!</strong> The selected food is with too high Glycemic load for breakfast and will cause serios blood sugar increase!
+    </div>
+    @*<h1 class="text-danger text-center font-weight-bold">The selected food is with too high Glycemic load for breakfast and will cause serios blood sugar increase! </h1>*@
 }
 @if ((Model.MealType == MealType.Dinner || Model.MealType == MealType.AfterDinnerSnack) && Model.TotalFats > 10.0)
 {
-<h1 class="text-danger text-center font-weight-bold">The selected food is with too many fat for dinner!  </h1>
-<h3 class="text-center text-danger">It is expected the blood glucose to increase seriously in 2 hours and to be needed insulin correction! The blood glucose has to be checked more often in the next 8 hours and to be needed more insulin corrections on every 2 hours</h3>
+<div class="alert alert-danger" role="alert">
+    <strong>Danger!</strong> The selected food is with too many fat for dinner!
+</div>
+    @*<h1 class="text-danger text-center font-weight-bold">The selected food is with too many fat for dinner!  </h1>*@
+    <h3 class="text-center text-danger">It is expected the blood glucose to increase seriously in 2 hours and to be needed insulin correction! The blood glucose has to be checked more often in the next 8 hours and to be needed more insulin corrections on every 2 hours</h3>
 }
 
 <div class="table-striped">

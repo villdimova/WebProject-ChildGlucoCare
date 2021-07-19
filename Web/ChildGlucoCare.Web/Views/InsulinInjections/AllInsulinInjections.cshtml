@@ -1,0 +1,40 @@
+﻿@model ChildGlucoCare.Web.ViewModels.InsulinInjections.AllInsulinInjections
+
+@{
+    this.ViewData["Title"] = "Your made insulin injections";
+}
+<h1 class="text-center">@this.ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12 border">
+        <div class="text-center">
+            <a href="/InsulinInjections/AddNewInsulinInjection" class="btn btn-primary waves-effect m-2 custom-blue" title="Add Injection">
+                <i class="fas fa-plus-circle"></i>
+            </a>
+        </div>
+        <div class="table-striped">
+            <table class="table" style="width:100%">
+                <tr>
+                    <th>Date</th>
+                    <th>Insulin Dose</th>
+                    <th>Current Glucose Level</th>
+                    <th>Total Meal BEU</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var injection in this.Model.InsulinInjections)
+                {
+                    <tr>
+                        <th>@injection.Date</th>
+                        <th>@injection.InsulinDose</th>
+                        <th>@injection.CurrentGlucoselevel</th>
+                        <th>@injection.TotalMealBeu</th>
+                        <th><a href="/InsulinInjections/Edit/@injection.Id" class="btn btn-block btn-info" title="Edit Insulin Injection"><i class="fas fa-edit"></i></a></th>
+                        <th><a asp-controller="InsulinInjections" asp-action="Delete" asp-route-id="@injection.Id" class="btn btn-block btn-danger" title="Delete Insulin Injection"><i class="fas fa-trash-alt"></i></a></th>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

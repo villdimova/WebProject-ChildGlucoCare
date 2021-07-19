@@ -25,7 +25,6 @@
             this.userManager = userManager;
         }
 
-        [Authorize]
         public IActionResult AddNewInsulinInjection()
         {
             var viewModel = new AddNewInsulinInjectionViewModel
@@ -36,7 +35,6 @@
             return this.View(viewModel);
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> AddNewInsulinInjection(AddNewInsulinInjectionViewModel injectionViewModel)
         {
@@ -49,7 +47,40 @@
             var user = await this.userManager.GetUserAsync(this.User);
 
             await this.insulinInjectionService.AddAsync(injectionViewModel, user.Id);
-            return this.Redirect("/");
+            return this.RedirectToAction(nameof(this.AllInsulinInjections));
+        }
+
+        public async Task<IActionResult> AllInsulinInjections()
+        {
+            var viewModel = new AllInsulinInjections
+            {
+                InsulinInjections = await this.insulinInjectionService.GetAll<InsulinInjectionViewModel>(),
+            };
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var viewModel = await this.insulinInjectionService.GetInsulinInjectionAsync<EditInsulinInjectionInputModel>(id);
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditInsulinInjectionInputModel inputModel)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(inputModel);
+            }
+
+            await this.insulinInjectionService.EditInsulinInjectionAsync(inputModel);
+            return this.RedirectToAction(nameof(this.AllInsulinInjections));
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.insulinInjectionService.DeleteInsulinInjectionAsync(id);
+            return this.RedirectToAction(nameof(this.AllInsulinInjections));
         }
     }
 }
