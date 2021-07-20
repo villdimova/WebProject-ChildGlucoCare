@@ -1,0 +1,40 @@
+﻿@model ChildGlucoCare.Web.ViewModels.SportActivities.AllSportActivitiesViewModel
+
+@{
+    this.ViewData["Title"] = "Your Sport activities";
+}
+<h1 class="text-center">@this.ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12 border">
+        <div class="text-center">
+            <a href="/SportActivities/AddSportActivity" class="btn btn-primary waves-effect m-2 custom-blue" title="Add Sport activity">
+                <i class="fas fa-plus-circle"></i>
+            </a>
+        </div>
+        <div class="table-striped">
+            <table class="table" style="width:100%">
+                <tr>
+                    <th>Date</th>
+                    <th>Sport</th>
+                    <th>Duration</th>
+                    <th>Activity level</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var sport in this.Model.SportActivities)
+                {
+                    <tr>
+                        <th>@sport.Date</th>
+                        <th>@sport.SportName</th>
+                        <th>@sport.Duration</th>
+                        <th>@sport.ActivityLevel</th>
+                        <th><a href="/SportActivities/Edit/@sport.Id" class="btn btn-block btn-info" title="Edit Sport activity"><i class="fas fa-edit"></i></a></th>
+                        <th><a asp-controller="SportActivities" asp-action="Delete" asp-route-id="@sport.Id" class="btn btn-block btn-danger" title="Delete Sport activity"><i class="fas fa-trash-alt"></i></a></th>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -22,8 +22,6 @@
             this.userManager = userManager;
         }
 
-        // /BloodGlucoses/AddBloodGlucose
-        [Authorize]
         public IActionResult AddBloodGlucose()
         {
             return this.View();
@@ -55,19 +53,16 @@
             }
         }
 
-        [Authorize]
         public IActionResult AddedLowBloodGlucose()
         {
             return this.View();
         }
 
-        [Authorize]
         public IActionResult AddedNormalBloodGlucose()
         {
             return this.View();
         }
 
-        [Authorize]
         public IActionResult AddedHighBloodGlucose()
         {
             var lastBloodGlucose = this.bloodGlucoseService.LastAddedBloodGlucose();

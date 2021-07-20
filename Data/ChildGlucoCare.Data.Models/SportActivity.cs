@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+
     using ChildGlucoCare.Data.Common.Models;
 
     public class SportActivity : BaseDeletableModel<int>

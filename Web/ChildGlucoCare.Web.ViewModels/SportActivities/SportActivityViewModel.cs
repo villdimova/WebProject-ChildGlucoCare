@@ -7,6 +7,8 @@
 
     public class SportActivityViewModel : IMapFrom<SportActivity>
     {
+        public int Id { get; set; }
+
         public string SportName { get; set; }
 
         public string ActivityLevel { get; set; }
