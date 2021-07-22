@@ -1,7 +1,7 @@
 ﻿namespace ChildGlucoCare.Web.Controllers
 {
     using System;
-
+    using System.Threading.Tasks;
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
     using ChildGlucoCare.Web.ViewModels.BloodGlucoses;
@@ -26,64 +26,87 @@
             this.userManager = userManager;
         }
 
-        public IActionResult YesterdayInsulinInfo()
+        public IActionResult AddStatisticPeriod()
         {
-            var viewModel = new StatisticInfoViewModel
-            {
-                YesterdayInsulinInjections = this.statisticsService.GeYesterdayInsulinInjectionsInfo<InsulinInjectionViewModel>(),
-            };
-            return this.View(viewModel);
-        }
 
-        public IActionResult WeeklyBloodGlucoseReport()
-        {
-            var startDate = DateTime.Today.AddDays(-7);
-
-            var viewModel = this.GetReportInfo(startDate.Date, DateTime.Today);
-
-            return this.View(viewModel);
-        }
-
-        public IActionResult YesterdayBloodGlucoseInfo()
-        {
-            var viewModel = new StatisticInfoViewModel
-            {
-                YesterdayBloodGlucoses = this.statisticsService.GetYesterdayBloodGlucoseInfo<ViewModels.BloodGlucoses.BloodGlucoseViewModel>(),
-            };
-            return this.View(viewModel);
-        }
-
-        public IActionResult YesterdaySportActivityInfo()
-        {
-            var viewModel = new StatisticInfoViewModel
-            {
-                YesterdaySportActivities = this.statisticsService.GetYesterdaySportActivityInfo<SportActivityViewModel>(),
-            };
-            return this.View(viewModel);
-        }
-
-        public IActionResult WeeklyInfo()
-        {
             return this.View();
         }
 
-        public IActionResult MonthlyInfo()
+        [HttpPost]
+        public async Task<IActionResult> AddStatisticPeriod(GetPeriodStatisticInputModel input)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            await this.statisticsService.AddStatisticPeriod(input, user);
+
+            return this.RedirectToAction(nameof(this.GetStatistics));
+        }
+
+        public IActionResult AddReportPeriod()
+        {
+
             return this.View();
         }
 
-        private BloodGlucoseReportViewModel GetReportInfo(DateTime startDate, DateTime endDate)
+        [HttpPost]
+        public async Task<IActionResult> AddReportPeriod(GetPeriodStatisticInputModel input)
         {
-            var bloodGlucoses = this.statisticsService.GetBloodGlucoseReport(startDate, DateTime.Today);
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
 
+            var user = await this.userManager.GetUserAsync(this.User);
+
+            await this.statisticsService.AddStatisticPeriod(input, user);
+
+            return this.RedirectToAction(nameof(this.BloodGlucoseReport));
+        }
+
+        public async Task<IActionResult> BloodGlucoseReport()
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+            int days = this.statisticsService.GetStatisticPeriod(user);
+
+            var viewModel = this.GetReportInfo(days);
+
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> GetStatistics()
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+            int days = this.statisticsService.GetStatisticPeriod(user);
+
+            var viewModel = new StatisticInfoViewModel
+            {
+                BloodGlucoses = this.statisticsService.GetBloodGlucoseInfo<ViewModels.BloodGlucoses.BloodGlucoseViewModel>(days),
+                InsulinInjections = this.statisticsService.GetInsulinInjectionsInfo<InsulinInjectionViewModel>(days),
+                SportActivities = this.statisticsService.GetSportActivityInfo<SportActivityViewModel>(days),
+            };
+
+            return this.View(viewModel);
+        }
+
+        private BloodGlucoseReportViewModel GetReportInfo(int period)
+        {
+
+            var bloodGlucoses = this.statisticsService.GetBloodGlucoseReport(period);
+
+            var startdate = DateTime.Today.AddDays(-period);
             var viewModel = new BloodGlucoseReportViewModel
             {
-                PeriodStart = startDate.ToString(),
-                LowPercentage = this.statisticsService.GetLowBloodGlucosePercentage(startDate, DateTime.Today),
-                NormalPercentage = this.statisticsService.GetNormalBloodGlucosePercentage(startDate, DateTime.Today),
-                HighPercentage = this.statisticsService.GetHighBloodGlucosePercentage(startDate, DateTime.Today),
+                PeriodStart = startdate.ToString(),
+                LowPercentage = this.statisticsService.GetLowBloodGlucosePercentage(period),
+                NormalPercentage = this.statisticsService.GetNormalBloodGlucosePercentage(period),
+                HighPercentage = this.statisticsService.GetHighBloodGlucosePercentage(period),
                 BloodGlucoseRecords = bloodGlucoses.Count,
-                AvgBloodGlucose = this.statisticsService.GetAvgBloodGlucose(startDate, DateTime.Today),
+                AvgBloodGlucose = this.statisticsService.GetAvgBloodGlucose(period),
             };
             return viewModel;
         }

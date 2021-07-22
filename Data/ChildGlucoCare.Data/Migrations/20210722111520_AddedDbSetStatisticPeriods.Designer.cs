@@ -4,14 +4,16 @@ using ChildGlucoCare.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ChildGlucoCare.Data.Migrations
 {
     [DbContext(typeof(ChildGlucoCareDbContext))]
-    partial class ChildGlucoCareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210722111520_AddedDbSetStatisticPeriods")]
+    partial class AddedDbSetStatisticPeriods
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

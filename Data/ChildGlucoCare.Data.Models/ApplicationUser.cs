@@ -20,6 +20,7 @@ namespace ChildGlucoCare.Data.Models
             this.SportActivities = new HashSet<SportActivity>();
             this.InsulinInjections = new HashSet<InsulinInjection>();
             this.GetCarbohydrateIntakes = new HashSet<CarbohydrateIntake>();
+            this.StatisticPeriods = new HashSet<StatisticPeriod>();
         }
 
         // Audit info
@@ -53,5 +54,7 @@ namespace ChildGlucoCare.Data.Models
         public virtual ICollection<InsulinInjection> InsulinInjections { get; set; }
 
         public virtual ICollection<CarbohydrateIntake> GetCarbohydrateIntakes { get; set; }
+
+        public virtual ICollection<StatisticPeriod> StatisticPeriods { get; set; }
     }
 }

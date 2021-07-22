@@ -4,14 +4,16 @@ using ChildGlucoCare.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ChildGlucoCare.Data.Migrations
 {
     [DbContext(typeof(ChildGlucoCareDbContext))]
-    partial class ChildGlucoCareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210722092247_AddedStatisticTable")]
+    partial class AddedStatisticTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -553,41 +555,6 @@ namespace ChildGlucoCare.Data.Migrations
                     b.ToTable("SportActivities");
                 });
 
-            modelBuilder.Entity("ChildGlucoCare.Data.Models.StatisticPeriod", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Days")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("StatisticPeriods");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -769,17 +736,6 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Navigation("Sport");
                 });
 
-            modelBuilder.Entity("ChildGlucoCare.Data.Models.StatisticPeriod", b =>
-                {
-                    b.HasOne("ChildGlucoCare.Data.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("StatisticPeriods")
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("ChildGlucoCare.Data.Models.ApplicationRole", null)
@@ -846,8 +802,6 @@ namespace ChildGlucoCare.Data.Migrations
                     b.Navigation("Roles");
 
                     b.Navigation("SportActivities");
-
-                    b.Navigation("StatisticPeriods");
                 });
 
             modelBuilder.Entity("ChildGlucoCare.Data.Models.CarbohydrateIntake", b =>

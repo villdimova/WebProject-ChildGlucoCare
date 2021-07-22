@@ -1,0 +1,14 @@
+﻿@model ChildGlucoCare.Web.ViewModels.Statistics.GetPeriodStatisticInputModel
+@{
+    ViewData["Title"] = "Type wanted statistic period";
+}
+<form method="post" class="col-md-4 offset-md-3"
+      enctype="multipart/form-data">
+    <h3>Type below the period in days</h3>
+    <div class="form-group">
+        <label asp-for="Days" class="col-md-6 control-label"></label>
+        <input asp-for="Days" class="form-control" />
+        <span asp-validation-for="Days" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" />
+</form>

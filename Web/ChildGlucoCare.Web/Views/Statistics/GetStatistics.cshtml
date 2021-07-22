@@ -1,0 +1,86 @@
+﻿@model ChildGlucoCare.Web.ViewModels.Statistics.StatisticInfoViewModel
+
+
+@{
+    ViewData["Title"] = "All statistic";
+}
+<div class="jumbotron">
+    <div class="table-bordered">
+        <h2>Blood Glucose info</h2>
+        <table class="table" style="width:100%">
+            <tr>
+                <th>Date</th>
+                <th>Glucose Level</th>
+                <th>Blood Glucose Status</th>
+            </tr>
+            @foreach (var bloodGlucose in this.Model.BloodGlucoses)
+            {
+                @if (bloodGlucose.BloodGlocoseStatus.ToString() == "High" || bloodGlucose.BloodGlocoseStatus.ToString() == "Low")
+                {
+                    <tr class="table-danger">
+                        <th>@bloodGlucose.Date</th>
+                        <th>@bloodGlucose.CurrentGlucoseLevel</th>
+                        <th>@bloodGlucose.BloodGlocoseStatus</th>
+                    </tr>
+                }
+                @if (bloodGlucose.BloodGlocoseStatus.ToString() == "Normal")
+                {
+                    <tr class="table-success">
+                        <th>@bloodGlucose.Date</th>
+                        <th>@bloodGlucose.CurrentGlucoseLevel</th>
+                        <th>@bloodGlucose.BloodGlocoseStatus</th>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <hr>
+    <hr>
+    <div class="table-bordered">
+        <h2 class="text-center">Made insulin and etaen BEU info</h2>
+        <table class="table" style="width:100%">
+            <tr>
+                <th>Date</th>
+                <th>Glucose level</th>
+                <th>Insulin dose</th>
+                <th>Eaten BEU </th>
+            </tr>
+            @foreach (var injection in this.Model.InsulinInjections)
+            {
+                <tr>
+                    <th>@injection.Date</th>
+                    <th>@injection.CurrentGlucoselevel</th>
+                    <th>@injection.InsulinDose</th>
+                    <th>@injection.TotalMealBeu</th>
+                </tr>
+            }
+        </table>
+    </div>
+    <hr>
+    <hr>
+    <div class="table-bordered">
+        <h2 class="text-center">Sport Activity info</h2>
+        <table class="table" style="width:100%">
+            <tr>
+                <th>Date</th>
+                <th>Sport</th>
+                <th> Activity level</th>
+                <th>Duration</th>
+
+            </tr>
+            @foreach (var sport in this.Model.SportActivities)
+            {
+                <tr>
+                    <th>@sport.Date.Date</th>
+                    <th>@sport.SportName</th>
+                    <th>@sport.ActivityLevel</th>
+                    <th>@sport.Duration</th>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+
+
+

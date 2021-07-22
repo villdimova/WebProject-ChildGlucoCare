@@ -2,25 +2,30 @@
 {
     using System;
     using System.Collections.Generic;
-
+    using System.Threading.Tasks;
     using ChildGlucoCare.Data.Models;
+    using ChildGlucoCare.Web.ViewModels.Statistics;
 
     public interface IStatisticsService
     {
-        IEnumerable<T> GetYesterdayBloodGlucoseInfo<T>();
+        Task<StatisticPeriod> AddStatisticPeriod(GetPeriodStatisticInputModel input, ApplicationUser user);
 
-        IEnumerable<T> GeYesterdayInsulinInjectionsInfo<T>();
+        int GetStatisticPeriod(ApplicationUser user);
 
-        IEnumerable<T> GetYesterdaySportActivityInfo<T>();
+        IEnumerable<T> GetBloodGlucoseInfo<T>(int period);
 
-        List<BloodGlucose> GetBloodGlucoseReport(DateTime startDate, DateTime endDate);
+        IEnumerable<T> GetInsulinInjectionsInfo<T>(int period);
 
-        string GetLowBloodGlucosePercentage(DateTime startDate, DateTime endDate);
+        IEnumerable<T> GetSportActivityInfo<T>(int period);
 
-        string GetHighBloodGlucosePercentage(DateTime startDate, DateTime endDate);
+        List<BloodGlucose> GetBloodGlucoseReport(int period);
 
-        string GetNormalBloodGlucosePercentage(DateTime startDate, DateTime endDate);
+        string GetLowBloodGlucosePercentage(int period);
 
-        string GetAvgBloodGlucose(DateTime startDate, DateTime endDate);
+        string GetHighBloodGlucosePercentage(int period);
+
+        string GetNormalBloodGlucosePercentage(int period);
+
+        string GetAvgBloodGlucose(int period);
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model ChildGlucoCare.Web.ViewModels.Statistics.BloodGlucoseReportViewModel
 
 @{
-    this.ViewData["Title"] = "Weekly Blood Glucose report";
+    this.ViewData["Title"] = "Blood Glucose report";
 }
 
 <h1 class="text-center">Blood glucose report for the period  @Model.PeriodStart- @DateTime.Today</h1>
@@ -24,45 +24,4 @@
         </tr>
     </table>
 </div>
-
-<!--* Card header *-->
-<!--* Card body *-->
-<!--* Card init *-->
-<div class="card">
-
-    <!-- Card header -->
-    <div class="card-header">
-
-        <!-- Title -->
-
-        <h5 class="h3 mb-0">Bars chart</h5>
-
-    </div>
-
-    <!-- Card body -->
-    <div class="card-body">
-
-
-        <div class="chart">
-            <line-chart :height="350"
-                        :chart-data="salesChart.chartData">
-            </line-chart>
-        </div>
-            <!-- Chart wrapper -->
-            <canvas id="chart-bars" class="chart-canvas"></canvas>
-        </div>
-
-
-
-    </div>
-
-
-
-
-</div>
-
-@section Scripts {
-    <script src="/assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="/assets/vendor/chart.js/dist/Chart.extension.js"></script>
-}
 

@@ -1,6 +1,7 @@
 ﻿@model ChildGlucoCare.Web.ViewModels.CarbohydtrateIntakes.AddNewCarbohydtrateIntakeViewModel
 @using ChildGlucoCare.Data.Models.Enums
-@{ this.ViewData["Title"] = "Add  new Carbohydrate intake"; }
+@{ this.ViewData["Title"] = "Add  new Carbohydrate intake";
+}
 
 
 <form method="post" class="col-md-6 offset-md-3"
@@ -45,7 +46,12 @@
 
 
 @section Scripts {
-    <script src="/assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script>
+        var foodIndex = 0;
+        function AddAnotherFood() {
+            $("#FoodsContainer").
+                append("<div class='form-control-auto'>Food: <input type='text' name='Foods[" + foodIndex + "].FoodName' /> Amount: <input type='text' name='Foods[" + foodIndex + "].Amount' /></div>");
+            foodIndex++;
+        }
+    </script>
 }
-

@@ -60,7 +60,7 @@
 
         public async Task<SportActivity> EditSportActivityAsync(EditSportActivityInputModel inputModel)
         {
-            var sport = this.sportsRepository.All().FirstOrDefault(i => i.Id.ToString() == inputModel.SportName);
+            var sport = this.sportsRepository.All().FirstOrDefault(i => i.SportName == inputModel.SportName);
             var sportActivity = await this.sportActivitiesRepository
                              .All().FirstOrDefaultAsync(x => x.Id == inputModel.Id);
 
