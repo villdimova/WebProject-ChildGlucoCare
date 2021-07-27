@@ -14,6 +14,12 @@
 
         public async Task SeedAsync(ChildGlucoCareDbContext dbContext, IServiceProvider serviceProvider)
         {
+            var roleManager= serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+            if (await roleManager.RoleExistsAsync(GlobalConstants.AdministratorRoleName))
+            {
+                return;
+            }
+
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
             var user = new ApplicationUser
