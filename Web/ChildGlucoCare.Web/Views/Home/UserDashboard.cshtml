@@ -1,4 +1,4 @@
-﻿
+﻿@model ChildGlucoCare.Web.ViewModels.Home.UserDashboardViewModel
 @{
     ViewData["Title"] = "User dashboard";
 }
@@ -7,19 +7,81 @@
         <div class="row">
             <div class="col">
                 <div class="d-grid gap-2">
-                    <span><h1><i class="fas fa-burn"></i> Blood Glucose  </h1></span>   
+                    <span><h1><i class="fas fa-tint"></i> Blood Glucose  </h1></span>
+                    @if (Model.LastBloodGlucose == null)
+                    {
+                        <span>No blood glucose records</span>
+                    }
+                    else
+                    {
+                        <span>@Model.LastBloodGlucose.CurrentGlucoseLevel on @Model.LastBloodGlucose.Date</span>
+                    }
                 </div>
             </div>
             <div class="col">
                 <span><h1><i class="fas fa-running"></i>  Sport Activity Sport Activity Level  </h1></span>
+                @if (Model.LastSportActivitie == null)
+                {
+                    <span>No sport activity records</span>
+                }
+                else
+                {
+                    <span>@Model.LastSportActivitie.SportName (@Model.LastSportActivitie.Duration) on @Model.LastSportActivitie.Date</span>
+                }
             </div>
             <div class="w-100"></div>
             <div class="col">
                 <span><h1><i class="fas fa-syringe"></i>  Insulin Injection  </h1> </span>
+                @if (Model.LastInjection == null)
+                {
+                    <span>No insulin injection records</span>
+                }
+                else
+                {
+                    <span>@Model.LastInjection.InsulinDose  on @Model.LastInjection.Date</span>
+                }
             </div>
             <div class="col">
                 <span><h1><i class="fas fa-hamburger"></i>  Meal BEU  </h1></span>
+                @if (Model.LastInjection == null)
+                {
+                    <span>No meal records</span>
+                }
+                else
+                {
+                    <span>@Model.LastMeal.TotalBeu  on @Model.LastMeal.Date</span>
+                }
             </div>
         </div>
     </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1 class="text-center">Last month blood glucose report </h1>
+
+    <div class="table-bordered">
+        <table class="table" style="width:100%">
+            <tr>
+                <th>Blood glucose records</th>
+                <th>Blood glucose High</th>
+                <th>Blood glucose Normal</th>
+                <th>Blood glucose Low</th>
+                <th>Blood glucose Average value</th>
+            </tr>
+            <tr class="table-info">
+                <th class="text-danger">@Model.BloodGlucoseReport.BloodGlucoseRecords</th>
+                <th class="text-danger">@Model.BloodGlucoseReport.HighPercentage</th>
+                <th class="text-success">@Model.BloodGlucoseReport.NormalPercentage</th>
+                <th class="text-danger">@Model.BloodGlucoseReport.LowPercentage</th>
+                <th>@Model.BloodGlucoseReport.AvgBloodGlucose</th>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <br />
+    <section>
+        <img class="img-thumbnail img-center" src="@Url.Content("~/images/userHome.jpg")" alt="" />
+    </section>
 </div>
+
