@@ -1,6 +1,7 @@
 ﻿namespace ChildGlucoCare.Web.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -53,62 +54,14 @@
                return this.RedirectToAction(nameof(this.UserAll));
             }
 
-            var foodsQuery = this.foodsRepository.All().AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(query.SearchTerm))
-            {
-                foodsQuery = foodsQuery.Where(c =>
-                    c.Name.ToLower().Contains(query.SearchTerm.ToLower()));
-            }
-
-            var foods = foodsQuery
-           .Select(c => new FoodViewModel
-           {
-               Id = c.Id,
-               Name = c.Name,
-               GramsPerBreadUnit = c.GramsPerBreadUnit,
-               GlycemicIndex = c.GlycemicIndex,
-               CarbohydratePer100Grams = c.CarbohydratePer100Grams,
-               FatPer100Grams = c.FatPer100Grams,
-               CaloriesPer100Grams = c.CaloriesPer100Grams,
-               FoodType = c.FoodType.ToString(),
-               ImageUrl = c.ImageUrl,
-           })
-              .ToList();
-
-            var foodTypes = Enum.GetValues(typeof(FoodType)).Cast<FoodType>().ToList();
-            query.Foods = foods;
-            return this.View(query);
+            var viewModel = this.GetAllFoodsViewModel(query);
+            return this.View(viewModel);
         }
 
         public IActionResult UserAll([FromQuery] AllFoodsViewModel query)
         {
-            var foodsQuery = this.foodsRepository.All().AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(query.SearchTerm))
-            {
-                foodsQuery = foodsQuery.Where(c =>
-                    c.Name.ToLower().Contains(query.SearchTerm.ToLower()));
-            }
-
-            var foods = foodsQuery
-           .Select(c => new FoodViewModel
-           {
-               Id = c.Id,
-               Name = c.Name,
-               GramsPerBreadUnit = c.GramsPerBreadUnit,
-               GlycemicIndex = c.GlycemicIndex,
-               CarbohydratePer100Grams = c.CarbohydratePer100Grams,
-               FatPer100Grams = c.FatPer100Grams,
-               CaloriesPer100Grams = c.CaloriesPer100Grams,
-               FoodType = c.FoodType.ToString(),
-               ImageUrl = c.ImageUrl,
-           })
-              .ToList();
-
-            var foodTypes = Enum.GetValues(typeof(FoodType)).Cast<FoodType>().ToList();
-            query.Foods = foods;
-            return this.View(query);
+            var viewModel = this.GetAllFoodsViewModel(query);
+            return this.View(viewModel);
         }
 
         [Authorize(Roles = "Administrator")]
@@ -137,6 +90,36 @@
         {
             await this.foodsService.DeleteFoodAsync(id);
             return this.Redirect("/Foods/All");
+        }
+
+        private AllFoodsViewModel GetAllFoodsViewModel ([FromQuery] AllFoodsViewModel query)
+        {
+            var foodsQuery = this.foodsRepository.All().AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(query.SearchTerm))
+            {
+                foodsQuery = foodsQuery.Where(c =>
+                    c.Name.ToLower().Contains(query.SearchTerm.ToLower()));
+            }
+
+            var foods = foodsQuery
+           .Select(c => new FoodViewModel
+           {
+               Id = c.Id,
+               Name = c.Name,
+               GramsPerBreadUnit = c.GramsPerBreadUnit,
+               GlycemicIndex = c.GlycemicIndex,
+               CarbohydratePer100Grams = c.CarbohydratePer100Grams,
+               FatPer100Grams = c.FatPer100Grams,
+               CaloriesPer100Grams = c.CaloriesPer100Grams,
+               FoodType = c.FoodType.ToString(),
+               ImageUrl = c.ImageUrl,
+           })
+              .ToList();
+
+            query.Foods = foods;
+
+            return query;
         }
     }
 }

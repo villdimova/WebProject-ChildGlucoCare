@@ -1,5 +1,6 @@
 ﻿namespace ChildGlucoCare.Web.Controllers
 {
+    using System;
     using System.Threading.Tasks;
 
     using ChildGlucoCare.Services.Data.Contracts;
@@ -18,6 +19,11 @@
 
         public async Task<IActionResult> InsulinProfile()
         {
+            if (!this.User.IsInRole("Administrator"))
+            {
+                return this.RedirectToAction(nameof(this.UserAllProfiles));
+            }
+
             var viewModel = new AllInsulinsProfileViewModel
             {
                 Insulins = await this.insulinsService.GetAll<InsulinProfileViewModel>(),
@@ -25,12 +31,23 @@
             return this.View(viewModel);
         }
 
+        public async Task<IActionResult> UserAllProfiles()
+        {
+            var viewModel = new AllInsulinsProfileViewModel
+            {
+                Insulins = await this.insulinsService.GetAll<InsulinProfileViewModel>(),
+            };
+            return this.View(viewModel);
+        }
+
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             return this.View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Create(CreateInsulinInputModel input)
         {
             if (!this.ModelState.IsValid)
@@ -42,6 +59,7 @@
             return this.Redirect("/Insulins/InsulinProfile");
         }
 
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int id)
         {
             var viewModel = await this.insulinsService.GetInsulinAsync<EditInsulinInputModel>(id);
@@ -49,6 +67,7 @@
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(EditInsulinInputModel inputModel)
         {
             if (!this.ModelState.IsValid)
@@ -60,6 +79,7 @@
             return this.Redirect($"/Insulins/InsulinProfile");
         }
 
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int id)
         {
             await this.insulinsService.DeleteInsulinAsync(id);

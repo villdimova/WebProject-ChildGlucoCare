@@ -1,0 +1,45 @@
+﻿@model ChildGlucoCare.Web.ViewModels.Foods.AllFoodsViewModel
+
+@using ChildGlucoCare.Data.Models.Enums
+
+@{
+    ViewData["Title"] = "All foods";
+}
+
+<form method="get">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label asp-for="SearchTerm"></label>
+            <input asp-for="SearchTerm" class="form-control" placeholder=" Corn, Chicken, Melon ... ">
+        </div>
+    </div>
+</form>
+<h1 class="text-center">@this.ViewData["Title"]</h1>
+<hr />
+
+        <div class="table-striped table-responsive-md">
+            <table class="table" style="width:40%">
+                <tr>
+                    <th>Name</th>
+                    <th>Food type</th>
+                    <th>Carbohydrates per 100 gr</th>
+                    <th>Fat per 100 gr</th>
+                    <th>Calories per 100 gr</th>
+                    <th>Glycemic index</th>
+                    <th>Image</th>
+                </tr>
+                @foreach (var food in Model.Foods)
+                {
+                    <tr>
+                        <th>@food.Name</th>
+                        <th>@food.FoodType</th>
+                        <th>@food.CarbohydratePer100Grams</th>
+                        <th>@food.FatPer100Grams</th>
+                        <th>@food.CaloriesPer100Grams</th>
+                        <th>@food.GlycemicIndex</th>
+                        <th><img src=@food.ImageUrl class="img-fluid"></th>
+                    </tr>
+                }
+            </table>
+        </div>
+    
