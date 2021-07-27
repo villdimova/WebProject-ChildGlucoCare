@@ -19,6 +19,11 @@
             this.userManager = userManager;
         }
 
+        public IActionResult UserDashboard()
+        {
+            return this.View();
+        }
+
         public IActionResult Index()
         {
             return this.View();

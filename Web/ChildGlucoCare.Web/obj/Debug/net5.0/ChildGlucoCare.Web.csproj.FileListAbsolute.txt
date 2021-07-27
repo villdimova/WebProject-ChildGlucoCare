@@ -502,3 +502,4 @@ C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\Ch
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\Statistics\GetStatistics.cshtml.g.cs
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\Statistics\BloodGlucoseReport.cshtml.g.cs
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\Statistics\AddReportPeriod.cshtml.g.cs
+C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Web\ChildGlucoCare.Web\obj\Debug\net5.0\Razor\Views\Home\UserDashboard.cshtml.g.cs

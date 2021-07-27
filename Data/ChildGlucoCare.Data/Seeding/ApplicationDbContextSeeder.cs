@@ -30,6 +30,7 @@
                               new InsulinSeeder(),
                               new SportSeeder(),
                               new FoodSeeder(),
+                              new AdministratorSeeder(),
                           };
 
             foreach (var seeder in seeders)
