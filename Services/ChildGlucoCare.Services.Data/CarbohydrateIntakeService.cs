@@ -68,27 +68,14 @@
 
             foreach (var food in carbohydrateIntake.Foods)
             {
-                if (food.Food.CarbohydratePer100Grams == 0)
-                {
-                    totalCarbs = 0;
-                }
-                else
-                {
-                    totalCarbs += (food.Amount * food.Food.CarbohydratePer100Grams) / 100;
-                }
+                totalCarbs += (food.Amount * food.Food.CarbohydratePer100Grams) / 100;
 
                 totalFats += (food.Amount * food.Food.FatPer100Grams) / 100;
             }
 
             var insulinSensitivity = carbohydrateIntake.ApplicationUser.InsulinSensitivity;
-            if (totalCarbs == 0)
-            {
-                carbohydrateIntake.TotalBeu = 0.0;
-            }
-            else
-            {
-                carbohydrateIntake.TotalBeu = Math.Round(totalCarbs / 12.0);
-            }
+
+            carbohydrateIntake.TotalBeu = Math.Round(totalCarbs / 12.0);
 
             carbohydrateIntake.TotalFat = totalFats;
             carbohydrateIntake.GlycemicLoad = this.GetGlycemicLoadForMeal(carbohydrateIntake);

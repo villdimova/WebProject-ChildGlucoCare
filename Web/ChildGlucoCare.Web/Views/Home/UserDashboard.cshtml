@@ -14,19 +14,19 @@
                     }
                     else
                     {
-                        <span>@Model.LastBloodGlucose.CurrentGlucoseLevel on @Model.LastBloodGlucose.Date</span>
+                        <span>@Model.LastBloodGlucose.CurrentGlucoseLevel mmol/L on @Model.LastBloodGlucose.Date</span>
                     }
                 </div>
             </div>
             <div class="col">
-                <span><h1><i class="fas fa-running"></i>  Sport Activity Sport Activity Level  </h1></span>
+                <span><h1><i class="fas fa-running"></i>  Sport Activity  </h1></span>
                 @if (Model.LastSportActivitie == null)
                 {
                     <span>No sport activity records</span>
                 }
                 else
                 {
-                    <span>@Model.LastSportActivitie.SportName (@Model.LastSportActivitie.Duration) on @Model.LastSportActivitie.Date</span>
+                    <span>@Model.LastSportActivitie.SportName (@Model.LastSportActivitie.Duration min.) on @Model.LastSportActivitie.Date</span>
                 }
             </div>
             <div class="w-100"></div>
@@ -38,7 +38,7 @@
                 }
                 else
                 {
-                    <span>@Model.LastInjection.InsulinDose  on @Model.LastInjection.Date</span>
+                    <span>@Model.LastInjection.InsulinDose IU on @Model.LastInjection.Date</span>
                 }
             </div>
             <div class="col">
@@ -49,7 +49,7 @@
                 }
                 else
                 {
-                    <span>@Model.LastMeal.TotalBeu  on @Model.LastMeal.Date</span>
+                    <span>@Model.LastMeal.TotalBeu BEU  on @Model.LastMeal.Date</span>
                 }
             </div>
         </div>
