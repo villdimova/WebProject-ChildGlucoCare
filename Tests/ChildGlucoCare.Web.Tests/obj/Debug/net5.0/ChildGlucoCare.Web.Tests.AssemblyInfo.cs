@@ -12,10 +12,10 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("ChildGlucoCare.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\Ch" +
-    "ildGlucoCare.Data", "ChildGlucoCare.Data.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("ChildGlucoCare.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Web\\Chi" +
-    "ldGlucoCare.Web", "ChildGlucoCare.Web.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("ChildGlucoCare.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare." +
+    "Data", "ChildGlucoCare.Data.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("ChildGlucoCare.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Web\\ChildGlucoCare.W" +
+    "eb", "ChildGlucoCare.Web.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChildGlucoCare.Web.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

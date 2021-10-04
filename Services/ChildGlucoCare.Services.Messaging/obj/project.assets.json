@@ -2789,26 +2789,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alex\\.nuget\\packages\\": {}
+    "C:\\Users\\Alex\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Messaging\\ChildGlucoCare.Services.Messaging.csproj",
+      "projectUniqueName": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Messaging\\ChildGlucoCare.Services.Messaging.csproj",
       "projectName": "ChildGlucoCare.Services.Messaging",
-      "projectPath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Messaging\\ChildGlucoCare.Services.Messaging.csproj",
+      "projectPath": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Messaging\\ChildGlucoCare.Services.Messaging.csproj",
       "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-      "outputPath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Messaging\\obj\\",
+      "outputPath": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Messaging\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WinForms.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files (x86)\\Progress\\Telerik UI for WinForms R2 2021\\Bin50\\NuGet": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2853,7 +2859,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.205\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.207\\RuntimeIdentifierGraph.json"
       }
     }
   }

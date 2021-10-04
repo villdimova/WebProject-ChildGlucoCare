@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rgrTpgym+uB1AmlJApVNJjKMtcLbjYubBshqengbWgaSQaG7MDc6YPaMjyC9189Wr+/XC6HoTtNqoxE/AJKnXg==",
+  "dgSpecHash": "QfSmC1CjrWhofu/2l2ti60M0zWfdARzGDCz9yaH5dCVw9miMJJq6VBK9+RBVZw8gDY6ZdvHeXs4jpO2jIBRipg==",
   "success": true,
-  "projectFilePath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data\\ChildGlucoCare.Data.csproj",
+  "projectFilePath": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Data\\ChildGlucoCare.Data\\ChildGlucoCare.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.6\\microsoft.aspnetcore.cryptography.internal.5.0.6.nupkg.sha512",

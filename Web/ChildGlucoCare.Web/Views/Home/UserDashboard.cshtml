@@ -43,7 +43,7 @@
             </div>
             <div class="col">
                 <span><h1><i class="fas fa-hamburger"></i>  Meal BEU  </h1></span>
-                @if (Model.LastInjection == null)
+                @if (Model.LastMeal == null)
                 {
                     <span>No meal records</span>
                 }
@@ -58,26 +58,34 @@
     <br />
     <br />
     <br />
-    <h1 class="text-center">Last month blood glucose report </h1>
+    @if (Model.BloodGlucoseReport == null)
+    {
+        <h1 class="text-center text-danger">No blood glucose records last month </h1>
+    }
+    else
+    {
+        <h1 class="text-center">Last month blood glucose report </h1>
 
-    <div class="table-bordered">
-        <table class="table" style="width:100%">
-            <tr>
-                <th>Blood glucose records</th>
-                <th>Blood glucose High</th>
-                <th>Blood glucose Normal</th>
-                <th>Blood glucose Low</th>
-                <th>Blood glucose Average value</th>
-            </tr>
-            <tr class="table-info">
-                <th class="text-danger">@Model.BloodGlucoseReport.BloodGlucoseRecords</th>
-                <th class="text-danger">@Model.BloodGlucoseReport.HighPercentage</th>
-                <th class="text-success">@Model.BloodGlucoseReport.NormalPercentage</th>
-                <th class="text-danger">@Model.BloodGlucoseReport.LowPercentage</th>
-                <th>@Model.BloodGlucoseReport.AvgBloodGlucose</th>
-            </tr>
-        </table>
-    </div>
+        <div class="table-bordered">
+            <table class="table" style="width:100%">
+                <tr>
+                    <th>Blood glucose records</th>
+                    <th>Blood glucose High</th>
+                    <th>Blood glucose Normal</th>
+                    <th>Blood glucose Low</th>
+                    <th>Blood glucose Average value</th>
+                </tr>
+                <tr class="table-info">
+                    <th class="text-danger">@Model.BloodGlucoseReport.BloodGlucoseRecords</th>
+                    <th class="text-danger">@Model.BloodGlucoseReport.HighPercentage</th>
+                    <th class="text-success">@Model.BloodGlucoseReport.NormalPercentage</th>
+                    <th class="text-danger">@Model.BloodGlucoseReport.LowPercentage</th>
+                    <th>@Model.BloodGlucoseReport.AvgBloodGlucose</th>
+                </tr>
+            </table>
+        </div>
+    }
+
     <br />
     <br />
     <section>

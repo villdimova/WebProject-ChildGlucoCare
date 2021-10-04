@@ -21,3 +21,26 @@ C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Data\C
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ref\ChildGlucoCare.Data.dll
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.pdb
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.genruntimeconfig.cache
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\appsettings.json
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Data.deps.json
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Data.runtimeconfig.json
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Data.runtimeconfig.dev.json
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Data.dll
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ref\ChildGlucoCare.Data.dll
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Data.pdb
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Common.dll
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Data.Common.dll
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Data.Models.dll
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Common.pdb
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Data.Common.pdb
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\bin\Debug\net5.0\ChildGlucoCare.Data.Models.pdb
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.csprojAssemblyReference.cache
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.AssemblyInfoInputs.cache
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.AssemblyInfo.cs
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.csproj.CoreCompileInputs.cache
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.csproj.CopyComplete
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.dll
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ref\ChildGlucoCare.Data.dll
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.pdb
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\Data\ChildGlucoCare.Data\obj\Debug\net5.0\ChildGlucoCare.Data.genruntimeconfig.cache

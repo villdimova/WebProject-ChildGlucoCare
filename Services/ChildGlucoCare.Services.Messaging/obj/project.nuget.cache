@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pAGEJOT1ttGiSj8shRyCJTA8dC4HxP+9pqtMKNIsSHlzTNLPfgQov4btZQypwq9h3IFUaw75wDLGXXDb+XW5gQ==",
+  "dgSpecHash": "m0WvV41I2T2oC1fiwo1YTcuYaURyE3vbLS4GLR6h/BCtlCtM70iD0znnbxMGVzA5gJxHpjLIq1sH4NwbxPEYig==",
   "success": true,
-  "projectFilePath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Messaging\\ChildGlucoCare.Services.Messaging.csproj",
+  "projectFilePath": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Messaging\\ChildGlucoCare.Services.Messaging.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",

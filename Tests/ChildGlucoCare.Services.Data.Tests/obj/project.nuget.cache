@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S7MG0tHCCEM11JKM8nFPGMPh8HVBsKw/zC5uGvXmUMgtMP6VpoN4zDi/bdRz2DyFWoGbPuff2Vhwl3KJAMurzw==",
+  "dgSpecHash": "ovwRagsErh2n5vYi+eQNxsZKhR/KgTNedcRPahZqJIx9H+T7/XexG7c0NdKXRoDOa4J35njg9t1l9bJ4+jc7mQ==",
   "success": true,
-  "projectFilePath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Tests\\ChildGlucoCare.Services.Data.Tests\\ChildGlucoCare.Services.Data.Tests.csproj",
+  "projectFilePath": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Tests\\ChildGlucoCare.Services.Data.Tests\\ChildGlucoCare.Services.Data.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",

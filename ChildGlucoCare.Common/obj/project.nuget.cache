@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uCtWQuZOBlK+FWEg035Fe2Zmctb1uJ3Jp6eX6I1Y4hVRkPJADy1QQHzo5DD9TVz+k0hUV8rKP3poQ+qVhiOfJw==",
+  "dgSpecHash": "Ns0EA+WICs8XMLMeW0GQ05gZxprN2CeWIA9rqXtTro26qsvFW+ROwRiSv+miPcXdZGm6CKW2VFrGfli/5e8ehg==",
   "success": true,
-  "projectFilePath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\ChildGlucoCare.Common\\ChildGlucoCare.Common.csproj",
+  "projectFilePath": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\ChildGlucoCare.Common\\ChildGlucoCare.Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512"

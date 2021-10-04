@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rjzei4YAjVGU34Qwy1nxDcxqQRx6112PeB8/JIcc7cLMK4D4lcCFKUhZk0jFLZMg/zLZNZ8XiOYyG8U0cjrsJQ==",
+  "dgSpecHash": "JtAOb0mmXm5uZGjbKXZhbcF+PNgE9pOPabYe8NOzDixXALWTMyJdxZf89Vi+FRz290FH9oYtBifs57paxiZn9Q==",
   "success": true,
-  "projectFilePath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Mapping\\ChildGlucoCare.Services.Mapping.csproj",
+  "projectFilePath": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Mapping\\ChildGlucoCare.Services.Mapping.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

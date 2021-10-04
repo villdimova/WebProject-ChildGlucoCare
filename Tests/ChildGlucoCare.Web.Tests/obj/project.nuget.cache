@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/0KnNrc221kx4qbgEqlHjZFD+86olqSElYkTOzw0tF4oMcr/zS+pP/k1E119jG4bGo/82mloUge5jfwkCr7Ofg==",
+  "dgSpecHash": "c2TrQ95Yk8cCqxoNma3Ji81lRFUjL7Seffizrx/0q/GPSqkBn7wFl6T5AgU+1tlH62TQNn7KKOjblJpUf+ESAQ==",
   "success": true,
-  "projectFilePath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Tests\\ChildGlucoCare.Web.Tests\\ChildGlucoCare.Web.Tests.csproj",
+  "projectFilePath": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Tests\\ChildGlucoCare.Web.Tests\\ChildGlucoCare.Web.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\buildbundlerminifier\\3.2.449\\buildbundlerminifier.3.2.449.nupkg.sha512",

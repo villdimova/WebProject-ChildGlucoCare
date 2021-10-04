@@ -40,45 +40,47 @@
             var startdate = DateTime.Today.AddDays(-period);
 
             var lastBloodGlucose = this.usersService.GetLastBloodGlucose(user.Id);
-            var lastMeal = this.usersService.GetLastMealBEU(user.Id);
-            var lastInsulinInjection = this.usersService.GetLastInsulinInjection(user.Id);
-            var lastSportActivity = this.usersService.GetLastSportActivity(user.Id);
-
-            var viewModel = new UserDashboardViewModel
+            var viewModel = new UserDashboardViewModel();
+            if (lastBloodGlucose.Date>=startdate)
             {
-                LastBloodGlucose = new ViewModels.BloodGlucoses.BloodGlucoseViewModel
+                var lastMeal = this.usersService.GetLastMealBEU(user.Id);
+                var lastInsulinInjection = this.usersService.GetLastInsulinInjection(user.Id);
+                var lastSportActivity = this.usersService.GetLastSportActivity(user.Id);
+
+
+                viewModel.LastBloodGlucose = new ViewModels.BloodGlucoses.BloodGlucoseViewModel
                 {
                     Id = lastBloodGlucose.Id,
                     CurrentGlucoseLevel = lastBloodGlucose.CurrentGlucoseLevel,
                     BloodGlocoseStatus = lastBloodGlucose.BloodGlocoseStatus,
                     Date = lastBloodGlucose.Date,
-                },
-                LastInjection = new ViewModels.InsulinInjections.InsulinInjectionViewModel
+                };
+                viewModel.LastInjection = new ViewModels.InsulinInjections.InsulinInjectionViewModel
                 {
                     Id = lastInsulinInjection.Id,
                     InsulinDose = lastInsulinInjection.InsulinDose,
                     Date = lastInsulinInjection.Date,
                     CurrentGlucoselevel = lastInsulinInjection.CurrentGlucoselevel,
                     TotalMealBeu = lastInsulinInjection.TotalMealBeu,
-                },
-                LastMeal = new ViewModels.CarbohydtrateIntakes.CarbsViewModel
+                };
+                viewModel.LastMeal = new ViewModels.CarbohydtrateIntakes.CarbsViewModel
                 {
                     Id = lastMeal.Id,
                     MealType = lastMeal.MealType,
                     UserName = user.UserName,
                     Date = lastMeal.Date,
                     TotalBeu = lastMeal.TotalBeu,
-                },
-                LastSportActivitie = new ViewModels.SportActivities.SportActivityViewModel
+                };
+                viewModel.LastSportActivitie = new ViewModels.SportActivities.SportActivityViewModel
                 {
                     Id = lastSportActivity.Id,
                     SportName = lastSportActivity.SportName,
                     ActivityLevel = lastSportActivity.ActivityLevel,
                     Duration = lastSportActivity.Duration,
                     Date = lastSportActivity.Date,
-                },
+                };
 
-                BloodGlucoseReport = new BloodGlucoseReportViewModel
+                viewModel.BloodGlucoseReport = new BloodGlucoseReportViewModel
                 {
                     PeriodStart = startdate.ToString(),
                     LowPercentage = this.statisticsService.GetLowBloodGlucosePercentage(period),
@@ -86,9 +88,9 @@
                     HighPercentage = this.statisticsService.GetHighBloodGlucosePercentage(period),
                     BloodGlucoseRecords = bloodGlucoses.Count,
                     AvgBloodGlucose = this.statisticsService.GetAvgBloodGlucose(period),
-                },
-            };
-
+                };
+                };
+            
             return this.View(viewModel);
 
         }

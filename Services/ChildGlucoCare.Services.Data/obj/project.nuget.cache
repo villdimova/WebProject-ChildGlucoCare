@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HIoik3NLpu7wmrVjQEtJWskeM3APE4bVJfOELWf9CErtqwumJE0pk3w8+DamdfdoH7MiJvU+TTTzUbQzWnce3Q==",
+  "dgSpecHash": "JW1IaW2ISRUnylW+uPxt4deczYKuR9pGzI3yc+k5k0TKaFeG2xGbd5z5joskRMyJlPzxEegvOzhp0UYmLu0HyA==",
   "success": true,
-  "projectFilePath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Data\\ChildGlucoCare.Services.Data.csproj",
+  "projectFilePath": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Services\\ChildGlucoCare.Services.Data\\ChildGlucoCare.Services.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

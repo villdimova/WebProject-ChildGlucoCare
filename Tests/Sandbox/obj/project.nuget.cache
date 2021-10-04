@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vfmF+JZ36/6Qs8kUNIqu7A6394VER/qgaTCrYDQXyO/6imDIuKo99NqMeIdzDyAnEL50Q6cLlpLfgU1mMLmhZw==",
+  "dgSpecHash": "Nuu6sAp+b91qAgE7nD81+tEfQCwGEP6A2iLtohbp9x8aG8EjISqHWqxhax5jsmtBDtQRO4zQlSFYGHMQAKIWig==",
   "success": true,
-  "projectFilePath": "C:\\VILL\\IT uchebni materiali\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Tests\\Sandbox\\Sandbox.csproj",
+  "projectFilePath": "C:\\VILL\\IT_Data\\Programming\\GitHub\\WebProject-ChildGlucoCare\\Tests\\Sandbox\\Sandbox.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\commandlineparser\\2.8.0\\commandlineparser.2.8.0.nupkg.sha512",

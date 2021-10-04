@@ -1,6 +1,7 @@
 ﻿namespace ChildGlucoCare.Web.Controllers
 {
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
     using ChildGlucoCare.Data.Models;
     using ChildGlucoCare.Services.Data.Contracts;
@@ -97,17 +98,21 @@
         {
 
             var bloodGlucoses = this.statisticsService.GetBloodGlucoseReport(period);
-
-            var startdate = DateTime.Today.AddDays(-period);
-            var viewModel = new BloodGlucoseReportViewModel
+            var viewModel = new BloodGlucoseReportViewModel();
+            if (bloodGlucoses.Any())
             {
-                PeriodStart = startdate.ToString(),
-                LowPercentage = this.statisticsService.GetLowBloodGlucosePercentage(period),
-                NormalPercentage = this.statisticsService.GetNormalBloodGlucosePercentage(period),
-                HighPercentage = this.statisticsService.GetHighBloodGlucosePercentage(period),
-                BloodGlucoseRecords = bloodGlucoses.Count,
-                AvgBloodGlucose = this.statisticsService.GetAvgBloodGlucose(period),
-            };
+                var startdate = DateTime.Today.AddDays(-period);
+                viewModel = new BloodGlucoseReportViewModel
+                {
+                    PeriodStart = startdate.ToString(),
+                    LowPercentage = this.statisticsService.GetLowBloodGlucosePercentage(period),
+                    NormalPercentage = this.statisticsService.GetNormalBloodGlucosePercentage(period),
+                    HighPercentage = this.statisticsService.GetHighBloodGlucosePercentage(period),
+                    BloodGlucoseRecords = bloodGlucoses.Count,
+                    AvgBloodGlucose = this.statisticsService.GetAvgBloodGlucose(period),
+                };
+            }
+          
             return viewModel;
         }
     }

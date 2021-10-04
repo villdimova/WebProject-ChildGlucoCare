@@ -7,3 +7,12 @@ C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\ChildG
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\obj\Debug\netstandard2.1\ChildGlucoCare.Common.dll
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\obj\Debug\netstandard2.1\ChildGlucoCare.Common.pdb
 C:\VILL\IT uchebni materiali\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\obj\Debug\netstandard2.1\ChildGlucoCare.Common.csprojAssemblyReference.cache
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\bin\Debug\netstandard2.1\ChildGlucoCare.Common.deps.json
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\bin\Debug\netstandard2.1\ChildGlucoCare.Common.dll
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\bin\Debug\netstandard2.1\ChildGlucoCare.Common.pdb
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\obj\Debug\netstandard2.1\ChildGlucoCare.Common.csprojAssemblyReference.cache
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\obj\Debug\netstandard2.1\ChildGlucoCare.Common.AssemblyInfoInputs.cache
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\obj\Debug\netstandard2.1\ChildGlucoCare.Common.AssemblyInfo.cs
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\obj\Debug\netstandard2.1\ChildGlucoCare.Common.csproj.CoreCompileInputs.cache
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\obj\Debug\netstandard2.1\ChildGlucoCare.Common.dll
+C:\VILL\IT_Data\Programming\GitHub\WebProject-ChildGlucoCare\ChildGlucoCare.Common\obj\Debug\netstandard2.1\ChildGlucoCare.Common.pdb
